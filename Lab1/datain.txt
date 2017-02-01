@@ -1,0 +1,5 @@
+Writing_tool Pen 3 Pencil 1 Sharpie 5 Highlighter 4
+Flight United 139 Swiss 137 Emirates 200 Lufthansa 144
+Bottled_water Springs 2 Serova 3 Laicoregency 7
+Color Green 4 Red 9 Blue 3 Pink 7
+Laptop Asus 249 Lenovo 299 Dell 275

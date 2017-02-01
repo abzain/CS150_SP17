@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=TextWriter()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TextWriter\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ static\ class-method\ \r\n
+comment2.params=
+comment2.target=void\ input()
+comment2.text=\r\n\ input\ method\ that\ reads\ in\ data\ from\ an\ input\ .txt\ file\r\n
+numComments=3

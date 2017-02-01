@@ -1,0 +1,7 @@
+The cheapest Writing_tool is Pencil
+The cheapest Flight is Swiss
+The cheapest Bottled_water is Springs
+The cheapest Color is Green
+The cheapest Laptop is Asus
+The cheapest Fruits is cherry
+The cheapest Hair_cuts is low_cut

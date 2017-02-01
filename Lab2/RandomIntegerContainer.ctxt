@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=RandomIntegerContainer()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ RandomIntegerContainer\r\n
+comment1.params=input
+comment1.target=void\ addToFront(java.lang.Integer)
+comment1.text=\r\n\ addToFront\ method\ -\ API\ void\ add(int\ index,\ E\ element)\ inserts\ \r\n\ specified\ element\ at\ the\ specified\ position\ in\ this\ list\ \r\n
+comment2.params=input
+comment2.target=void\ addToBack(java.lang.Integer)
+comment2.text=\r\n\ addToBack\ method\ -\ API\ boolean\ add(E\ e)\ appends\ specified\ \r\n\ element\ to\ end\ of\ list\r\n
+comment3.params=input
+comment3.target=void\ addSorted(java.lang.Integer)
+comment3.text=\r\n\ addSorted\ method\ -\ inserts\ element\ to\ the\ correct\ position\r\n\ in\ the\ list\ that\ would\ keep\ the\ array\ sorted\r\n
+comment4.params=
+comment4.target=void\ insertionSort()
+comment4.text=\r\n\ insertionSort\ method\ -\ sorts\ ArrayList\ using\ insertion\ sort\ (p.354)\r\n
+comment5.params=
+comment5.target=java.util.ArrayList\ getArray()
+comment5.text=\r\n\ return\ an\ integer\ array\ whose\ entries\ are\ equal\ to\ the\ arraylist\r\n
+comment6.params=index
+comment6.target=java.lang.Integer\ getValue(int)
+comment6.text=\r\n\ get\ method\ to\ test\ add\ methods\ in\ unitTest\r\n
+numComments=7

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=FunnyArray(int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ FunnyArray.\ Creates\ an\ array\ of\ size\ n\ with\ numbers\ in\ order.\ If\ n\ is\ not\ postive\ sets\ it\ to\ 1.\r\n
+comment1.params=
+comment1.target=int[]\ getArray()
+comment2.params=
+comment2.target=int[]\ getReverseArray()
+numComments=3
