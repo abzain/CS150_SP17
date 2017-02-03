@@ -67,28 +67,16 @@ public class RandomIntegerContainer
     {
         //for the given size of arraylist
         for( int p = 1; p < arr_list.size(); p++ ){
-            int tmp = arr_list.get(p);
-            int i = p;
-            
-            for( ;(i > 0) && arr_list.get(i-1) > tmp; i-- ){
-                arr_list.set( i, tmp );
-                //System.out.println( arr_list.get(i) );
+            for( int j = p; j > 0 ; j-- ){
+                if( arr_list.get(j) < arr_list.get(j-1) ){ 
+                    int tmp = arr_list.get(j);
+                    //set the val of prev to curr
+                    arr_list.set( j, arr_list.get(j-1) ); 
+                    //set temp val to prev
+                    arr_list.set(j-1, tmp ); 
+                }
             }
         }
-        
-//         for( int p = 1; p < arr_list.size(); p++ ){
-//             for( int j = p; j > 0 ; j-- ){
-//                 //if current val is less than prev val, set it to a temporary
-//                 //varible and move it to the prev position i.e. switch them iteratively
-//                 //by first giving the va of prev to curr, then the temp val to prev
-//                 
-//                 if( arr_list.get(j) < arr_list.get(j-1) ){ 
-//                     int tmp = arr_list.get(j);
-//                     arr_list.get(j) = arr_list.get(j-1);  //ERRR! value found but variable required
-//                     arr_list.get(j-1) = tmp;
-//                 }
-//             }
-//         }
     }
    
     /**

@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 /**
  * Write a description of class ExperimentController here.
@@ -25,14 +26,43 @@ public class ExperimentController
     {
         ExperimentController exp = new ExperimentController();
         
-        exp.timeAddToFront( 10000, 86 );
-        exp.timeAddToBack( 10000, 86 );
-        exp.timeAddSorted( 10000, 86 );
-        exp.timeSortOfUnsortedList( 10000, 86 );
-        exp.timeSortOfSortedList();
-                
+        //write out
+        File outFile = new File ("dataout.txt");
+        
+        //catch exception
+        try{
+            FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() );
+            PrintWriter pWriter = new PrintWriter ( fWriter );
+            //checking 10 different seeds per number of items
+            for( int numberOfItems = 1000; numberOfItems < 11000; numberOfItems = (numberOfItems + 1000) ){
+                for( int seed = 1000; seed < 11000; seed = (seed + 1000) ){
+                    pWriter.println( " " );
+                    pWriter.print( exp.timeAddToFront( numberOfItems, seed ) + "," );
+                    pWriter.print( exp.timeAddToBack( numberOfItems, seed ) + ",");
+                    pWriter.print( exp.timeAddSorted( numberOfItems, seed ) + ",");
+                    pWriter.print( exp.timeSortOfUnsortedList( numberOfItems, seed ) + ",");
+                    pWriter.print( exp.timeSortOfSortedList() + " " );
+                    //Order of times printed: timeAddToFront timeAddToBack timeAddSorted 
+                    //timeSortOfUnsortedList timeSortOfSortedList
+                    //pWriter.print( "numberOfItems :" + numberOfItems );
+                }
+            }
+            
+            pWriter.close();
+
+         }
+         catch(Exception e){
+             System.out.println(e);
+         }
+            
     }
 
+    /**
+     * have a loop to give the average of 10 runs per range of seed, 
+     * and another per range of numberItems
+     * 
+     * write to output file using csv then plot in excel
+     */
     /**
      * timeAddToFront method
      */
@@ -48,6 +78,7 @@ public class ExperimentController
         long stopTime = System.nanoTime();
         
         System.out.println( "timeAddToFront: " + ( stopTime - startTime ) );
+
         return ( stopTime - startTime );
     }
     
@@ -65,7 +96,7 @@ public class ExperimentController
         }
         long stopTime = System.nanoTime();
         
-        System.out.println( "timeAddToBack: " + ( stopTime - startTime ) );
+        System.out.print( "timeAddToBack: " + ( stopTime - startTime + ",") );
         return ( stopTime - startTime );
     }
     
@@ -83,7 +114,7 @@ public class ExperimentController
         }
         long stopTime = System.nanoTime();
         
-        System.out.println( "timeAddSorted: " + ( stopTime - startTime ) );
+        System.out.print( "timeAddSorted: " + ( stopTime - startTime + ",") );
         return ( stopTime - startTime );
     }
     
@@ -103,7 +134,7 @@ public class ExperimentController
         randINT.insertionSort();
         long stopTime = System.nanoTime();
         
-        System.out.println( "timeSortOfUnsortedList: " + ( stopTime - startTime ) );
+        System.out.print( "timeSortOfUnsortedList: " + ( stopTime - startTime + ",") );
         return ( stopTime - startTime );
     }
     
@@ -119,7 +150,7 @@ public class ExperimentController
         randINT.insertionSort();
         long stopTime = System.nanoTime();
         
-        System.out.println( "timeSortOfSortedList: " + ( stopTime - startTime ) );
+        System.out.print( "timeSortOfSortedList: " + ( stopTime - startTime + ",") );
         System.out.println( " " );
         return ( stopTime - startTime );
     }
