@@ -6,17 +6,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class RandomIntegerContainerTest.
+ * The test class LinkedListIntegerContainerTest.
  *
- * @author  Zainab Hussein
- * @version 1/31/2017
+ * @author  (your name)
+ * @version (a version number or a date)
  */
-public class RandomIntegerContainerTest
+public class LinkedListIntegerContainerTest
 {
     /**
-     * Default constructor for test class RandomIntegerContainerTest
+     * Default constructor for test class LinkedListIntegerContainerTest
      */
-    public RandomIntegerContainerTest()
+    public LinkedListIntegerContainerTest()
     {
     }
 
@@ -40,11 +40,10 @@ public class RandomIntegerContainerTest
     {
     }
     
-
     @Test
     public void TestAddToFront()
     {
-       RandomIntegerContainer test1 = new RandomIntegerContainer();
+       LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
        
        //add element to front
        test1.addToFront(7);
@@ -61,7 +60,7 @@ public class RandomIntegerContainerTest
     @Test
     public void TestAddToBack()
     {
-       RandomIntegerContainer test1 = new RandomIntegerContainer();
+       LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
         
        //add element to back
        test1.addToBack(7);
@@ -78,7 +77,7 @@ public class RandomIntegerContainerTest
     @Test
     public void TestAddSorted()
     {
-        RandomIntegerContainer test1 = new RandomIntegerContainer();
+        LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
         
         //add elements to arraylist
         test1.addSorted(7);
@@ -96,7 +95,7 @@ public class RandomIntegerContainerTest
     @Test
     public void TestInsertionSort()
     {
-        RandomIntegerContainer test1 = new RandomIntegerContainer();
+        LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
         
         //add elements to arraylist
         test1.addToFront(7);
@@ -114,4 +113,44 @@ public class RandomIntegerContainerTest
         
     }
     
+    @Test
+    public void TestLinearSearch()
+    {
+        LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
+        
+        //add elements to arraylist
+        test1.addToBack(7);
+        test1.addToBack(3);
+        test1.addToBack(5);
+        test1.addToBack(9);
+        test1.addToBack(22);
+        
+        //order {7,3,5,9,22}
+        //find 9, at index = 1
+        assertEquals( test1.linearSearch(9), 3 );
+        //find non-existent val
+        //find 4, not present so should give -1
+        assertEquals( test1.linearSearch(4), -1 );
+        
+    }
+    
+    @Test
+    public void TestBinarySearch()
+    {
+        LinkedListIntegerContainer test1 = new LinkedListIntegerContainer();
+        
+        //add elements to arraylist
+        test1.addToBack(7);
+        test1.addToBack(3);
+        test1.addToBack(5);
+        test1.addToBack(9);
+        test1.addToBack(22);
+        
+        //order {7,3,5,9,22}
+        //find 9, at index = 1
+        assertEquals( test1.binarySearch(9), 3 );
+        //find non-existent val
+        //find 4, not present so should give -1
+        assertEquals( test1.binarySearch(4), -1 );
+    }
 }

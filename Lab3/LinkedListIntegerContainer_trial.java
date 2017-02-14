@@ -10,7 +10,7 @@ import java.util.*;
  * @author Zainab Hussein
  * @version 2/7/2017
  */
-public class LinkedListIntegerContainer_trial //extends IntegerContainer
+public class LinkedListIntegerContainer_trial extends IntegerContainer
 {
     // instance variables - replace the example below with your own
     public LinkedList<Integer> lin;

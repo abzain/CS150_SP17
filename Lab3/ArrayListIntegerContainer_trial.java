@@ -11,7 +11,7 @@ import java.util.*;
  * @author Zainab Hussein
  * @version 2/7/2017
  */
-public class ArrayListIntegerContainer_trial //extends IntegerContainer
+public class ArrayListIntegerContainer_trial extends IntegerContainer
 {
     // instance variables - replace the example below with your own
     public ArrayList<Integer> arr;
