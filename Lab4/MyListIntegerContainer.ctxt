@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MyListIntegerContainer()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyListIntegerContainer\r\n
+comment1.params=input
+comment1.target=void\ addToBack(java.lang.Object)
+comment1.text=\r\n\ addToBack\ method\r\n
+comment2.params=input
+comment2.target=void\ addToFront(java.lang.Object)
+comment2.text=\r\n\ addToFront\ method\r\n
+comment3.params=input
+comment3.target=boolean\ includes(java.lang.Object)
+comment3.text=\r\n\ implement\ contains(\ input\ )\ method\ to\ check\ if\ input\ is\ not\r\n\ found\ in\ the\ search\ methods\ above.\ \r\n\ \r\n\ use\ equals(\ input\ )\ API\ method\r\n
+comment4.params=input
+comment4.target=int\ itrSearch(java.lang.Object)
+comment4.text=\r\n\ search\ -\ \ val\ (w/\ iterator)\r\n\ assumption\ -\ array\ unsorted\ (so\ simply\ use\ either\r\n\ of\ the\ add\ methods\ above)\r\n\ return\ -\ \ index\ if\ found,\ -1\ if\ notFound\r\n
+comment5.params=input
+comment5.target=int\ noItrSearch(java.lang.Object)
+comment5.text=\r\n\ search\ -\ \ val\ (w/o\ iterator)\r\n\ assumption\ -\ array\ unsorted\ (so\ simply\ use\ add\ methods\ above)\r\n\ return\ -\ \ index\ if\ found,\ -1\ if\ notFound\r\n
+comment6.params=index
+comment6.target=java.lang.Object\ giveVal(int)
+comment6.text=\r\n\ get\ value\r\n\ return\ index\r\n
+numComments=7
