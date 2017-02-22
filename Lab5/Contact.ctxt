@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Contact()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Contact\r\n
+comment1.params=
+comment1.target=java.lang.String\ getPhoneNo()
+comment2.params=myPhoneNo
+comment2.target=void\ setPhoneNo(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getEmail()
+comment4.params=myEmail
+comment4.target=void\ setEmail(java.lang.String)
+numComments=5

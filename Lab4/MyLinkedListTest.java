@@ -56,9 +56,11 @@ public class MyLinkedListTest
         //check values are at correct location
         Integer four = Integer.valueOf(4);
         Integer a = Integer.valueOf(98);
-
+        
+        Integer[] list = { 4, 98 };
         assertEquals( test.getValue(0), four );    
         assertEquals( test.getValue(1), a );
+        assertArrayEquals( test.getArray(), list );
 
     }
     

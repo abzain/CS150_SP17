@@ -63,10 +63,13 @@ public class MyLinkedList<Any> implements Iterable<Any>
             head = new Node<Any>( value, head );
         }
         else{   //either one or more nodes
+            //to add new data, need to add from the front (head) and recurse through
+            //to the end dummy node
             temp = head;
             while( temp.next != null ){ //just till tail node
                 temp = temp.next;   //search for tail
             }
+            //create a dummy node after the tail
             temp.next = new Node<Any>( value, null );   //set node after tail to null
         }
     }
@@ -100,4 +103,22 @@ public class MyLinkedList<Any> implements Iterable<Any>
             }
         }
     }
+    
+     /**
+     * getArray method
+     */
+    public Integer[] getArray() 
+    {
+        int size;
+        Node<Any> i = head;
+        
+        ArrayList<Any> data_store = new ArrayList<Any>(); 
+        while(  i != tail ){
+            data_store.add( head.data ); 
+            i = head.next;
+        }
+        
+        Integer[] list = new Integer[ data_store.size() ];
+        return list = data_store.toArray( list );
+    }  
 }

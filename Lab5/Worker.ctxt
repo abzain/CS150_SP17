@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Worker()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Worker\r\n
+comment1.params=
+comment1.target=long\ getId()
+comment2.params=myId
+comment2.target=void\ setId(long)
+numComments=3

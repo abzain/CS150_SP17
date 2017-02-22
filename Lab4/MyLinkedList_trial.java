@@ -1,11 +1,11 @@
-import java.Object.*;
+//import java.Object.*;
 /**
  * Write a description of class MyLinkedList_trial here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyLinkedList_trial
+public class MyLinkedList_trial<Any>
 {
     // instance variables - replace the example below with your own
     private Node<Any> head;
@@ -23,24 +23,22 @@ public class MyLinkedList_trial
         temp = null;
     }
 
-//     /**
-//      * getArray method
-//      */
-//     public <Any> Any[] getArray( Any[] any )
-//     {
-//         //check if linkedlist has next value
-//         Any data_store;
-//         Node<Any> i = head;
-//         while(  i != tail ){
-//             data_store = head.data; //copy limkedlist data in a LinkedList
-//             i = head.next;
-//         }
-//         //Any[] list = ( Any[] ) new Object[ size ];
-//         Any[] list = new Any[ size ];
-//         return list;
-//     }   
+    /**
+     * getArray method
+     */
+    public Any[] getArray( Any[] any ) 
+    {
+        int size;
+        Node<Any> i = head;
+        Any[] data_store = new Any[ size ];
+        while(  i != tail ){
+            data_store = head.data; 
+            i = head.next;
+        }
+        return data_store;
+    }   
     
-//         public <Any> Any[] toArray(Any[] a) {
+//         public <Any> Any[] toArray(Any[] a) {    //EXAMPLE CODE FROM STACK OVERFLOW
 //         int size;
 //         if (a.length < size){
 //             a = (Any[])java.lang.reflect.Array.newInstance(
