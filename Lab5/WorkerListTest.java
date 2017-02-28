@@ -46,7 +46,31 @@ public class WorkerListTest
     @Test
     public void testAddElement()
     {
-        WorkerList<String> test = new WorkerList<String>();
+        WorkerList test = new WorkerList();
+        
+        //add worker objects
+        Worker w1 = new Worker( "Julian", "Winslow", 65L  );
+        Worker w2 = new Worker( "Nathan", "Kariuki", 25L );
+        Worker w3 = new Worker( "Simmone", "Amina", 4L );
+        Worker w4 = new Worker( "Amaar", "Gismala", 63L );
+        Worker w5 = new Worker( "Juju", "Theodr", 14L );
+        
+        //add them to container arraylst
+        test.addElement( w1 );
+        test.addElement( w2 );
+        test.addElement( w3 );
+        test.addElement( w4 );
+        test.addElement( w5 );
+        //control case
+        ArrayList<Worker> alist = new ArrayList<Worker>();
+        alist.add( w1 );
+        alist.add( w2 );
+        alist.add( w3 );
+        alist.add( w4 );
+        alist.add( w5 );
+       
+        //show data in container
+        assertEquals( test.getValue(1), alist.get(1) );
     }
     
     /**
@@ -55,7 +79,32 @@ public class WorkerListTest
         @Test
     public void testQuickSort()
     {
-        WorkerList<String> test = new WorkerList<String>();
+        WorkerList test = new WorkerList();
+        
+        //add worker objects
+        Worker a = new Worker( "Julian", "Winslow", 65L  );
+        Worker b = new Worker( "Nathan", "Kariuki", 25L );
+        Worker c = new Worker( "Simmone", "Amina", 4L );
+        Worker d = new Worker( "Amaar", "Gismala", 63L );
+        Worker e = new Worker( "Juju", "Theodr", 14L );
+        
+        //add them to container arraylst
+        test.addElement( e );
+        test.addElement( b );
+        test.addElement( a );
+        test.addElement( d );
+        test.addElement( c );
+        
+        //quickSort data
+        //sort based on comparable id of workers
+        test.quickSort();
+       
+        //show data in container
+        assertEquals( test.getValue(0).getId(),4L  );
+        assertEquals( test.getValue(1).getId(), 14L );
+        assertEquals( test.getValue(2).getId(), 25L );
+        assertEquals( test.getValue(3).getId(), 63L );
+        assertEquals( test.getValue(4).getId(), 65L );
     }
     
     /**
@@ -64,15 +113,58 @@ public class WorkerListTest
         @Test
     public void testMergeSort()
     {
-        WorkerList<String> test = new WorkerList<String>();
+        WorkerList test = new WorkerList();
+        
+        //add worker objects
+        Worker a = new Worker( "Julian", "Winslow", 65L  );
+        Worker b = new Worker( "Nathan", "Kariuki", 25L );
+        Worker c = new Worker( "Simmone", "Amina", 4L );
+        Worker d = new Worker( "Amaar", "Gismala", 63L );
+        Worker e = new Worker( "Juju", "Theodr", 14L );
+        
+        //add them to container arraylst
+        test.addElement( e );
+        test.addElement( b );
+        test.addElement( a );
+        test.addElement( d );
+        test.addElement( c );
+        
+        //mergeSort data
+        //sort based on comparable id of workers
+        test.mergeSort();
+       
+        //show data in container
+        assertEquals( test.getValue(0).getId(),4L  );
+        assertEquals( test.getValue(1).getId(), 14L );
+        assertEquals( test.getValue(2).getId(), 25L );
+        assertEquals( test.getValue(3).getId(), 63L );
+        assertEquals( test.getValue(4).getId(), 65L );
     }
     
     /**
      * test printData
      */
-        @Test
+    @Test
     public void testPrintData()
     {
-        WorkerList<String> test = new WorkerList<String>();
+        WorkerList test = new WorkerList();
+        
+        //add worker objects
+        Worker a = new Worker( "Julian", "Winslow", 65L  );
+        Worker b = new Worker( "Nathan", "Kariuki", 25L );
+        Worker c = new Worker( "Simmone", "Amina", 4L );
+        Worker d = new Worker( "Amaar", "Gismala", 63L );
+        Worker e = new Worker( "Juju", "Theodr", 14L );
+        
+        //add them to container arraylst
+        test.addElement( e );
+        test.addElement( b );
+        test.addElement( a );
+        test.addElement( d );
+        test.addElement( c );
+        
+        //mergeSort data
+        test.printData();
+       
     }
 }

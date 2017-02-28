@@ -7,7 +7,9 @@ import java.util.*;
  * @author Zainab Hussein
  * @version 2/21/2017
  */
-public abstract class SortedList<Any>
+public abstract class SortedList<Any extends Comparable<? super Any>>
+//notation <Any ....> ensures that type Any will be comparable so I can
+//use the compareTo()
 {
     // instance variables - replace the example below with your own
     ArrayList<Any> container = new ArrayList<Any>();
@@ -24,41 +26,52 @@ public abstract class SortedList<Any>
     /**
      * quickSort method - sort data using quicksort method
      */
-    public static <Any extends Comparable<? super Any>>
-    void quickSort( Any[] array )
+    public void quickSort()
     {
-        //Any [] array;
-        if( array == null || array.length == 0 ){
-            return;
-        }
-        quickSortRecursive( 0, array.length-1 );
+        //call recursive quicksort on entire container
+        quickSortRecursive( 0, container.size()-1 );
     }
     
     /**
      * recursive quickSort method
      * 
-     * NOTE - I have set array size to 10
      */
-    private static <Any extends Comparable<? super Any>>
-    void quickSortRecursive( int indexLow, int indexHigh )
+    private void quickSortRecursive( int indexLow, int indexHigh )
     {
-        int size = 10;
-        Any [] array = ( Any [] ) new Comparable[ size ];
         int left = indexLow;
         int right = indexHigh;
+        int mid = (indexLow + indexHigh)/2;
+        Any low = container.get(left);
+        Any high = container.get(right);
+        Any middle = container.get(mid);
+        /**
+         * choose pivot as mid of three using 
+         * on low, mid and high index elements
+         */
+        //compare low and mid index values
+        if( middle.compareTo( low ) < 0 ){
+            swap( left, mid );
+        }
+        //compare high and low index values
+        if( high.compareTo( low ) < 0 ){
+            swap( left, right );
+        }
+        //compare high and mid index values
+        if( high.compareTo( middle ) < 0 ){
+            swap( mid, right );
+        }
         
-        //choose pivot as middle index number
-        Any pivot = array[ indexLow + (indexHigh - indexLow )/2 ];
+        Any pivot = middle;
         
         //divide into  arrays
         while( left <= right ){
             //find elements in left side greater than pivot value
-            while( array[left].compareTo( pivot ) < 0 ){
+            while( container.get(left).compareTo( pivot ) < 0 ){
                 left++;
             }
             //find elements in right side less than pivot value
-            while( array[right].compareTo( pivot ) > 0 ){
-                right++;
+            while( container.get(right).compareTo( pivot ) > 0 ){
+                right--;
             }
             //swap both numbers
             if( left <= right ){
@@ -81,98 +94,108 @@ public abstract class SortedList<Any>
     
     /**
      * swap method
-     * 
-     * NOTE - I have set array size to 10
      */
-    private static <Any extends Comparable<? super Any>>
-    void swap( int left, int right ){
-        int size = 10;
-        Any [] array = ( Any [] ) new Comparable[ size ];
+    private void swap( int left, int right ){
         //save element in lowest left index to temp
-        Any temp = array[left]; 
+        Any temp = container.get(left);
         //save right index value in left index element
-        array[left] = array[right];  
+        container.set( left, container.get(right) );
         //save old left index value to right index element
-        array[right] = temp;            
+        container.set( right, temp );
     }
+    
     
     /**
      * mergeSort method - sort data using mergeSort method
      */
-    public static <Any extends Comparable<? super Any>>
-    void mergeSort( Any [] array )
+    public void mergeSort()
     {
-        // generic array
-        Any [] tempArray = ( Any [] ) new Comparable[ array.length ];
-        
-        //call recursive mergerSort on entire array
-        mergeSortRecursive( 0, array.length-1 );
+        //call recursive mergerSort on entire container
+        mergeSortRecursive( 0, container.size()-1 );    //ERROR
     }
     
     /**
      * recursive mergeSort method
      */
-    private static <Any extends Comparable<? super Any>>
-    void mergeSortRecursive( int indexLow, int indexHigh )
+    private void mergeSortRecursive( int indexLow, int indexHigh )
     {
-        if( indexLow < indexHigh ){
-            int indexMid = ( indexLow + indexHigh )/2;
-            
+        int small = indexLow;
+        int big = indexHigh;
+        int indexMid = ( indexLow + indexHigh )/2;
+        if( small < big ){
             // sort left side of array
-            mergeSortRecursive( indexLow, indexMid );
+            mergeSortRecursive( small, indexMid );   //ERROR
             
             // sort right side of array
-            mergeSortRecursive( indexMid + 1, indexHigh );
+            mergeSortRecursive( indexMid + 1, big );
             
             // merge left and right sides
-            merge( indexLow, indexMid, indexHigh );
+            merge( small, indexMid+1, big ); //ERROR
         }
     }
     
     /**
      * merge method
-     * NOTE - I have set array size to 10
      */
-    private static <Any extends Comparable<? super Any>>
-    void merge( int indexLow, int indexMid, int indexHigh )
+    private void merge( int indexLow, int indexMid, int indexHigh )
     {
-        int size = 10;
-        Any [] array = ( Any [] ) new Comparable[ size ];
-        Any [] tempArray = ( Any [] ) new Comparable[ array.length ];
-        
-        for( int i = indexLow; i < indexHigh; i++ ){
-            //copy first sublist to a new list
-            tempArray[i] = array[i];
-        }
-        
+        ArrayList<Any> temp = new ArrayList<Any>();
         int left = indexLow;
         int mid = indexMid + 1;
         int right = indexHigh;
-        
-        while( left <= indexMid && mid <= indexHigh ){
-            //if first element in left sublist is smaller than the first
-            // element in the right sublist
-            if( tempArray[left].compareTo( tempArray[mid] ) <= 0 ){
-                //iteratively take smaller element in left sublist and place 
-                //in order in the final array
-                array[right] = tempArray[left];
-                left++;
+//         
+//         for( int i = left; i <= right; i++ ){
+//             //copy first sublist to a new list
+//             temp.set( i, container.get(i) ); //ERROR
+//         }
+//         
+//         while( left <= indexMid && mid <= indexHigh ){
+//             //if first element in left sublist is smaller than the first
+//             // element in the right sublist
+//             if( temp.get(left).compareTo( temp.get(mid) ) <= 0 ){
+//                 //iteratively take smaller element in left sublist and place 
+//                 //in order in the final array
+//                 container.set( right, temp.get(left) );
+//                 left++;
+//             }
+//             //if the first element in the right sublist is smaller than the
+//             // first element in the left sublist
+//             else{
+//                 //iteratively take smaller element in left sublist and place 
+//                 //in order in the final array
+//                 container.set( right, temp.get(mid) );
+//                 mid++;
+//             }
+//             right++;
+//         }
+//         
+//         while( left <= indexMid ){
+//             container.set( right, temp.get(left) );
+//             right++;
+//             left++;
+//         }
+         int leftPos = indexMid - 1;
+         int numElements = indexHigh-indexLow+1;
+        while( indexLow <= leftPos && indexMid <= indexHigh ){
+            if( container.get(leftPos).compareTo( container.get(indexHigh)) <= 0){
+                temp.set( left++, container.get(indexLow++) ); 
             }
-            //if the first element in the right sublist is smaller than the
-            // first element in the left sublist
             else{
-                //iteratively take smaller element in left sublist and place 
-                //in order in the final array
-                array[right] = tempArray[mid];
-                mid++;
+                temp.set(left++, container.get(indexMid++) );
             }
-            right++;
         }
         
-        while( left <= indexMid ){
-            array[right] = tempArray[left];
-            right++;
-            left++;
+        while( indexLow <= leftPos ){ //copy rest of first half
+            temp.set( left++, container.get(indexLow++) );
+        }
+        
+        while( indexMid <= indexHigh ){ //copy rest of right half
+            temp.set( left++, container.get(indexMid++) );
+        }
+        
+        //copy temp arraylist back
+        for( int i = 0; i < numElements; i++ ){
+            container.set( indexHigh, temp.get(indexHigh) );
         }
     }
     
@@ -182,5 +205,7 @@ public abstract class SortedList<Any>
      * declared without an implementation (without braces, and 
      * followed by a semicolon)
      */
-    abstract Any printData();
+    abstract void printData();
+    
+    
 }

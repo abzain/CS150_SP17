@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=Comparator_worker()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Compare_worker\r\n
-comment1.params=w1\ w2
-comment1.target=int\ compare(Worker,\ Worker)
-comment1.text=\r\n\ compare\ method\ to\ make\ Worker\ class\ comparable\r\n\ \r\n\ @param\ -\ id\r\n\ @return\ ordering\ of\ workers\ by\ id\ numbers\r\n
-numComments=2

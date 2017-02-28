@@ -46,21 +46,28 @@ public class ContactTest
     @Test
     public void testGetFirstName()
     {
-        Contact test = new Contact();
+        Contact test1 = new Contact( "Zainab", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         String firstName;
         
         //declare and check
         firstName = "Zainab";
-        test.setFirstName( "Zainab" );
-        assertEquals( test.getFirstName(), firstName );
+        //System.out.println( test1.getFirstName() );
+        assertEquals( test1.getFirstName(), firstName );
         
+        Contact test2 = new Contact( "Nillah", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         firstName = "Nillah";
-        test.setFirstName( "Nillah" );
-        assertEquals( test.getFirstName(), firstName );
+        assertEquals( test2.getFirstName(), firstName );
         
+        Contact test3 = new Contact( "Yusuf", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         firstName = "Yusuf";
-        test.setFirstName( "Yusuf" );
-        assertEquals( test.getFirstName(), firstName );
+        
+        assertEquals( test3.getFirstName(), firstName );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
     /**
@@ -69,21 +76,27 @@ public class ContactTest
     @Test
     public void testGetLastName()
     {
-        Contact test = new Contact();
+        Contact test1 = new Contact( "Zainab", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         String lastName;
         
         //declare and check
         lastName = "Hussein";
-        test.setLastName( "Hussein" );
-        assertEquals( test.getLastName(), lastName );
+        assertEquals( test1.getLastName(), lastName );
         
+        Contact test2 = new Contact( "Zainab", "Mursal","484-356-2586", "freedom@itsAboutTime.com"  );
         lastName = "Mursal";
-        test.setLastName( "Mursal" );
-        assertEquals( test.getLastName(), lastName ); 
+        assertEquals( test2.getLastName(), lastName ); 
         
+        Contact test3 = new Contact( "Zainab", "Fadamullah","484-356-2586", "freedom@itsAboutTime.com"  ); 
         lastName = "Fadamullah";
-        test.setLastName( "Fadamullah" );
-        assertEquals( test.getLastName(), lastName );
+        
+        assertEquals( test3.getLastName(), lastName );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
     /**
@@ -92,21 +105,26 @@ public class ContactTest
     @Test
     public void testGetPhoneNo()
     {
-        Contact test = new Contact();
+        Contact test1 = new Contact( "Zainab", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         String phoneNo;
         
         //declare and check
         phoneNo = "484-356-2586";
-        test.setPhoneNo( "484-356-2586" );
-        assertEquals( test.getPhoneNo(), phoneNo );
+        assertEquals( test1.getPhoneNo(), phoneNo );
         
+        Contact test2 = new Contact( "Zainab", "Hussein","253-365-4789", "freedom@itsAboutTime.com"  );
         phoneNo = "253-365-4789";
-        test.setPhoneNo( "253-365-4789" );
-        assertEquals( test.getPhoneNo(), phoneNo ); 
+        assertEquals( test2.getPhoneNo(), phoneNo ); 
         
+        Contact test3 = new Contact( "Zainab", "Hussein","987-635-3245", "freedom@itsAboutTime.com"  );
         phoneNo = "987-635-3245";
-        test.setPhoneNo( "987-635-3245" );
-        assertEquals( test.getPhoneNo(), phoneNo );
+        assertEquals( test3.getPhoneNo(), phoneNo );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
     /**
@@ -115,21 +133,26 @@ public class ContactTest
     @Test
     public void testGetEmail()
     {
-        Contact test = new Contact();
+        Contact test1 = new Contact( "Zainab", "Hussein","484-356-2586", "freedom@itsAboutTime.com"  );
         String email;
         
         //declare and check
         email = "freedom@itsAboutTime.com";
-        test.setEmail( "freedom@itsAboutTime.com" );
-        assertEquals( test.getEmail(), email );
+        assertEquals( test1.getEmail(), email );
         
+        Contact test2 = new Contact( "Zainab", "Hussein","484-356-2586", "kajimemasith@ken.com"  );
         email = "kajimemasith@ken.com";
-        test.setEmail( "kajimemasith@ken.com" );
-        assertEquals( test.getEmail(), email ); 
+        assertEquals( test2.getEmail(), email ); 
         
+        Contact test3 = new Contact( "Zainab", "Hussein","484-356-2586", "teletubby@gmail.com"  );
         email = "teletubby@gmail.com";
-        test.setEmail( "teletubby@gmail.com" );
-        assertEquals( test.getEmail(), email );
+        assertEquals( test3.getEmail(), email );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
 }

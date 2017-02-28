@@ -1,9 +1,15 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Worker()
+comment0.params=firstName\ lastName\ id
+comment0.target=Worker(java.lang.String,\ java.lang.String,\ long)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Worker\r\n
-comment1.params=
-comment1.target=long\ getId()
-comment2.params=myId
-comment2.target=void\ setId(long)
-numComments=3
+comment1.params=w1
+comment1.target=int\ compareTo(Worker)
+comment1.text=\r\n\ compareTo\ method\ to\ make\ Worker\ class\ comparable\r\n\ \r\n\ @param\ -\ id\r\n\ @return\ ordering\ of\ workers\ by\ id\ numbers\r\n
+comment2.params=
+comment2.target=long\ getId()
+comment3.params=myId
+comment3.target=void\ setId(long)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment4.text=\r\n\ overide\ toString\ method\ to\ return\ string\ representation\ of\ \r\n\ parameters\r\n
+numComments=5

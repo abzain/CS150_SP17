@@ -46,21 +46,22 @@ public class WorkerTest
     @Test
     public void testGetFirstName()
     {
-        Worker test = new Worker();
-        String firstName;
+        Worker test1 = new Worker( "Zainab", "Hussein", 4 );
         
         //declare and check
-        firstName = "Zainab";
-        test.setFirstName( "Zainab" );
-        assertEquals( test.getFirstName(), firstName );
+        assertEquals( test1.getFirstName(), "Zainab" );
         
-        firstName = "Nillah";
-        test.setFirstName( "Nillah" );
-        assertEquals( test.getFirstName(), firstName );
+        Worker test2 = new Worker( "Nillah", "Hussein", 4 );
+        assertEquals( test2.getFirstName(), "Nillah" );
         
-        firstName = "Yusuf";
-        test.setFirstName( "Yusuf" );
-        assertEquals( test.getFirstName(), firstName );
+        Worker test3 = new Worker( "Yusuf", "Hussein", 4 );
+        assertEquals( test3.getFirstName(), "Yusuf" );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
     /**
@@ -69,21 +70,22 @@ public class WorkerTest
     @Test
     public void testGetLastName()
     {
-        Worker test = new Worker();
-        String lastName;
+        Worker test1 = new Worker( "Zainab", "Hussein", 4 );
         
         //declare and check
-        lastName = "Hussein";
-        test.setLastName( "Hussein" );
-        assertEquals( test.getLastName(), lastName );
+        assertEquals( test1.getLastName(), "Hussein" );
         
-        lastName = "Mursal";
-        test.setLastName( "Mursal" );
-        assertEquals( test.getLastName(), lastName );
+        Worker test2 = new Worker( "Zainab", "Mursal", 4 );
+        assertEquals( test2.getLastName(), "Mursal" );
         
-        lastName = "Fadamullah";
-        test.setLastName( "Fadamullah" );
-        assertEquals( test.getLastName(), lastName );
+        Worker test3 = new Worker( "Zainab", "Fadamullah", 4 );
+        assertEquals( test3.getLastName(), "Fadamullah" );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
     
     /**
@@ -92,20 +94,21 @@ public class WorkerTest
     @Test
     public void testGetId()
     {
-        Worker test = new Worker();
-        long Id;
+        Worker test1 = new Worker( "Zainab", "Hussein", 4 );
         
         //declare and check
-        Id = -664L;
-        test.setId( -664L );
-        assertEquals( test.getId(), Id );
+        assertEquals( test1.getId(), 4 );
         
-        Id = 8005L;
-        test.setId( 8005L );
-        assertEquals( test.getId(), Id );
+        Worker test2 = new Worker( "Zainab", "Hussein", 8005L );
+        assertEquals( test2.getId(), 8005L );
         
-        Id = 325L;
-        test.setId( 325L );
-        assertEquals( test.getId(), Id );
+        Worker test3 = new Worker( "Zainab", "Hussein", 325L );
+        assertEquals( test3.getId(), 325L );
+        
+        //print all
+        System.out.println( test1.toString() );
+        System.out.println( test2.toString() );
+        System.out.println( test3.toString() );
+        System.out.println( "  " );
     }
 }

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ExperimentController()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ExperimentController\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ static\ main\ method\ for\ lab\ 5\r\n
+comment2.params=numberOfItems
+comment2.target=long\ timeQuickSort_C(int)
+comment2.text=\r\n\ quickSort\ in\ ContactList\r\n
+comment3.params=numberOfItems
+comment3.target=long\ timeQuickSort_W(int)
+comment3.text=\r\n\ quickSort\ in\ WorkerList\r\n
+numComments=4
