@@ -139,7 +139,11 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
      */
     private void merge( int indexLow, int indexMid, int indexHigh )
     {
+        System.out.println(container.size());
         ArrayList<Any> temp = new ArrayList<Any>();
+        for ( int i = 0 ; i < container.size() ; i++ ) {
+            temp.add(null);
+        }
         int left = indexLow;
         int mid = indexMid + 1;
         int right = indexHigh;
@@ -178,23 +182,28 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
          int numElements = indexHigh-indexLow+1;
         while( indexLow <= leftPos && indexMid <= indexHigh ){
             if( container.get(leftPos).compareTo( container.get(indexHigh)) <= 0){
-                temp.set( left++, container.get(indexLow++) ); 
+                temp.set(left++, container.get(indexLow++) ); 
+                System.out.println("container.get(indexHig));
+                System.out.println(container.get(indexLow));
+                System.out.println(indexLow));
             }
             else{
-                temp.set(left++, container.get(indexMid++) );
+                temp.set(left++, container.get(indexMid++) );   //ERROR
             }
         }
         
         while( indexLow <= leftPos ){ //copy rest of first half
-            temp.set( left++, container.get(indexLow++) );
+            temp.set(left++, container.get(indexLow++) );
         }
         
         while( indexMid <= indexHigh ){ //copy rest of right half
-            temp.set( left++, container.get(indexMid++) );
+            temp.set(left++, container.get(indexMid++) );
         }
         
         //copy temp arraylist back
         for( int i = 0; i < numElements; i++ ){
+            System.out.println("container size: " + container.size());
+            System.out.println("temp size:" + temp.size());
             container.set( indexHigh, temp.get(indexHigh) );
         }
     }

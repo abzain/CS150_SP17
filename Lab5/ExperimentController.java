@@ -28,30 +28,58 @@ public class ExperimentController
      */
     public static void main (String[] args )
     {
-        ExperimentController exp = new ExperimentController();
-
-        //write out
-        File outFile = new File ("dataout.txt");
-        //catch exception
-        try{
-            FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() );
-            PrintWriter pWriter = new PrintWriter ( fWriter );
-
-            //checking 15000 different number of items
-            for( int numberOfItems = 1000; numberOfItems < 11000; 
-            numberOfItems = (numberOfItems + 1000) ){
-                pWriter.println( " " );
-                //pWriter.print( exp.timeMergeSort_C( numberOfItems ) + "," );
-                //pWriter.print( exp.timeMergeSort_W( numberOfItems ) + "," );
-                pWriter.print( exp.timeQuickSort_C( numberOfItems ) + ",");
-                pWriter.print( exp.timeQuickSort_W( numberOfItems ) + ",");
-
-            }
-            pWriter.close();
+        ContactList test = new ContactList( );
+        
+        //add contact objects
+        Contact a = new Contact( "Zain", "Boyo", "kijiji@yahoo.com", 
+                                  "245-356-5874" );
+        Contact b = new Contact( "Amaar", "Fracam", "Kibich@hotmail.com", 
+                                  "586-356-5874" );
+        Contact c = new Contact( "Simmone", "Amina", "amina@gmail.com", 
+                                  "865-356-5874" );
+        Contact d = new Contact( "Nathan", "Kariuki", "kariuki@gmail.com", 
+                                  "725-356-5874" );
+        Contact e = new Contact( "Julian", "Winslow", "crybaby@gmail.com", 
+                                  "305-356-5874" );
+        
+        //add them to container arraylst
+        test.addElement( e );
+        test.addElement( b );
+        test.addElement( a );
+        test.addElement( d );
+        test.addElement( c );
+        
+        //mergesort data
+        //sort based on comparable last name then first name
+        test.mergeSort();
+        
+        for (int i = 0 ; i < 5; i++) {
+            System.out.println(test.getValue(i).getLastName());
         }
-        catch(Exception e){
-            System.out.println(e);
-        }
+//         ExperimentController exp = new ExperimentController();
+// 
+//         //write out
+//         File outFile = new File ("dataout.txt");
+//         //catch exception
+//         try{
+//             FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() );
+//             PrintWriter pWriter = new PrintWriter ( fWriter );
+// 
+//             //checking 15000 different number of items
+//             for( int numberOfItems = 1000; numberOfItems < 11000; 
+//             numberOfItems = (numberOfItems + 1000) ){
+//                 pWriter.println( " " );
+//                 //pWriter.print( exp.timeMergeSort_C( numberOfItems ) + "," );
+//                 //pWriter.print( exp.timeMergeSort_W( numberOfItems ) + "," );
+//                 pWriter.print( exp.timeQuickSort_C( numberOfItems ) + ",");
+//                 pWriter.print( exp.timeQuickSort_W( numberOfItems ) + ",");
+// 
+//             }
+//             pWriter.close();
+//         }
+//         catch(Exception e){
+//             System.out.println(e);
+//         }
     }
 
     //     /**

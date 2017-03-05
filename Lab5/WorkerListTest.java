@@ -105,6 +105,14 @@ public class WorkerListTest
         assertEquals( test.getValue(2).getId(), 25L );
         assertEquals( test.getValue(3).getId(), 63L );
         assertEquals( test.getValue(4).getId(), 65L );
+        
+        //assertEquals calls on equals method of the Object class
+        //which compares references
+        
+        //write an equals method in the worker and contact class
+        //so that when using the assertEquals methos, it calls
+        //that specific method that compares parameters in either
+        //class
     }
     
     /**
