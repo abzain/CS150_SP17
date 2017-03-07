@@ -183,7 +183,7 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
         while( indexLow <= leftPos && indexMid <= indexHigh ){
             if( container.get(leftPos).compareTo( container.get(indexHigh)) <= 0){
                 temp.set(left++, container.get(indexLow++) ); 
-                System.out.println("container.get(indexHig));
+                System.out.println(container.get(indexHigh));
                 System.out.println(container.get(indexLow));
                 System.out.println(indexLow));
             }
