@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 /**
  * Class Simulation - 
@@ -9,7 +10,7 @@ import java.util.*;
 public class Simulation
 {
     // Basic parameters of the simulation
-    private double cashiers;
+    private int cashiers;
     private double profit;
     private double cashierCost;
     private double avgNoCustArrPerMin;
@@ -18,7 +19,6 @@ public class Simulation
     private Random rand;
     private double u;
 
-    //for arriving method
     private int userNum = 0;
     private double arrivalInterval;
     private double arriveTime;
@@ -29,11 +29,28 @@ public class Simulation
     private double turnAwayTime;
     private double stopTime = 960;
 
-    Customer inst = new Customer( arriveTime, joinQueueTime, serviceTime, departTime, turnAwayTime );
+    //Queue - customers currently waiting in cafe so after arrive event
+    //ArrayList - all customers
+    ArrayList<Customer> arrCust = new ArrayList<Customer>();
+    //LinkedList - for implementing queue
+    Queue<Customer> linCust = new LinkedList<Customer>();
+
+    //create customers to ve used in simulation
+    Customer A = new Customer( arriveTime, stopTime );
+    Customer B = new Customer( arriveTime, stopTime );
+    Customer C = new Customer( arriveTime, stopTime );
+    Customer D = new Customer( arriveTime, stopTime );
+    Customer E = new Customer( arriveTime, stopTime );
+    Customer F = new Customer( arriveTime, stopTime );
+    Customer G = new Customer( arriveTime, stopTime );
+    Customer H = new Customer( arriveTime, stopTime );
+    Customer I = new Customer( arriveTime, stopTime );
+    Customer J = new Customer( arriveTime, stopTime );
+
     /**
      * Constructor for objects of class Simulation
      */
-    public Simulation( double s, double p, double c, double lamda, double r )
+    public Simulation( int s, double p, double c, double lamda, double r )
     {
         // initialise instance variables
         operationSet = new PriorityQueue<Operations>();
@@ -44,75 +61,178 @@ public class Simulation
         avgNoCustServPerMin = r;
         rand = new Random();
 
-        arriving( avgNoCustArrPerMin ); //schedule first arrival
+        runSim();
 
     }
-    
-    public static void main( String[] args )
-    {
-        Simulation sim = new Simulation( 5.0, 6.3, 1.0, 2.0, 1.0 );
-        System.out.println( sim.arriving(5.0) );
-    }
-    
+
+//     public static void main( String[] args )
+//     {
+//         Simulation sim = new Simulation( 5, 16.5, 2.0, 1.0, 2.0 );
+//         "5", "16.5", "2.0", "1.0", "2.0"
+//         //write out
+//         File outFile = new File ("dataout.txt");
+//         
+//         //catch exception
+//         try{
+//             FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() );
+//             PrintWriter pWriter = new PrintWriter ( fWriter );
+//             
+//             //sim.runSim( 960 );  runs for a long time
+//             
+//             //checking 10 different seeds per number of items
+//             pWriter.println( " " );
+//             pWriter.println( sim.arriving( 1.0 ) + "," );
+//             pWriter.println( sim.joinQueue() + "," );
+//             pWriter.println( sim.waiting() + "," );
+//             pWriter.println( sim.serving( 2.0 ) + "," );
+//             pWriter.println( sim.departing( 1.0, 2.0 ) + "," );
+//             pWriter.println( sim.turnAway( 1.0, 5 ) + "," );
+//                     
+//           
+//             pWriter.close();
+//         }
+//         
+//         catch(Exception e){
+//              System.out.println(e);
+//         }
+//     }
+
     /**
      * Run simulation until stopping time occurs
      * Stopping time is 960 minutes 
      */
-    public void runSim( double stopTime )
+    public void runSim()
     {
         Operations op = null;
-        double waitTime;
-
         while( !operationSet.isEmpty() ){
             op = operationSet.remove();
 
+            //if time is passed stopTime, stop simulation
             if( op.time > stopTime ){
                 break;
             }
 
+            //handle case of turn away
             if( op.what == Operations.TurnedAway ){ //leave
-                cashiers++;
-                System.out.println( "User " + op.who + "turned away at time " + op.time + " " );
+                int cta = turnAway( avgNoCustArrPerMin, cashiers );
+                turnAwayTime = arriving( avgNoCustArrPerMin );
+                op.time += turnAwayTime;
+                op.who = op.who + op.who;
+
+                System.out.println( "Customer " + op.who + "turned away at time " + op.time + " " );
+                System.out.println( "No. cusomers turned away " + cta );
             }
             else{   //keep arriving
-                System.out.print( "User " + op.who + "arrived at time " + op.time + " " );
+                //customers arrive and placed in arraylist
+                if( op.what == Operations.Arrive ){ //arrive
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    op.time += arriveTime;
+                    op.who = op.who + op.who;
+                    
+                    arrCust.add( A );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( B );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( C );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( D );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( E );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( F );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( G );
+                    System.out.println( "User " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( H );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( I );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    arriveTime = arriving( avgNoCustArrPerMin );
+                    arrCust.add( J );
+                    System.out.println( "Customer " + op.who + "arrived at time " + op.time + " " );
+                    
+                    op.time += arriveTime;
+                    op.who = op.who + op.who;
+                }
+                
+                //System.out.println( op.what == Operations.JoinQueue );
+                //customer joins queue - enqueue
+                else if( op.what == Operations.JoinQueue ){
+                    joinQueueTime = joinQueue();
+                    op.time += joinQueueTime;
 
-                if( cashiers > 0 ){
-                    cashiers--;
-                    waitTime = nextPoisson( rand.nextDouble() );
-                    System.out.println( "and waits for " + waitTime + "minutes" );
+                    for( Customer items : arrCust ){
+                        linCust.add( items );
+                        System.out.println( "User " +op.who + "joining queue" + op.time + " " );
+                    }
+                }
 
+                //customer waits in queue
+                if( op.what == Operations.Wait ){
+                    waitTime = waiting( avgNoCustArrPerMin, avgNoCustServPerMin );
                     op.time += waitTime;
-                    op.what = Operations.TurnedAway;
-                    operationSet.add( op );
+
+                    for( Customer item : linCust ){
+                        System.out.println( "User " +op.who + "joining queue" + op.time + " " );
+                    }
                 }
-                else{
-                    System.out.println( "no staff, cafe closed" );
+
+                //customer is served - remove from queue and decrease no.cashiers by one
+                if( op.what == Operations.Serve ){
+                    serviceTime = serving( avgNoCustServPerMin );
+                    op.time += serviceTime;
+
+                    linCust.remove();
+                    cashiers--;
                 }
-                arriving( avgNoCustArrPerMin );
+
+                //customer departs - increase no.cahiers by 1
+                if( op.what == Operations.Departure ){
+                    departTime += departing( avgNoCustArrPerMin, avgNoCustServPerMin );
+                    op.time = departTime;
+
+                    cashiers++;
+                }
             }
         }
     }
-
-    /**
-     * return an int using a poisson distribution, and  change the
-     * internal state.
-     * @param expectedValue the mean of the distribution
-     * @return the pseudorandom int
-     * 
-     * copied from textbook fig. 9.5
-     */
-    private double nextPoisson( double expectedValue )
-    {
-        double limit = -expectedValue;
-        double product = Math.log( rand.nextDouble() );
-        double count;
-
-        for( count = 0; product > limit; count++ ){
-            product += Math.log( rand.nextDouble() );
-        }
-        return count;
-    }
+// 
+//     /**
+//      * return an int using a poisson distribution, and  change the
+//      * internal state.
+//      * @param expectedValue the mean of the distribution
+//      * @return the pseudorandom int
+//      * 
+//      * copied from textbook fig. 9.5
+//      */
+//     private double nextPoisson( double expectedValue )
+//     {
+//         double limit = -expectedValue;
+//         double product = Math.log( rand.nextDouble() );
+//         double count;
+// 
+//         for( count = 0; product > limit; count++ ){
+//             product += Math.log( rand.nextDouble() );
+//         }
+//         return count;
+//     }
 
     /**
      * Add an arrive event to operationSet at the current time
@@ -143,16 +263,6 @@ public class Simulation
     }
 
     /**
-     * Add a waiting event to operationSet at the current time
-     */
-    private double waiting(){
-        Operations op = new Operations( userNum, waitTime, Operations.Wait);
-        operationSet.add( op );
-
-        return waitTime = nextPoisson( rand.nextDouble() );
-    }
-
-    /**
      * Add a serving event to operationSet at the current time
      * depends on arrival time
      */
@@ -163,14 +273,31 @@ public class Simulation
 
         return serviceTime = -( Math.log( u )/r );
     }
+    
+    /**
+     * Add a waiting event to operationSet at the current time
+     */
+    private double waiting( double lamda, double r ){
+        Operations op = new Operations( userNum, waitTime, Operations.Wait);
+        operationSet.add( op );
+        
+        arriveTime = arriving( lamda ); //arriveTime
+        serviceTime = serving( r );   //serviceTime
+        
+        return waitTime = (serviceTime - arriveTime);
+    }
 
     /**
      * Add a serving event to operationSet at the current time
      * depends on arrival and waiting time
      */
-    private double departing(){
+    private double departing( double lamda, double r ){
         Operations op = new Operations( userNum, departTime, Operations.Departure);
         operationSet.add( op );
+
+        arriveTime = arriving( lamda ); //arriveTime
+        waitTime = waiting( lamda, r );  //waitTime
+        serviceTime = serving( r );   //serviceTime
 
         return departTime = ( arriveTime + waitTime + serviceTime );
     }
@@ -183,18 +310,18 @@ public class Simulation
      * shows overflow as well
      * cusNo refers to number of people in original queue
      */
-    private int turnAway()
+    private int turnAway( double lamda, int s )
     {
         //instantiate customer queue
         Operations op = new Operations( userNum, turnAwayTime, Operations.TurnedAway);
         operationSet.add( op );
 
-        int custNo = inst.noCustInQueue();
+        int custNo = arrCust.size();
         int cusTurnedAwayCnt = 0;
+        double at = arriving( lamda );
 
-        while( ( custNo > 8*cashiers) || (arriveTime == stopTime) ){
+        while( ( custNo > 8*s) || (at == stopTime) ){
             cusTurnedAwayCnt++;
-            inst.getIsTurnedAway();
         }
         return cusTurnedAwayCnt;
     }
@@ -219,7 +346,6 @@ public class Simulation
     // 
     //     }
     // 
-   
 
     private static class Operations implements Comparable<Operations>
     /**

@@ -8,34 +8,18 @@ import java.util.*;
  * @author Zainab Hussein
  * @version 3-2-2017
  */
-public class Customer
+public class Customer implements Comparable<Customer>
 {
-    // instance variables - replace the example below with your own
-    //PriorityQueue<E> q = new PriorityQueue<E>();
-    //E must be comparable or user provides a comparator
+    // instance variables 
+    private double custArriveTime;
+    private double custJoinQueueTime;
+    private double custWaitTime;
+    private double custServeTime;
+    private double custDepartTime;
+    private double custTurnedAway;
+    private double stopTime;
     
-    //Queue - customers currently waiting in cafe so after arrive event
-    //ArrayList - all customers
-    ArrayList<Customer> arrCust = new ArrayList<Customer>();
-    //LinkedList - for implementing queue
-    Queue<Customer> linCust = new LinkedList<Customer>();
-    //Instanciate simulation class containing event times
-    //Simulation sim = new Simulation();
-    /**
-     * Priority is for:
-     * if customer is being served, priority on departure time
-     * if customer has not arrived, priority on arrival time
-     */
-    
-    double custArriveTime;
-    double custJoinQueueTime;
-    double custWaitTime;
-    double custServeTime;
-    double custDepartTime;
-    double custTurnedAway;
-    int custNo = 0;
-    
-    Customer next;
+    double waitInterval = 1.5;
     
     /**
      * Constructor for objects of class Customer
@@ -43,27 +27,23 @@ public class Customer
     public Customer()
     {
         // initialise instance variables
-        this(0,0,0,0,0);
+        this( 0,0 );
     }
     
     /**
      * Constructor for objects of class Customer
      */
-    public Customer( double at, double jt, double st, double dt, double tt )
+    public Customer( double at, double st )
     {
         // initialise instance variables
         this.custArriveTime = at;
-        this.custJoinQueueTime = jt;
-        this.custServeTime = st;
-        this.custDepartTime = dt;
-        this.custTurnedAway = tt;
+        this.stopTime = st;
+
         
-        next = new Customer( at, jt, st, dt, tt );
     }
     
     public double getIsArrive()
     {
-        arrCust.add( next );
         return custArriveTime;
     }
     
@@ -77,56 +57,138 @@ public class Customer
         return custJoinQueueTime = custArriveTime;
     }
     
-    public void setIsJoinQueue( double jt )
+    public void setIsJoinQueue()
     {
-        this.custJoinQueueTime = jt;
+        this.custJoinQueueTime = custArriveTime;
     }
     
+    //depends on arrival time, so say for now a constant added to arriveTime
      public double getIsWait()
     {
-        //add waiting customers in queue
-        for( Customer items : arrCust ){
-            linCust.add( items );
-        }
-        return custWaitTime = (custDepartTime - custServeTime - custArriveTime);
+        return custWaitTime = (custArriveTime + waitInterval);
+    }
+     
+    public void setIsWait()
+    {
+        this.custWaitTime = (custArriveTime + waitInterval);
     }
     
     public double getIsServed()
     {
-        return custServeTime;
+        custWaitTime = (custArriveTime + waitInterval);
+        return custServeTime = (custArriveTime + custWaitTime );
     }
     
-    public void setIsServed( double st )
+    public void setIsServed()
     {
-        this.custServeTime = st;
+        custWaitTime = (custArriveTime + waitInterval);
+        this.custServeTime = (custArriveTime + custWaitTime );
     }
     
     public double getIsDepart()
     {
-        linCust.remove( next );
-        return custDepartTime;
+        custWaitTime = (custArriveTime + waitInterval);
+        custServeTime = (custArriveTime + custWaitTime );
+        return custDepartTime = (custArriveTime + custWaitTime + custServeTime);
     }
     
-    public void setIsDepart( double dt )
+    public void setIsDepart()
     {
-        this.custDepartTime = dt;
+        custWaitTime = (custArriveTime + waitInterval);
+        custServeTime = (custArriveTime + custWaitTime );
+        this.custDepartTime = (custArriveTime + custWaitTime + custServeTime);
     }
     
     public double getIsTurnedAway()
     {
-        //remove from arraylist if turned away
-        arrCust.clear(); //??
-        return custTurnedAway;
+        if( custArriveTime > stopTime ){
+            return custTurnedAway = custArriveTime;
+        }
+        else{
+            return custTurnedAway = 0;
+        }
     }
     
-    public void setIsTurnedAway( double tt )
+    public void setIsTurnedAway( double at, double st )
     {
-        this.custTurnedAway = tt;
+        if( at > st ){
+            this.custTurnedAway = at;
+        }
+        else{ 
+            this.custTurnedAway = 0;
+        }
     }
     
-    public int noCustInQueue()
+    /**
+     * compareTo method to make Customer class comparable
+     * 
+     * @param - id
+     * @return ordering of customers by arriveTime, joinQueueTime,
+     * waitTime, serveTime, departTime and turnAwayTime
+     * 
+     * Priority is for:
+     * if customer is being served, priority on departure time
+     * if customer has not arrived, priority on arrival time
+     */
+    @Override
+    public int compareTo( Customer w1 )
     {
-        //number of customers in queue at any time
-        return custNo = linCust.size();
+        /** 
+         * double being a primitive can't be dereferenced
+         * so convert to Double object
+         */
+        
+        Double a = new Double( this.custArriveTime );
+        Double b = new Double( w1.custArriveTime );
+        Double c = new Double( this.custJoinQueueTime );
+        Double d = new Double( w1.custJoinQueueTime );
+        Double e = new Double( this.custWaitTime );
+        Double f = new Double( w1.custWaitTime );
+        Double g = new Double( this.custServeTime );
+        Double h = new Double( w1.custServeTime );
+        Double i = new Double( this.custDepartTime );
+        Double j = new Double( w1.custDepartTime );
+        Double k = new Double( this.custTurnedAway );
+        Double l = new Double( w1.custTurnedAway );
+        
+        
+        if( a.equals(b) ){
+            if( c.equals(d) ){
+                if( e.equals(f) ){
+                    if( g.equals(h) ){
+                        if( i.equals(j) ){
+                            return k.compareTo(l);
+                        }
+                        else{
+                            return i.compareTo(j);
+                        }
+                    }
+                    else{
+                        return g.compareTo(h);
+                    }
+                }
+                else{
+                    return e.compareTo(f);
+                }
+            }
+            else{
+                return c.compareTo(d);
+            }
+        }
+        else{
+            return a.compareTo(b);
+        }
+    }
+    
+    /**
+     * overide toString method to return string representation of 
+     * parameters
+     */
+    @Override
+    public String toString()
+    {
+        return "(" + custArriveTime + "," + custJoinQueueTime + "," + custWaitTime + 
+                   + custServeTime + custDepartTime + custTurnedAway + ")";
     }
 }
+
