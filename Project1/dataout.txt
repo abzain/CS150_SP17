@@ -1,0 +1,1 @@
+( Customer 0 departs at 1.7990158462244508  )
