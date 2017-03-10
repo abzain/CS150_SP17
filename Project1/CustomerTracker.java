@@ -1,9 +1,12 @@
 import java.util.*;
 
 /**
- * Class Customer - keeps track of it's own status 
+ * Class CustomerTracker - keeps track of it's own status 
  * events tracked for each customer - arrived, served, 
  * departed and turned away
+ * 
+ * @param - custArriveTime, custServeTime, custDepartTime
+ * custTurnedAway, stopTime, custWaitTime
  * 
  * @author Zainab Hussein
  * @version 3-2-2017
@@ -12,14 +15,11 @@ public class CustomerTracker implements Comparable<CustomerTracker>
 {
     // instance variables 
     private double custArriveTime;
-    private double custJoinQueueTime;
-    private double custWaitTime;
     private double custServeTime;
+    private double custWaitTime;
     private double custDepartTime;
     private double custTurnedAway;
     private double stopTime;
-    
-    double waitInterval = 1.5;
     
     /**
      * Constructor for objects of class Customer
@@ -27,78 +27,109 @@ public class CustomerTracker implements Comparable<CustomerTracker>
     public CustomerTracker()
     {
         // initialise instance variables
-        this( 0,0 );
+        this( 0,0,0 );
     }
     
     /**
      * Constructor for objects of class Customer
      */
-    public CustomerTracker( double at, double st )
+    public CustomerTracker( double at, double st, double rt )
     {
         // initialise instance variables
         this.custArriveTime = at;
         this.stopTime = st;
-
+        this.avgNoCustServPerMin = st;
         
     }
     
+    /**
+     * track arrive time
+     */
     public double getIsArrive()
     {
         return custArriveTime;
     }
     
+    /**
+     * set arrive time
+     */
     public void setIsArrive( double at )
     {
         this.custArriveTime = at;
     }
     
-    public double getIsJoinQueue()
-    {
-        return custJoinQueueTime = custArriveTime;
-    }
-    
-    public void setIsJoinQueue()
-    {
-        this.custJoinQueueTime = custArriveTime;
-    }
-    
-    //depends on arrival time, so say for now a constant added to arriveTime
-     public double getIsWait()
-    {
-        return custWaitTime = (custArriveTime + waitInterval);
-    }
-     
-    public void setIsWait()
-    {
-        this.custWaitTime = (custArriveTime + waitInterval);
-    }
-    
+    private double u = Math.random();
+    private double avgNoCustServPerMin;
+    double serveTime;
+    double serviceInterval;
+    /**
+     * track serve time
+     */
     public double getIsServed()
     {
-        custWaitTime = (custArriveTime + waitInterval);
-        return custServeTime = (custArriveTime + custWaitTime );
+        serviceInterval = -( Math.log( u )/avgNoCustServPerMin );
+        serveTime = custArriveTime + serviceInterval;
+        return custServeTime = serveTime;
     }
     
-    public void setIsServed()
+    /**
+     * set serve time
+     */
+    public void setIsServed( double rt )
     {
-        custWaitTime = (custArriveTime + waitInterval);
-        this.custServeTime = (custArriveTime + custWaitTime );
+        serviceInterval = -( Math.log( u )/rt );
+        serveTime = custArriveTime + serviceInterval;
+        this.custServeTime = serveTime;
     }
     
+    /**
+     * track wait time
+     */
+     public double getIsWait()
+    {
+        if( custArriveTime == 0 ){
+           return  custWaitTime = 0;
+        }
+        else{
+            return custWaitTime = custServeTime - custArriveTime;
+        }
+    }
+    
+    /**
+     * set wait time
+     */
+    public void setIsWait()
+    {
+        if( custArriveTime == 0 ){
+            this.custWaitTime = 0;
+        }
+        else{
+            this.custWaitTime = custServeTime - custArriveTime;
+        }
+    }
+    
+    double tmpDepart;
+    /**
+     * track depart time
+     */
     public double getIsDepart()
     {
-        custWaitTime = (custArriveTime + waitInterval);
-        custServeTime = (custArriveTime + custWaitTime );
-        return custDepartTime = (custArriveTime + custWaitTime + custServeTime);
+        tmpDepart = custArriveTime + custWaitTime + serviceInterval;
+        return custDepartTime = tmpDepart;
     }
     
+    /**
+     * set depart time
+     */
     public void setIsDepart()
     {
-        custWaitTime = (custArriveTime + waitInterval);
-        custServeTime = (custArriveTime + custWaitTime );
-        this.custDepartTime = (custArriveTime + custWaitTime + custServeTime);
+        tmpDepart = custArriveTime + custWaitTime + serviceInterval;
+        this.custDepartTime = tmpDepart;
     }
     
+    /**
+     * track turn away time
+     */
     public double getIsTurnedAway()
     {
         if( custArriveTime > stopTime ){
@@ -109,6 +140,9 @@ public class CustomerTracker implements Comparable<CustomerTracker>
         }
     }
     
+    /**
+     * set turn away time
+     */
     public void setIsTurnedAway( double at, double st )
     {
         if( at > st ){
@@ -140,8 +174,6 @@ public class CustomerTracker implements Comparable<CustomerTracker>
         
         Double a = new Double( this.custArriveTime );
         Double b = new Double( w1.custArriveTime );
-        Double c = new Double( this.custJoinQueueTime );
-        Double d = new Double( w1.custJoinQueueTime );
         Double e = new Double( this.custWaitTime );
         Double f = new Double( w1.custWaitTime );
         Double g = new Double( this.custServeTime );
@@ -153,26 +185,21 @@ public class CustomerTracker implements Comparable<CustomerTracker>
         
         
         if( a.equals(b) ){
-            if( c.equals(d) ){
-                if( e.equals(f) ){
-                    if( g.equals(h) ){
-                        if( i.equals(j) ){
-                            return k.compareTo(l);
-                        }
-                        else{
-                            return i.compareTo(j);
-                        }
+            if( e.equals(f) ){
+                if( g.equals(h) ){
+                    if( i.equals(j) ){
+                        return k.compareTo(l);
                     }
                     else{
-                        return g.compareTo(h);
+                        return i.compareTo(j);
                     }
                 }
                 else{
-                    return e.compareTo(f);
+                    return g.compareTo(h);
                 }
             }
             else{
-                return c.compareTo(d);
+                return e.compareTo(f);
             }
         }
         else{
@@ -187,7 +214,8 @@ public class CustomerTracker implements Comparable<CustomerTracker>
     @Override
     public String toString()
     {
-        return "(" + custArriveTime + "," + custJoinQueueTime + "," + custWaitTime + 
-                   + custServeTime + custDepartTime + custTurnedAway + ")";
+        return "(" + " arrive " + custArriveTime + "|" + " wait " + custWaitTime + "|" +
+                   " serve " + custServeTime + "|" + " depart " + custDepartTime  + "|" +
+                   " overflow " + custTurnedAway + ")";
     }
 }

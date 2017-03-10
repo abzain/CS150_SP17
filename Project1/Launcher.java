@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Launcher here.
+ * Class Launcher - simple independent main class to test the project
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Zainab Hussein
+ * @version 3/10/2017
  */
 public class Launcher
 {
@@ -22,7 +22,7 @@ public class Launcher
         double rateOfService = Double.parseDouble(args[4]);
 
         // start the simulation
-        Simulation sim = new Simulation( cashierCount, profit, cost, lambda, rateOfService );
+        CafeSimulator sim = new CafeSimulator( cashierCount, profit, cost, lambda, rateOfService );
         sim.runSim();
 
 

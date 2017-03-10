@@ -13,42 +13,19 @@ import java.io.*;
  */
 public class CafeSimulator
 {
-    // instance variables - replace the example below with your own
-    //private int x;
-
+    // write to output file
+    File outFile = new File ("dataout.txt");
+    FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() ); throw new IOException;
+    PrintWriter pWriter = new PrintWriter ( fWriter );
+    
     /**
-     * quick test
+     * static main method
      */
     public static void main( String[] args )
     {
         CafeSimulator s = new CafeSimulator( 5,16.3,2.3,1.0,2.0);
         s.runSim();
 
-        //         File outFile = new File ("dataout.txt");
-
-        //         //catch exception
-        //         try{
-        //             FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() );
-        //             PrintWriter pWriter = new PrintWriter ( fWriter );
-        //             
-        //             //sim.runSim( 960 );  runs for a long time
-        //             
-        //             //checking 10 different seeds per number of items
-        // //             pWriter.println( " " );
-        // //             pWriter.println( sim.arriving( 1.0 ) + "," );
-        // //             pWriter.println( sim.joinQueue() + "," );
-        // //             pWriter.println( sim.waiting() + "," );
-        // //             pWriter.println( sim.serving( 2.0 ) + "," );
-        // //             pWriter.println( sim.departing( 1.0, 2.0 ) + "," );
-        // //             pWriter.println( sim.turnAway( 1.0, 5 ) + "," );
-        //               pWriter.println( s.runSim() );      
-        //           
-        //             pWriter.close();
-        //         }
-        //         
-        //         catch(Exception e){
-        //              System.out.println(e);
-        //         }
     }
 
     /**
@@ -67,8 +44,10 @@ public class CafeSimulator
         //schedule first arrival
         nextArrival( avgNoCustArrPerMin );
     }
-    double stopTime = 10;
 
+    double stopTime = 10;
+    Queue<CustomerTracker> linCust = new LinkedList<CustomerTracker>();
+    ArrayList<CustomerTracker> arrCust = new ArrayList<CustomerTracker>();
     /**
      * Run the simulation until stopping time occurs
      */
@@ -78,9 +57,16 @@ public class CafeSimulator
         Event e = null;
         double waitTime;
         double serviceTime;
-
+        double cafeTime;
+        double totWaitTime = 0;
+        double avgWait = 0;
+        double maxWait = 0;
         while( !eventSet.isEmpty() ){
             e = eventSet.remove();
+
+            for( int j = 0; j <= custNum; j++ ){
+                arrCust.add( new CustomerTracker(nextArriveTime, stopTime, avgNoCustServPerMin) );
+            }
 
             //if time is passed stopTime, stop simulation
             if( e.time > stopTime ){
@@ -88,53 +74,95 @@ public class CafeSimulator
             }
 
             if( e.what == Event.DEPART ){   //leave
+                //the departure time printed references this event
                 availableCashiers++;
-                System.out.println( "Customer " + e.who + " departs at " + e.time + " " );
-
-                //                 arriveTime = -( Math.log( u )/avgNoCustArrPerMin );
-                //                 nextArriveTime += arriveTime;
-                // 
-                //                 e.time += nextArriveTime;
-                //                 e.what = Event.ARRIVE;
-                //                 eventSet.add( e );
+                linCust.remove();
             }
             else{   //arrive
-                //System.out.print( "Customer " + e.who + " arrives at " + e.time + " " );
+                double enter = e.time;
+                //add customers to queue
+                for( CustomerTracker item : arrCust ){
+                    linCust.add( item );    
+                }
+
                 if( availableCashiers > 0 ){
                     availableCashiers--;
-                    double serviceInterval = -( Math.log( u )/avgNoCustServPerMin );
 
+                    //period between arrival and departure
+                    double serviceInterval = -( Math.log( u )/avgNoCustServPerMin );
                     arriveTime = -( Math.log( u )/avgNoCustArrPerMin );
-                    nextArriveTime += arriveTime;
 
                     serviceTime = nextArriveTime + serviceInterval;
-                    if( custNum == 0 ){
+                    cafeTime = ( arriveTime + serviceInterval );
+                    if( e.who == 0 ){   //if it's first customer, service time == arrival time
                         waitTime = 0;
                     }
                     else{
-                        //waitTime = serviceInterval;
-                        waitTime = serviceTime - nextArriveTime;
+                        waitTime = serviceInterval; //serviceTime - nextArriveTime
                     }
-                    double departTime = ( nextArriveTime+serviceTime+waitTime );
-                    //System.out.println( " and waits for " + waitTime + " minutes " );
+                    double departTime = ( nextArriveTime + waitTime + serviceInterval );
 
-                    e.time += serviceInterval;
+                    e.time += cafeTime;
                     e.what = Event.DEPART;
                     eventSet.add( e );
-                    System.out.println( "Customer " + e.who + " arrives at " + nextArriveTime + " departs at "
-                        + departTime + " service " + serviceInterval + " served by " +
-                        serviceTime + " waited " + waitTime + " ");
 
+                    System.out.println( "Customer " + e.who + " arrives at time " + enter + " departs at time "
+                                        + departTime + " is serviced for " + serviceInterval + " minutes " );
+                    System.out.println( " is served by time " + serviceTime + " and waited for " + waitTime + " ");
+                    System.out.println( " " );
+                    
+                    //print for output file
+                    pWriter.println( "Customer " + e.who + " arrives at time " + enter + " departs at time "
+                        + departTime + " is serviced for " + serviceInterval + " minutes " );
+                    pWriter.println( " " );    
+                    
+                    // total wait time
+                    totWaitTime += waitTime;
+
+                    //avgWait calculation
+                    avgWait = ( totWaitTime/linCust.size() );
+
+                    //maxWait calculation
+                    ArrayList<Double> waitTimeList = new ArrayList<Double>();  //arraylist of all waitTime
+                    for( int i = 0; i < linCust.size(); i++ ){
+                        waitTimeList.add( waitTime );
+                    }
+                    maxWait =  Collections.max( waitTimeList );
                 }
                 else{
-                    System.out.println( "OVERFLOW!" );
+                    System.out.println( "Customer " + e.who + " OVERFLOW!" );
+                    
+                    //print for output file
+                    pWriter.println( "Customer " + e.who + " OVERFLOW!" );
                 }
                 nextArrival( avgNoCustArrPerMin );
-
             }
-            netProfit();
-            turnAway( avgNoCustArrPerMin, availableCashiers );
         }
+        //total profit
+        totalProfit( profit );
+        pWriter.println( "Total profit " + totalProfit( profit ) );
+        
+        //cost of  cashier
+        cashierCost( availableCashiers, cashierCost );
+        pWriter.println( "Total cashier cost " + cashierCost( availableCashiers, cashierCost ) );
+        
+        //net profit
+        netProfit( profit,availableCashiers,cashierCost );
+        pWriter.println( "Net profit " + netProfit( profit,availableCashiers,cashierCost )  );
+        
+        //customers turned away 
+        turnAway( availableCashiers );
+        pWriter.println( "Turned away customers " + turnAway( availableCashiers ) );
+        
+        //avg wait time
+        System.out.println( "Average wait time " + avgWait + "|" );
+        pWriter.println( "Average wait time " + avgWait );
+        
+        //max wait time
+        System.out.println( "Max wait time " + maxWait + "|" );
+        pWriter.println( "Max wait time " + maxWait );
+
+        pWriter.close();
     }
 
     private int custNum = 0;
@@ -158,20 +186,47 @@ public class CafeSimulator
         //CustomerTracker A = new CustomerTracker( nextArriveTime, stopTime );
     }
 
-    private double netProfit()
+    /**
+     * Net profit method
+     * @param - profit of serving each customer is p dollars
+     */
+    private double netProfit( double p, int s, double c )
     {
-        //total profit - daily cost of cashiers (s*c)
-        System.out.println( "net profit" + (profit - (availableCashiers*cashierCost)) );
-        return ( profit - (availableCashiers*cashierCost) );
-
+        double netProfit = ( ( p*custNum ) - ( s*c ) );
+        System.out.print( "Net profit " + netProfit + " | " );
+        return netProfit;
     }
 
-    private int turnAway( double lamda, int s )
+    /**
+     * Total cashier cost method
+     * @param - cost of employing cashiers
+     */
+    private double cashierCost( int s, double c )
     {
-        //instantiate customer queue
-        //int custNum = arrCust.size();
-        int cusTurnedAwayCnt = 0;
+        double costOfCashier = ( s*c );
+        System.out.print( "Total cashier cost " + costOfCashier + " | " );
+        return costOfCashier;
+    }
 
+    /**
+     * Total profit method
+     * @param - total profit for the day
+     */
+    private double totalProfit( double p )
+    {
+        double totalProfit = ( p*custNum ); 
+        System.out.println( " " );
+        System.out.println( "Total profit " + totalProfit + " | " );
+        return totalProfit;
+    }
+
+    /**
+     * Method to calculate total number of customers turned away
+     * @param - custNo turned away
+     */
+    private int turnAway( int s )
+    {
+        int cusTurnedAwayCnt = 0;
         while( ( custNum > 8*s) || (nextArriveTime == stopTime) ){
             cusTurnedAwayCnt++;
         }
@@ -179,22 +234,8 @@ public class CafeSimulator
         return cusTurnedAwayCnt;
     }
 
-    //     /**
-    //      * avg waiting time
-    //      */
-    //     private double avgWait()
-    //     {
-    //         
-    //     }
-    // 
-    //     //maximum waiting time
-    //     private void maxWait()
-    //     {
-    // 
-    //     }
-
     private PriorityQueue<Event> eventSet;  //Pending events
-    private double u = Math.random();;
+    private double u = Math.random();
 
     //basic parameters of the simulation
     private int availableCashiers;      //number of available cashiers
