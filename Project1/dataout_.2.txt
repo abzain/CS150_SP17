@@ -1,0 +1,481 @@
+Customer 1 arrives at time 0.0 departs at time 0.0 is serviced for 3.91421224604656 minutes 
+ at start serve time of 0.0 and waited for -5.87131836906984 
+ 
+Customer 3 arrives at time 5.87131836906984 departs at time 9.7855306151164 is serviced for 3.91421224604656 minutes 
+ at start serve time of 5.87131836906984 and waited for -5.87131836906984 
+ 
+Customer 5 arrives at time 11.74263673813968 departs at time 15.65684898418624 is serviced for 3.91421224604656 minutes 
+ at start serve time of 11.74263673813968 and waited for -5.87131836906984 
+ 
+Customer 7 arrives at time 17.61395510720952 departs at time 21.52816735325608 is serviced for 3.91421224604656 minutes 
+ at start serve time of 17.61395510720952 and waited for -5.87131836906984 
+ 
+Customer 9 arrives at time 23.48527347627936 departs at time 27.39948572232592 is serviced for 3.91421224604656 minutes 
+ at start serve time of 23.48527347627936 and waited for -5.87131836906984 
+ 
+Customer 11 arrives at time 29.3565918453492 departs at time 33.27080409139576 is serviced for 3.91421224604656 minutes 
+ at start serve time of 29.3565918453492 and waited for -5.87131836906984 
+ 
+Customer 13 arrives at time 35.22791021441904 departs at time 39.1421224604656 is serviced for 3.91421224604656 minutes 
+ at start serve time of 35.22791021441904 and waited for -5.87131836906984 
+ 
+Customer 15 arrives at time 41.09922858348888 departs at time 45.01344082953544 is serviced for 3.91421224604656 minutes 
+ at start serve time of 41.09922858348888 and waited for -5.87131836906984 
+ 
+Customer 17 arrives at time 46.97054695255872 departs at time 50.88475919860528 is serviced for 3.91421224604656 minutes 
+ at start serve time of 46.97054695255872 and waited for -5.87131836906984 
+ 
+Customer 19 arrives at time 52.84186532162856 departs at time 56.75607756767512 is serviced for 3.91421224604656 minutes 
+ at start serve time of 52.84186532162856 and waited for -5.87131836906984 
+ 
+Customer 21 arrives at time 58.7131836906984 departs at time 62.62739593674496 is serviced for 3.91421224604656 minutes 
+ at start serve time of 58.7131836906984 and waited for -5.87131836906984 
+ 
+Customer 23 arrives at time 64.58450205976824 departs at time 68.4987143058148 is serviced for 3.91421224604656 minutes 
+ at start serve time of 64.58450205976824 and waited for -5.87131836906984 
+ 
+Customer 25 arrives at time 70.45582042883808 departs at time 74.37003267488464 is serviced for 3.91421224604656 minutes 
+ at start serve time of 70.45582042883808 and waited for -5.87131836906984 
+ 
+Customer 27 arrives at time 76.32713879790792 departs at time 80.24135104395448 is serviced for 3.91421224604656 minutes 
+ at start serve time of 76.32713879790792 and waited for -5.87131836906984 
+ 
+Customer 29 arrives at time 82.19845716697776 departs at time 86.11266941302432 is serviced for 3.91421224604656 minutes 
+ at start serve time of 82.19845716697776 and waited for -5.87131836906984 
+ 
+Customer 31 arrives at time 88.0697755360476 departs at time 91.98398778209416 is serviced for 3.91421224604656 minutes 
+ at start serve time of 88.0697755360476 and waited for -5.87131836906984 
+ 
+Customer 33 arrives at time 93.94109390511744 departs at time 97.855306151164 is serviced for 3.91421224604656 minutes 
+ at start serve time of 93.94109390511744 and waited for -5.87131836906984 
+ 
+Customer 35 arrives at time 99.81241227418728 departs at time 103.72662452023384 is serviced for 3.91421224604656 minutes 
+ at start serve time of 99.81241227418728 and waited for -5.87131836906984 
+ 
+Customer 37 arrives at time 105.68373064325712 departs at time 109.59794288930368 is serviced for 3.91421224604656 minutes 
+ at start serve time of 105.68373064325712 and waited for -5.87131836906984 
+ 
+Customer 39 arrives at time 111.55504901232696 departs at time 115.46926125837352 is serviced for 3.91421224604656 minutes 
+ at start serve time of 111.55504901232696 and waited for -5.87131836906984 
+ 
+Customer 41 arrives at time 117.4263673813968 departs at time 121.34057962744336 is serviced for 3.91421224604656 minutes 
+ at start serve time of 117.4263673813968 and waited for -5.87131836906984 
+ 
+Customer 43 arrives at time 123.29768575046664 departs at time 127.2118979965132 is serviced for 3.91421224604656 minutes 
+ at start serve time of 123.29768575046664 and waited for -5.87131836906984 
+ 
+Customer 45 arrives at time 129.16900411953648 departs at time 133.08321636558304 is serviced for 3.91421224604656 minutes 
+ at start serve time of 129.16900411953648 and waited for -5.871318369069826 
+ 
+Customer 47 arrives at time 135.0403224886063 departs at time 138.95453473465287 is serviced for 3.91421224604656 minutes 
+ at start serve time of 135.0403224886063 and waited for -5.871318369069854 
+ 
+Customer 49 arrives at time 140.91164085767616 departs at time 144.82585310372272 is serviced for 3.91421224604656 minutes 
+ at start serve time of 140.91164085767616 and waited for -5.871318369069854 
+ 
+Customer 51 arrives at time 146.78295922674602 departs at time 150.69717147279258 is serviced for 3.91421224604656 minutes 
+ at start serve time of 146.78295922674602 and waited for -5.871318369069854 
+ 
+Customer 53 arrives at time 152.65427759581587 departs at time 156.56848984186243 is serviced for 3.91421224604656 minutes 
+ at start serve time of 152.65427759581587 and waited for -5.871318369069854 
+ 
+Customer 55 arrives at time 158.52559596488572 departs at time 162.43980821093228 is serviced for 3.91421224604656 minutes 
+ at start serve time of 158.52559596488572 and waited for -5.871318369069854 
+ 
+Customer 57 arrives at time 164.39691433395558 departs at time 168.31112658000214 is serviced for 3.91421224604656 minutes 
+ at start serve time of 164.39691433395558 and waited for -5.871318369069854 
+ 
+Customer 59 arrives at time 170.26823270302543 departs at time 174.182444949072 is serviced for 3.91421224604656 minutes 
+ at start serve time of 170.26823270302543 and waited for -5.871318369069854 
+ 
+Customer 61 arrives at time 176.1395510720953 departs at time 180.05376331814185 is serviced for 3.91421224604656 minutes 
+ at start serve time of 176.1395510720953 and waited for -5.871318369069854 
+ 
+Customer 63 arrives at time 182.01086944116514 departs at time 185.9250816872117 is serviced for 3.91421224604656 minutes 
+ at start serve time of 182.01086944116514 and waited for -5.871318369069854 
+ 
+Customer 65 arrives at time 187.882187810235 departs at time 191.79640005628156 is serviced for 3.91421224604656 minutes 
+ at start serve time of 187.882187810235 and waited for -5.871318369069854 
+ 
+Customer 67 arrives at time 193.75350617930485 departs at time 197.6677184253514 is serviced for 3.91421224604656 minutes 
+ at start serve time of 193.75350617930485 and waited for -5.871318369069854 
+ 
+Customer 69 arrives at time 199.6248245483747 departs at time 203.53903679442126 is serviced for 3.91421224604656 minutes 
+ at start serve time of 199.6248245483747 and waited for -5.871318369069854 
+ 
+Customer 71 arrives at time 205.49614291744456 departs at time 209.41035516349112 is serviced for 3.91421224604656 minutes 
+ at start serve time of 205.49614291744456 and waited for -5.871318369069854 
+ 
+Customer 73 arrives at time 211.3674612865144 departs at time 215.28167353256097 is serviced for 3.91421224604656 minutes 
+ at start serve time of 211.3674612865144 and waited for -5.871318369069854 
+ 
+Customer 75 arrives at time 217.23877965558427 departs at time 221.15299190163083 is serviced for 3.91421224604656 minutes 
+ at start serve time of 217.23877965558427 and waited for -5.871318369069854 
+ 
+Customer 77 arrives at time 223.11009802465412 departs at time 227.02431027070068 is serviced for 3.91421224604656 minutes 
+ at start serve time of 223.11009802465412 and waited for -5.871318369069854 
+ 
+Customer 79 arrives at time 228.98141639372398 departs at time 232.89562863977054 is serviced for 3.91421224604656 minutes 
+ at start serve time of 228.98141639372398 and waited for -5.871318369069854 
+ 
+Customer 81 arrives at time 234.85273476279383 departs at time 238.7669470088404 is serviced for 3.91421224604656 minutes 
+ at start serve time of 234.85273476279383 and waited for -5.871318369069854 
+ 
+Customer 83 arrives at time 240.72405313186368 departs at time 244.63826537791024 is serviced for 3.91421224604656 minutes 
+ at start serve time of 240.72405313186368 and waited for -5.871318369069854 
+ 
+Customer 85 arrives at time 246.59537150093354 departs at time 250.5095837469801 is serviced for 3.91421224604656 minutes 
+ at start serve time of 246.59537150093354 and waited for -5.871318369069854 
+ 
+Customer 87 arrives at time 252.4666898700034 departs at time 256.3809021160499 is serviced for 3.91421224604656 minutes 
+ at start serve time of 252.4666898700034 and waited for -5.871318369069854 
+ 
+Customer 89 arrives at time 258.33800823907325 departs at time 262.2522204851198 is serviced for 3.91421224604656 minutes 
+ at start serve time of 258.33800823907325 and waited for -5.871318369069854 
+ 
+Customer 91 arrives at time 264.2093266081431 departs at time 268.12353885418963 is serviced for 3.91421224604656 minutes 
+ at start serve time of 264.2093266081431 and waited for -5.871318369069854 
+ 
+Customer 93 arrives at time 270.08064497721296 departs at time 273.9948572232595 is serviced for 3.91421224604656 minutes 
+ at start serve time of 270.08064497721296 and waited for -5.871318369069854 
+ 
+Customer 95 arrives at time 275.9519633462828 departs at time 279.86617559232934 is serviced for 3.91421224604656 minutes 
+ at start serve time of 275.9519633462828 and waited for -5.871318369069854 
+ 
+Customer 97 arrives at time 281.82328171535266 departs at time 285.7374939613992 is serviced for 3.91421224604656 minutes 
+ at start serve time of 281.82328171535266 and waited for -5.871318369069854 
+ 
+Customer 99 arrives at time 287.6946000844225 departs at time 291.60881233046905 is serviced for 3.91421224604656 minutes 
+ at start serve time of 287.6946000844225 and waited for -5.871318369069854 
+ 
+Customer 101 arrives at time 293.5659184534924 departs at time 297.4801306995389 is serviced for 3.91421224604656 minutes 
+ at start serve time of 293.5659184534924 and waited for -5.871318369069854 
+ 
+Customer 103 arrives at time 299.4372368225622 departs at time 303.35144906860876 is serviced for 3.91421224604656 minutes 
+ at start serve time of 299.4372368225622 and waited for -5.871318369069854 
+ 
+Customer 105 arrives at time 305.3085551916321 departs at time 309.2227674376786 is serviced for 3.91421224604656 minutes 
+ at start serve time of 305.3085551916321 and waited for -5.871318369069854 
+ 
+Customer 107 arrives at time 311.17987356070194 departs at time 315.09408580674847 is serviced for 3.91421224604656 minutes 
+ at start serve time of 311.17987356070194 and waited for -5.871318369069854 
+ 
+Customer 109 arrives at time 317.0511919297718 departs at time 320.9654041758183 is serviced for 3.91421224604656 minutes 
+ at start serve time of 317.0511919297718 and waited for -5.871318369069854 
+ 
+Customer 111 arrives at time 322.92251029884164 departs at time 326.8367225448882 is serviced for 3.91421224604656 minutes 
+ at start serve time of 322.92251029884164 and waited for -5.871318369069854 
+ 
+Customer 113 arrives at time 328.7938286679115 departs at time 332.70804091395803 is serviced for 3.91421224604656 minutes 
+ at start serve time of 328.7938286679115 and waited for -5.871318369069854 
+ 
+Customer 115 arrives at time 334.66514703698135 departs at time 338.5793592830279 is serviced for 3.91421224604656 minutes 
+ at start serve time of 334.66514703698135 and waited for -5.871318369069854 
+ 
+Customer 117 arrives at time 340.5364654060512 departs at time 344.45067765209774 is serviced for 3.91421224604656 minutes 
+ at start serve time of 340.5364654060512 and waited for -5.871318369069854 
+ 
+Customer 119 arrives at time 346.40778377512106 departs at time 350.3219960211676 is serviced for 3.91421224604656 minutes 
+ at start serve time of 346.40778377512106 and waited for -5.871318369069854 
+ 
+Customer 121 arrives at time 352.2791021441909 departs at time 356.19331439023745 is serviced for 3.91421224604656 minutes 
+ at start serve time of 352.2791021441909 and waited for -5.871318369069854 
+ 
+Customer 123 arrives at time 358.15042051326077 departs at time 362.0646327593073 is serviced for 3.91421224604656 minutes 
+ at start serve time of 358.15042051326077 and waited for -5.871318369069854 
+ 
+Customer 125 arrives at time 364.0217388823306 departs at time 367.93595112837716 is serviced for 3.91421224604656 minutes 
+ at start serve time of 364.0217388823306 and waited for -5.871318369069854 
+ 
+Customer 127 arrives at time 369.8930572514005 departs at time 373.807269497447 is serviced for 3.91421224604656 minutes 
+ at start serve time of 369.8930572514005 and waited for -5.871318369069854 
+ 
+Customer 129 arrives at time 375.76437562047033 departs at time 379.67858786651686 is serviced for 3.91421224604656 minutes 
+ at start serve time of 375.76437562047033 and waited for -5.871318369069854 
+ 
+Customer 131 arrives at time 381.6356939895402 departs at time 385.5499062355867 is serviced for 3.91421224604656 minutes 
+ at start serve time of 381.6356939895402 and waited for -5.871318369069854 
+ 
+Customer 133 arrives at time 387.50701235861004 departs at time 391.4212246046566 is serviced for 3.91421224604656 minutes 
+ at start serve time of 387.50701235861004 and waited for -5.871318369069854 
+ 
+Customer 135 arrives at time 393.3783307276799 departs at time 397.2925429737264 is serviced for 3.91421224604656 minutes 
+ at start serve time of 393.3783307276799 and waited for -5.871318369069854 
+ 
+Customer 137 arrives at time 399.24964909674975 departs at time 403.1638613427963 is serviced for 3.91421224604656 minutes 
+ at start serve time of 399.24964909674975 and waited for -5.871318369069854 
+ 
+Customer 139 arrives at time 405.1209674658196 departs at time 409.03517971186614 is serviced for 3.91421224604656 minutes 
+ at start serve time of 405.1209674658196 and waited for -5.871318369069854 
+ 
+Customer 141 arrives at time 410.99228583488946 departs at time 414.906498080936 is serviced for 3.91421224604656 minutes 
+ at start serve time of 410.99228583488946 and waited for -5.871318369069854 
+ 
+Customer 143 arrives at time 416.8636042039593 departs at time 420.77781645000584 is serviced for 3.91421224604656 minutes 
+ at start serve time of 416.8636042039593 and waited for -5.871318369069854 
+ 
+Customer 145 arrives at time 422.73492257302917 departs at time 426.6491348190757 is serviced for 3.91421224604656 minutes 
+ at start serve time of 422.73492257302917 and waited for -5.871318369069854 
+ 
+Customer 147 arrives at time 428.606240942099 departs at time 432.52045318814555 is serviced for 3.91421224604656 minutes 
+ at start serve time of 428.606240942099 and waited for -5.871318369069854 
+ 
+Customer 149 arrives at time 434.4775593111689 departs at time 438.3917715572154 is serviced for 3.91421224604656 minutes 
+ at start serve time of 434.4775593111689 and waited for -5.871318369069854 
+ 
+Customer 151 arrives at time 440.34887768023873 departs at time 444.26308992628526 is serviced for 3.91421224604656 minutes 
+ at start serve time of 440.34887768023873 and waited for -5.871318369069854 
+ 
+Customer 153 arrives at time 446.2201960493086 departs at time 450.1344082953551 is serviced for 3.91421224604656 minutes 
+ at start serve time of 446.2201960493086 and waited for -5.871318369069854 
+ 
+Customer 155 arrives at time 452.09151441837844 departs at time 456.00572666442497 is serviced for 3.91421224604656 minutes 
+ at start serve time of 452.09151441837844 and waited for -5.871318369069854 
+ 
+Customer 157 arrives at time 457.9628327874483 departs at time 461.8770450334948 is serviced for 3.91421224604656 minutes 
+ at start serve time of 457.9628327874483 and waited for -5.871318369069854 
+ 
+Customer 159 arrives at time 463.83415115651815 departs at time 467.7483634025647 is serviced for 3.91421224604656 minutes 
+ at start serve time of 463.83415115651815 and waited for -5.871318369069854 
+ 
+Customer 161 arrives at time 469.705469525588 departs at time 473.61968177163453 is serviced for 3.91421224604656 minutes 
+ at start serve time of 469.705469525588 and waited for -5.871318369069854 
+ 
+Customer 163 arrives at time 475.57678789465785 departs at time 479.4910001407044 is serviced for 3.91421224604656 minutes 
+ at start serve time of 475.57678789465785 and waited for -5.871318369069854 
+ 
+Customer 165 arrives at time 481.4481062637277 departs at time 485.36231850977424 is serviced for 3.91421224604656 minutes 
+ at start serve time of 481.4481062637277 and waited for -5.871318369069854 
+ 
+Customer 167 arrives at time 487.31942463279756 departs at time 491.2336368788441 is serviced for 3.91421224604656 minutes 
+ at start serve time of 487.31942463279756 and waited for -5.871318369069854 
+ 
+Customer 169 arrives at time 493.1907430018674 departs at time 497.10495524791395 is serviced for 3.91421224604656 minutes 
+ at start serve time of 493.1907430018674 and waited for -5.871318369069854 
+ 
+Customer 171 arrives at time 499.0620613709373 departs at time 502.9762736169838 is serviced for 3.91421224604656 minutes 
+ at start serve time of 499.0620613709373 and waited for -5.871318369069854 
+ 
+Customer 173 arrives at time 504.9333797400071 departs at time 508.84759198605366 is serviced for 3.91421224604656 minutes 
+ at start serve time of 504.9333797400071 and waited for -5.871318369069854 
+ 
+Customer 175 arrives at time 510.804698109077 departs at time 514.7189103551235 is serviced for 3.91421224604656 minutes 
+ at start serve time of 510.804698109077 and waited for -5.871318369069854 
+ 
+Customer 177 arrives at time 516.6760164781468 departs at time 520.5902287241934 is serviced for 3.91421224604656 minutes 
+ at start serve time of 516.6760164781468 and waited for -5.871318369069854 
+ 
+Customer 179 arrives at time 522.5473348472167 departs at time 526.4615470932632 is serviced for 3.91421224604656 minutes 
+ at start serve time of 522.5473348472167 and waited for -5.871318369069854 
+ 
+Customer 181 arrives at time 528.4186532162865 departs at time 532.3328654623331 is serviced for 3.91421224604656 minutes 
+ at start serve time of 528.4186532162865 and waited for -5.871318369069854 
+ 
+Customer 183 arrives at time 534.2899715853564 departs at time 538.2041838314029 is serviced for 3.91421224604656 minutes 
+ at start serve time of 534.2899715853564 and waited for -5.871318369069854 
+ 
+Customer 185 arrives at time 540.1612899544263 departs at time 544.0755022004728 is serviced for 3.91421224604656 minutes 
+ at start serve time of 540.1612899544263 and waited for -5.871318369069854 
+ 
+Customer 187 arrives at time 546.0326083234961 departs at time 549.9468205695426 is serviced for 3.91421224604656 minutes 
+ at start serve time of 546.0326083234961 and waited for -5.871318369069854 
+ 
+Customer 189 arrives at time 551.903926692566 departs at time 555.8181389386125 is serviced for 3.91421224604656 minutes 
+ at start serve time of 551.903926692566 and waited for -5.871318369069854 
+ 
+Customer 191 arrives at time 557.7752450616358 departs at time 561.6894573076823 is serviced for 3.91421224604656 minutes 
+ at start serve time of 557.7752450616358 and waited for -5.871318369069854 
+ 
+Customer 193 arrives at time 563.6465634307057 departs at time 567.5607756767522 is serviced for 3.91421224604656 minutes 
+ at start serve time of 563.6465634307057 and waited for -5.871318369069854 
+ 
+Customer 195 arrives at time 569.5178817997755 departs at time 573.432094045822 is serviced for 3.91421224604656 minutes 
+ at start serve time of 569.5178817997755 and waited for -5.871318369069854 
+ 
+Customer 197 arrives at time 575.3892001688454 departs at time 579.3034124148919 is serviced for 3.91421224604656 minutes 
+ at start serve time of 575.3892001688454 and waited for -5.871318369069854 
+ 
+Customer 199 arrives at time 581.2605185379152 departs at time 585.1747307839618 is serviced for 3.91421224604656 minutes 
+ at start serve time of 581.2605185379152 and waited for -5.871318369069854 
+ 
+Customer 201 arrives at time 587.1318369069851 departs at time 591.0460491530316 is serviced for 3.91421224604656 minutes 
+ at start serve time of 587.1318369069851 and waited for -5.871318369069854 
+ 
+Customer 203 arrives at time 593.0031552760549 departs at time 596.9173675221015 is serviced for 3.91421224604656 minutes 
+ at start serve time of 593.0031552760549 and waited for -5.871318369069854 
+ 
+Customer 205 arrives at time 598.8744736451248 departs at time 602.7886858911713 is serviced for 3.91421224604656 minutes 
+ at start serve time of 598.8744736451248 and waited for -5.871318369069854 
+ 
+Customer 207 arrives at time 604.7457920141946 departs at time 608.6600042602412 is serviced for 3.91421224604656 minutes 
+ at start serve time of 604.7457920141946 and waited for -5.871318369069854 
+ 
+Customer 209 arrives at time 610.6171103832645 departs at time 614.531322629311 is serviced for 3.91421224604656 minutes 
+ at start serve time of 610.6171103832645 and waited for -5.871318369069854 
+ 
+Customer 211 arrives at time 616.4884287523344 departs at time 620.4026409983809 is serviced for 3.91421224604656 minutes 
+ at start serve time of 616.4884287523344 and waited for -5.871318369069854 
+ 
+Customer 213 arrives at time 622.3597471214042 departs at time 626.2739593674507 is serviced for 3.91421224604656 minutes 
+ at start serve time of 622.3597471214042 and waited for -5.871318369069854 
+ 
+Customer 215 arrives at time 628.2310654904741 departs at time 632.1452777365206 is serviced for 3.91421224604656 minutes 
+ at start serve time of 628.2310654904741 and waited for -5.871318369069854 
+ 
+Customer 217 arrives at time 634.1023838595439 departs at time 638.0165961055905 is serviced for 3.91421224604656 minutes 
+ at start serve time of 634.1023838595439 and waited for -5.871318369069854 
+ 
+Customer 219 arrives at time 639.9737022286138 departs at time 643.8879144746603 is serviced for 3.91421224604656 minutes 
+ at start serve time of 639.9737022286138 and waited for -5.871318369069854 
+ 
+Customer 221 arrives at time 645.8450205976836 departs at time 649.7592328437302 is serviced for 3.91421224604656 minutes 
+ at start serve time of 645.8450205976836 and waited for -5.871318369069854 
+ 
+Customer 223 arrives at time 651.7163389667535 departs at time 655.6305512128 is serviced for 3.91421224604656 minutes 
+ at start serve time of 651.7163389667535 and waited for -5.871318369069854 
+ 
+Customer 225 arrives at time 657.5876573358233 departs at time 661.5018695818699 is serviced for 3.91421224604656 minutes 
+ at start serve time of 657.5876573358233 and waited for -5.871318369069854 
+ 
+Customer 227 arrives at time 663.4589757048932 departs at time 667.3731879509397 is serviced for 3.91421224604656 minutes 
+ at start serve time of 663.4589757048932 and waited for -5.871318369069854 
+ 
+Customer 229 arrives at time 669.330294073963 departs at time 673.2445063200096 is serviced for 3.91421224604656 minutes 
+ at start serve time of 669.330294073963 and waited for -5.871318369069854 
+ 
+Customer 231 arrives at time 675.2016124430329 departs at time 679.1158246890794 is serviced for 3.91421224604656 minutes 
+ at start serve time of 675.2016124430329 and waited for -5.871318369069854 
+ 
+Customer 233 arrives at time 681.0729308121028 departs at time 684.9871430581493 is serviced for 3.91421224604656 minutes 
+ at start serve time of 681.0729308121028 and waited for -5.871318369069854 
+ 
+Customer 235 arrives at time 686.9442491811726 departs at time 690.8584614272191 is serviced for 3.91421224604656 minutes 
+ at start serve time of 686.9442491811726 and waited for -5.871318369069854 
+ 
+Customer 237 arrives at time 692.8155675502425 departs at time 696.729779796289 is serviced for 3.91421224604656 minutes 
+ at start serve time of 692.8155675502425 and waited for -5.871318369069854 
+ 
+Customer 239 arrives at time 698.6868859193123 departs at time 702.6010981653588 is serviced for 3.91421224604656 minutes 
+ at start serve time of 698.6868859193123 and waited for -5.871318369069854 
+ 
+Customer 241 arrives at time 704.5582042883822 departs at time 708.4724165344287 is serviced for 3.91421224604656 minutes 
+ at start serve time of 704.5582042883822 and waited for -5.871318369069854 
+ 
+Customer 243 arrives at time 710.429522657452 departs at time 714.3437349034986 is serviced for 3.91421224604656 minutes 
+ at start serve time of 710.429522657452 and waited for -5.871318369069854 
+ 
+Customer 245 arrives at time 716.3008410265219 departs at time 720.2150532725684 is serviced for 3.91421224604656 minutes 
+ at start serve time of 716.3008410265219 and waited for -5.871318369069854 
+ 
+Customer 247 arrives at time 722.1721593955917 departs at time 726.0863716416383 is serviced for 3.91421224604656 minutes 
+ at start serve time of 722.1721593955917 and waited for -5.871318369069854 
+ 
+Customer 249 arrives at time 728.0434777646616 departs at time 731.9576900107081 is serviced for 3.91421224604656 minutes 
+ at start serve time of 728.0434777646616 and waited for -5.871318369069854 
+ 
+Customer 251 arrives at time 733.9147961337314 departs at time 737.829008379778 is serviced for 3.91421224604656 minutes 
+ at start serve time of 733.9147961337314 and waited for -5.871318369069854 
+ 
+Customer 253 arrives at time 739.7861145028013 departs at time 743.7003267488478 is serviced for 3.91421224604656 minutes 
+ at start serve time of 739.7861145028013 and waited for -5.871318369069854 
+ 
+Customer 255 arrives at time 745.6574328718712 departs at time 749.5716451179177 is serviced for 3.91421224604656 minutes 
+ at start serve time of 745.6574328718712 and waited for -5.871318369069854 
+ 
+Customer 257 arrives at time 751.528751240941 departs at time 755.4429634869875 is serviced for 3.91421224604656 minutes 
+ at start serve time of 751.528751240941 and waited for -5.871318369069854 
+ 
+Customer 259 arrives at time 757.4000696100109 departs at time 761.3142818560574 is serviced for 3.91421224604656 minutes 
+ at start serve time of 757.4000696100109 and waited for -5.871318369069854 
+ 
+Customer 261 arrives at time 763.2713879790807 departs at time 767.1856002251272 is serviced for 3.91421224604656 minutes 
+ at start serve time of 763.2713879790807 and waited for -5.871318369069854 
+ 
+Customer 263 arrives at time 769.1427063481506 departs at time 773.0569185941971 is serviced for 3.91421224604656 minutes 
+ at start serve time of 769.1427063481506 and waited for -5.871318369069854 
+ 
+Customer 265 arrives at time 775.0140247172204 departs at time 778.928236963267 is serviced for 3.91421224604656 minutes 
+ at start serve time of 775.0140247172204 and waited for -5.871318369069854 
+ 
+Customer 267 arrives at time 780.8853430862903 departs at time 784.7995553323368 is serviced for 3.91421224604656 minutes 
+ at start serve time of 780.8853430862903 and waited for -5.871318369069854 
+ 
+Customer 269 arrives at time 786.7566614553601 departs at time 790.6708737014067 is serviced for 3.91421224604656 minutes 
+ at start serve time of 786.7566614553601 and waited for -5.871318369069854 
+ 
+Customer 271 arrives at time 792.62797982443 departs at time 796.5421920704765 is serviced for 3.91421224604656 minutes 
+ at start serve time of 792.62797982443 and waited for -5.871318369069854 
+ 
+Customer 273 arrives at time 798.4992981934998 departs at time 802.4135104395464 is serviced for 3.91421224604656 minutes 
+ at start serve time of 798.4992981934998 and waited for -5.871318369069854 
+ 
+Customer 275 arrives at time 804.3706165625697 departs at time 808.2848288086162 is serviced for 3.91421224604656 minutes 
+ at start serve time of 804.3706165625697 and waited for -5.871318369069854 
+ 
+Customer 277 arrives at time 810.2419349316395 departs at time 814.1561471776861 is serviced for 3.91421224604656 minutes 
+ at start serve time of 810.2419349316395 and waited for -5.871318369069854 
+ 
+Customer 279 arrives at time 816.1132533007094 departs at time 820.0274655467559 is serviced for 3.91421224604656 minutes 
+ at start serve time of 816.1132533007094 and waited for -5.871318369069854 
+ 
+Customer 281 arrives at time 821.9845716697793 departs at time 825.8987839158258 is serviced for 3.91421224604656 minutes 
+ at start serve time of 821.9845716697793 and waited for -5.871318369069854 
+ 
+Customer 283 arrives at time 827.8558900388491 departs at time 831.7701022848956 is serviced for 3.91421224604656 minutes 
+ at start serve time of 827.8558900388491 and waited for -5.871318369069854 
+ 
+Customer 285 arrives at time 833.727208407919 departs at time 837.6414206539655 is serviced for 3.91421224604656 minutes 
+ at start serve time of 833.727208407919 and waited for -5.871318369069854 
+ 
+Customer 287 arrives at time 839.5985267769888 departs at time 843.5127390230354 is serviced for 3.91421224604656 minutes 
+ at start serve time of 839.5985267769888 and waited for -5.871318369069854 
+ 
+Customer 289 arrives at time 845.4698451460587 departs at time 849.3840573921052 is serviced for 3.91421224604656 minutes 
+ at start serve time of 845.4698451460587 and waited for -5.871318369069854 
+ 
+Customer 291 arrives at time 851.3411635151285 departs at time 855.2553757611751 is serviced for 3.91421224604656 minutes 
+ at start serve time of 851.3411635151285 and waited for -5.871318369069854 
+ 
+Customer 293 arrives at time 857.2124818841984 departs at time 861.1266941302449 is serviced for 3.91421224604656 minutes 
+ at start serve time of 857.2124818841984 and waited for -5.871318369069854 
+ 
+Customer 295 arrives at time 863.0838002532682 departs at time 866.9980124993148 is serviced for 3.91421224604656 minutes 
+ at start serve time of 863.0838002532682 and waited for -5.871318369069854 
+ 
+Customer 297 arrives at time 868.9551186223381 departs at time 872.8693308683846 is serviced for 3.91421224604656 minutes 
+ at start serve time of 868.9551186223381 and waited for -5.871318369069854 
+ 
+Customer 299 arrives at time 874.826436991408 departs at time 878.7406492374545 is serviced for 3.91421224604656 minutes 
+ at start serve time of 874.826436991408 and waited for -5.871318369069854 
+ 
+Customer 301 arrives at time 880.6977553604778 departs at time 884.6119676065243 is serviced for 3.91421224604656 minutes 
+ at start serve time of 880.6977553604778 and waited for -5.871318369069854 
+ 
+Customer 303 arrives at time 886.5690737295477 departs at time 890.4832859755942 is serviced for 3.91421224604656 minutes 
+ at start serve time of 886.5690737295477 and waited for -5.871318369069854 
+ 
+Customer 305 arrives at time 892.4403920986175 departs at time 896.354604344664 is serviced for 3.91421224604656 minutes 
+ at start serve time of 892.4403920986175 and waited for -5.871318369069854 
+ 
+Customer 307 arrives at time 898.3117104676874 departs at time 902.2259227137339 is serviced for 3.91421224604656 minutes 
+ at start serve time of 898.3117104676874 and waited for -5.871318369069854 
+ 
+Customer 309 arrives at time 904.1830288367572 departs at time 908.0972410828037 is serviced for 3.91421224604656 minutes 
+ at start serve time of 904.1830288367572 and waited for -5.871318369069854 
+ 
+Customer 311 arrives at time 910.0543472058271 departs at time 913.9685594518736 is serviced for 3.91421224604656 minutes 
+ at start serve time of 910.0543472058271 and waited for -5.871318369069854 
+ 
+Customer 313 arrives at time 915.9256655748969 departs at time 919.8398778209435 is serviced for 3.91421224604656 minutes 
+ at start serve time of 915.9256655748969 and waited for -5.871318369069854 
+ 
+Customer 315 arrives at time 921.7969839439668 departs at time 925.7111961900133 is serviced for 3.91421224604656 minutes 
+ at start serve time of 921.7969839439668 and waited for -5.871318369069854 
+ 
+Customer 317 arrives at time 927.6683023130366 departs at time 931.5825145590832 is serviced for 3.91421224604656 minutes 
+ at start serve time of 927.6683023130366 and waited for -5.871318369069854 
+ 
+Customer 319 arrives at time 933.5396206821065 departs at time 937.453832928153 is serviced for 3.91421224604656 minutes 
+ at start serve time of 933.5396206821065 and waited for -5.871318369069854 
+ 
+Customer 321 arrives at t
