@@ -21,10 +21,10 @@ public class testSim
     {
         testSim s;
 
-        for( int cashiers = 0; cashiers < 10; cashiers++ ){
-            s = new testSim( cashiers, 2, 300, 1.5, 0.3 );
-            s.runSim();
-        }
+        //         for( int cashiers = 0; cashiers < 10; cashiers++ ){
+        //             s = new testSim( cashiers, 2, 300, 1.5, 0.3 );
+        //             s.runSim();
+        //         }
 
         //         for( double lamda = 0; lamda < 2; lamda = lamda + 0.5 ){
         //             for( int cashiers = 0; cashiers < 10; cashiers++ ){
@@ -33,8 +33,8 @@ public class testSim
         //             }
         //         }
 
-        //         s = new testSim( 10, 2, 300, 0.5, .3 );
-        //         s.runSim();
+        s = new testSim( 7, 2, 300, 1, .3 );
+        s.runSim();
     }
 
     /**
