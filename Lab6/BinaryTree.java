@@ -1,24 +1,82 @@
 
 /**
- * Abstract class BinaryTree - write a description of the class here
+ * Abstract class BinaryTree - abstract class implementing the Tree 
+ * interface. Will implement just the print methods here as class
+ * is too broad for implementation of other methods in tree interface. 
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author Zainab Hussein
+ * @version 3-15-2017
  */
-public abstract class BinaryTree
+
+public abstract class BinaryTree<Any> implements Tree<Any>
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private BinaryNode<Any> root; 
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the sum of x and y 
-     */
-    public int sampleMethod(int y)
+
+    public void printPreOder()
     {
-        // put your code here
-        return x + y;
+        if( root != null ){
+            //visit root node
+            System.out.println( root.getElement() + " " ); 
+            //recursively traverse left subtree
+            root.getLeft();
+            //recursively traverse right subtree
+            root.getRight();
+        }
+        else{
+            System.out.println( "Binary tree empty" ); 
+        }
+    }
+    
+
+    public void printPostOrder()
+    {
+        if( root != null ){
+            //recursively traverse left subtree
+            root.getLeft();
+            //recursively traverse right subtree
+            root.getRight();
+            //visit root node
+            System.out.println( root.getElement() + " " ); 
+        }
+        else{
+            System.out.println( "Binary tree empty" ); 
+        }
+    }
+    
+    public void printInOrder()
+    {
+        if( root != null ){
+            //recursively traverse left subtree
+            root.getLeft();
+            //visit root node
+            System.out.println( root.getElement() + " " ); 
+            //recursively traverse right subtree
+            root.getRight();
+        }
+        else{
+            System.out.println( "Binary tree empty" ); 
+        }
+    }
+    
+    public void empty()
+    {
+        root = null;
+    }
+    
+    public boolean isEmpty()
+    {
+        if( root == null ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public int size()
+    {
+        return root.size( root );
     }
 }
