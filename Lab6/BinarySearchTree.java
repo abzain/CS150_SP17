@@ -5,7 +5,7 @@
  * @author Zainab Hussein
  * @version 3-17-2017
  */
-public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparable<BinarySearchTree<Any>>
+public class BinarySearchTree<Any extends Comparable<Any>> extends BinaryTree<Any> 
 {
 
     /**
@@ -18,38 +18,20 @@ public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparab
     }
     
     /**
-     * Copy constructor for objects of class BinarySearchTree
-     */
-    public BinarySearchTree( Any rootItem )
-    {
-        // initialise instance variables
-        root = new BinarySearchTree<Any>( rootItem, null, null );
-    }
-    
-    @Override
-    public int compareTo( BinarySearchTree<Any> b )
-    {
-        BinaryNode<Any> val1 = this.root;
-        BinaryNode<Any> val2 = b.root;
-        
-        return val1.compareTo(val2);
-    }
-    
-    /**
      * return - true if inserted without duplicates,
      * false otherwise
      */  
     public boolean insert( Any input )
     {
         if( root == null ){
-            new BinaryNode<Any>( input, null, null );    //base case
+            root = new BinaryNode<Any>( input, null, null );    //base case
         }
         int compareResult = input.compareTo( root.getElement() );
         if( compareResult < 0 ){
-            root.getLeft() = insert( input );
+            root.getLeft().setElement( input );
         }
         else if( compareResult > 0 ){
-            root.getRight() = insert( input );
+            root.getRight().setElement( input );
         }
         //ignore insertion when duplicate, compareResult==0
         return true;
@@ -61,7 +43,27 @@ public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparab
      */
     public boolean contains( Any input )
     {
-        
+        return contains( input, root );
+    }
+    
+    /**
+     * recursive contains
+     */
+    private boolean contains( Any input, BinaryNode<Any> t )
+    {
+        if( t == null ){ 
+            return false; 
+        }
+        int compareResult = input.compareTo( t.getElement() );
+        if( compareResult < 0 ){
+            return contains( input, t.getLeft() );
+        }
+        else if( compareResult > 0 ){
+            return contains( input, t.getRight() );
+        }
+        else{
+            return true;
+        }
     }
     
     /**
@@ -72,7 +74,34 @@ public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparab
      */
     public boolean remove( Any input )
     {
-        
+        return remove( input, root );
+    }
+    
+    /**
+     * recursive remove method
+     */
+    private boolean remove( Any input, BinaryNode<Any> t )
+    {
+        if( t == null ){
+            return false;
+        }
+        int compareResult = input.compareTo( t.getElement() );
+        if( compareResult < 0 ){
+            remove( input, t.getLeft() );
+        }
+        else if( compareResult > 0 ){
+            remove( input, t.getRight() );
+        }
+        else if( t.getLeft() != null && t.getRight() != null ){
+            //2 children
+            t.setElement( findMin( t.getRight() ) );
+            remove( t.getElement(), t.getRight() );
+        }
+        else{
+            //t.getLeft==null or t.getRight==null or both
+            t = ( t.getLeft() != null )? t.getLeft() : t.getRight();
+        }
+        return true;
     }
     
     /**
@@ -80,7 +109,23 @@ public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparab
      */
     public Any findMax()
     {
-        
+        return findMax( root );
+    }
+    
+    /**
+     * recursive find min
+     */
+    private Any findMax( BinaryNode<Any> t )
+    {
+        if( t == null ){
+            return t.getElement();
+        }
+        if( root.getRight() == null ){
+            return t.getElement();
+        }
+        else{
+            return findMin( t.getRight() );
+        }
     }
     
     /**
@@ -88,7 +133,22 @@ public class BinarySearchTree<Any> extends BinaryTree<Any> //implements Comparab
      */
     public Any findMin()
     {
-        
+        return findMin( root );
     }
     
+    /**
+     * recursive find min
+     */
+    private Any findMin( BinaryNode<Any> t )
+    {
+        if( t == null ){
+            return t.getElement();
+        }
+        if( root.getLeft() == null ){
+            return t.getElement();
+        }
+        else{
+            return findMin( t.getLeft() );
+        }
+    }
 }

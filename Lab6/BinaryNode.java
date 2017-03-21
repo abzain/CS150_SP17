@@ -6,7 +6,7 @@
  * @author Zainab Hussein
  * @version 3-15-2017
  */
-public class BinaryNode<Any>
+public class BinaryNode<Any> 
 {
     // instance variables - replace the example below with your own
     private BinaryNode<Any> left;
@@ -73,4 +73,5 @@ public class BinaryNode<Any>
             return ( 1 + size( t.left ) + size( t.right ) );    // count root and subtrees
         }
     }
+    
 }

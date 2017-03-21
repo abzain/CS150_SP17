@@ -13,7 +13,7 @@ public interface Tree<Any>
      * return - true if inserted without duplicates,
      * false otherwise
      */  
-    boolean insert( Any input );
+    public boolean insert( Any input );
     
     /**
      * return - true if tree contains key (input),
@@ -24,7 +24,7 @@ public interface Tree<Any>
     /**
      * return - total number of items in tree
      */
-    int size();
+    public int size();
     
     /**
      * return - true if removes specified input from
@@ -32,41 +32,41 @@ public interface Tree<Any>
      * Also implements removal of the min item 
      * from subtree
      */
-    boolean remove( Any input );
+    public boolean remove( Any input );
     
     /**
      * return - largest item from tree
      */
-    Any findMax();
+    public Any findMax();
     
     /**
      * return - smallest item from tree
      */
-    Any findMin();
+    public Any findMin();
     
     /**
      * prints tree using preorder transversal
      */
-    void printPreOrder();
+    public void printPreOrder();
     
     /**
      * prints tree using postorder transversal
      */
-    void printPostOrder();
+    public void printPostOrder();
     
     /**
      * prints tree using inorder transversal
      */
-    void printInOrder();
+    public void printInOrder();
     
     /**
      * removes all items from the tree
      */
-    void empty();
+    public void empty();
     
     /**
      * return - true if there are no items
      * in the tree, false otherwise
      */
-    boolean isEmpty();
+    public boolean isEmpty();
 }

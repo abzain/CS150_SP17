@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ printPreOder()
+comment0.target=void\ printPreOrder()
 comment1.params=
 comment1.target=void\ printPostOrder()
 comment2.params=

@@ -11,14 +11,13 @@
 public abstract class BinaryTree<Any> implements Tree<Any>
 {
     // instance variables - replace the example below with your own
-    private BinaryNode<Any> root; 
+    BinaryNode<Any> root; 
 
-
-    public void printPreOder()
+    public void printPreOrder()
     {
         if( root != null ){
             //visit root node
-            System.out.println( root.getElement() + " " ); 
+            System.out.println( "preorder :" + root.getElement() + " " ); 
             //recursively traverse left subtree
             root.getLeft();
             //recursively traverse right subtree
@@ -29,6 +28,16 @@ public abstract class BinaryTree<Any> implements Tree<Any>
         }
     }
     
+//        /**
+//      * overide toString method to return string representation of 
+//      * parameters
+//      */
+//     @Override
+//     public String pre_toString()
+//     {
+//         return "(" + "," + System.out.println( "inorder :" 
+//         + root.getElement() + " " ) + "," + root.getLeft()+ "," + root.getRight() + ")";
+//     }
 
     public void printPostOrder()
     {
@@ -38,7 +47,7 @@ public abstract class BinaryTree<Any> implements Tree<Any>
             //recursively traverse right subtree
             root.getRight();
             //visit root node
-            System.out.println( root.getElement() + " " ); 
+            System.out.println( "postorder :" + root.getElement() + " " ); 
         }
         else{
             System.out.println( "Binary tree empty" ); 
@@ -51,7 +60,7 @@ public abstract class BinaryTree<Any> implements Tree<Any>
             //recursively traverse left subtree
             root.getLeft();
             //visit root node
-            System.out.println( root.getElement() + " " ); 
+            System.out.println( "inorder :" + root.getElement() + " " ); 
             //recursively traverse right subtree
             root.getRight();
         }
