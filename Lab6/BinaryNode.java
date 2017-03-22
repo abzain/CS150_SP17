@@ -70,7 +70,7 @@ public class BinaryNode<Any>
             return 0;           //base case
         }
         else{
-            return ( 1 + size( t.left ) + size( t.right ) );    // count root and subtrees
+            return ( 1 + size( t.getLeft() ) + size( t.getRight() ) );    // count root and subtrees
         }
     }
     

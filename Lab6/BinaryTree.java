@@ -12,61 +12,64 @@ public abstract class BinaryTree<Any> implements Tree<Any>
 {
     // instance variables - replace the example below with your own
     BinaryNode<Any> root; 
-
+    
     public void printPreOrder()
     {
-        if( root != null ){
-            //visit root node
-            System.out.println( "preorder :" + root.getElement() + " " ); 
-            //recursively traverse left subtree
-            root.getLeft();
-            //recursively traverse right subtree
-            root.getRight();
-        }
-        else{
-            System.out.println( "Binary tree empty" ); 
-        }
+        printPreOrderRecursive( root );
+        System.out.println( " " );
     }
     
-//        /**
-//      * overide toString method to return string representation of 
-//      * parameters
-//      */
-//     @Override
-//     public String pre_toString()
-//     {
-//         return "(" + "," + System.out.println( "inorder :" 
-//         + root.getElement() + " " ) + "," + root.getLeft()+ "," + root.getRight() + ")";
-//     }
-
-    public void printPostOrder()
+    private void printPreOrderRecursive( BinaryNode<Any> t )
     {
-        if( root != null ){
-            //recursively traverse left subtree
-            root.getLeft();
-            //recursively traverse right subtree
-            root.getRight();
-            //visit root node
-            System.out.println( "postorder :" + root.getElement() + " " ); 
+        if( t == null ){
+            return;
         }
-        else{
-            System.out.println( "Binary tree empty" ); 
-        }
+        //visit root node
+        System.out.println( "preorder :" + root.getElement() + " " ); 
+        //recursively traverse left subtree
+        printPreOrderRecursive( root.getLeft() );
+        //recursively traverse right subtree
+        printPreOrderRecursive( root.getRight() );
+    }
+        
+     public void printPostOrder() 
+    {
+        printPostOrderRecursive( root );
+        System.out.println( " " );
     }
     
-    public void printInOrder()
+    public void printPostOrderRecursive( BinaryNode<Any> t )
     {
-        if( root != null ){
-            //recursively traverse left subtree
-            root.getLeft();
-            //visit root node
-            System.out.println( "inorder :" + root.getElement() + " " ); 
-            //recursively traverse right subtree
-            root.getRight();
+         if( t == null ){
+            return;
         }
-        else{
-            System.out.println( "Binary tree empty" ); 
+        
+        //recursively traverse left subtree
+        printPostOrderRecursive( root.getLeft() );
+        //recursively traverse right subtree
+        printPostOrderRecursive( root.getRight() );
+        //visit root node
+        System.out.println( "preorder :" + root.getElement() + " " ); 
+    }
+    
+    public void printInOrder() 
+    {
+        printInOrderRecursive( root );
+        System.out.println( " " );
+    }
+    
+    public void printInOrderRecursive( BinaryNode<Any> t )
+    {
+         if( t == null ){
+            return;
         }
+        
+        //recursively traverse left subtree
+        printPostOrderRecursive( root.getLeft() );
+        //visit root node
+        System.out.println( "preorder :" + root.getElement() + " " ); 
+        //recursively traverse right subtree
+        printPostOrderRecursive( root.getRight() );
     }
     
     public void empty()

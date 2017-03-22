@@ -1,6 +1,6 @@
 
 /**
- * Class BinarySearchTree - 
+ * Class BinarySearchTree 
  * 
  * @author Zainab Hussein
  * @version 3-17-2017
@@ -23,18 +23,40 @@ public class BinarySearchTree<Any extends Comparable<Any>> extends BinaryTree<An
      */  
     public boolean insert( Any input )
     {
-        if( root == null ){
-            root = new BinaryNode<Any>( input, null, null );    //base case
+        root = new BinaryNode<Any>( input, null, null );
+        return insert( input, root );
+    }    
+    
+     /**
+     * recursive insertion
+     */  
+    public boolean insert( Any input, BinaryNode<Any> t )
+    {
+        if( t == null ){
+            t = new BinaryNode<Any>( input, null, null );    //base case
+            return true;
         }
-        int compareResult = input.compareTo( root.getElement() );
+        int compareResult = input.compareTo( t.getElement() );
         if( compareResult < 0 ){
-            root.getLeft().setElement( input );
+            if( t.getLeft() == null ){
+                t.setLeft( new BinaryNode<Any>( input, null, null ) );  
+                return true;
+            }
+            else{
+                insert( input, t.getLeft() );
+            }
         }
         else if( compareResult > 0 ){
-            root.getRight().setElement( input );
+            if( t.getRight() == null ){
+                t.setRight( new BinaryNode<Any>( input, null, null ) );  
+                return true;
+            }
+            else{
+                insert( input, t.getRight() );
+            }
         }
         //ignore insertion when duplicate, compareResult==0
-        return true;
+        return false;
     }
     
     /**
@@ -56,14 +78,25 @@ public class BinarySearchTree<Any extends Comparable<Any>> extends BinaryTree<An
         }
         int compareResult = input.compareTo( t.getElement() );
         if( compareResult < 0 ){
-            return contains( input, t.getLeft() );
+            if( t.getLeft() == null ){
+                return false;
+            }
+            else{
+                contains( input, t.getLeft() );
+            } 
         }
         else if( compareResult > 0 ){
-            return contains( input, t.getRight() );
+            if( t.getRight() == null ){
+                return false;
+            }
+            else{
+                contains( input, t.getRight() );
+            } 
         }
         else{
             return true;
         }
+        return true;
     }
     
     /**
@@ -120,11 +153,11 @@ public class BinarySearchTree<Any extends Comparable<Any>> extends BinaryTree<An
         if( t == null ){
             return t.getElement();
         }
-        if( root.getRight() == null ){
+        else if( t.getRight() == null ){
             return t.getElement();
         }
         else{
-            return findMin( t.getRight() );
+            return findMax( t.getRight() );
         }
     }
     
@@ -144,7 +177,7 @@ public class BinarySearchTree<Any extends Comparable<Any>> extends BinaryTree<An
         if( t == null ){
             return t.getElement();
         }
-        if( root.getLeft() == null ){
+        else if( t.getLeft() == null ){
             return t.getElement();
         }
         else{
