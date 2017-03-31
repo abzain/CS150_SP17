@@ -34,19 +34,19 @@ public class BinaryNode<Any>
         this.right = rt;
     }
     
-    public Stack<Boolean> getDirections(int n)
+    /**
+     * return size of binary tree
+     */
+    public int size()
     {
-        Stack<Boolean> goLeft = new Stack<Boolean>();
-        while(n>=2)
-        {
-            if(n%2==0){
-                goLeft.push(true);
-            }
-            else{
-                goLeft.push(false);
-            }
-            n=n/2;   
+        //return ( size(root) );
+        int count = 1;
+        if( left != null ){
+            count += left.size();
         }
-        return goLeft;
+        if( right != null ){
+            count += right.size();
+        }
+        return count;
     }
 }
