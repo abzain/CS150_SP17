@@ -18,7 +18,7 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
         // initialise instance variables
         root = null;
     }
-
+    
     /**
      * insert data to correct location on heap
      */ 
@@ -27,11 +27,11 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
         if( root == null ){
             root = new BinaryNode<Any>( input, null, null );
         }
-        else{
-            int treeSize = root.size();
-            Stack<Boolean> s = getDirections( treeSize +1 ); //stack overflow
-            insert( input, root, s );
-        }
+        int treeSize = root.size();
+        Stack<Boolean> s = getDirections( treeSize + 1 );
+        System.out.println( " " );
+        System.out.println( "Non-recursive :"+ treeSize );
+        insert( input, root, s );
     }
 
     /**
@@ -41,20 +41,23 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
     {
         if( t == null ){
             t = new BinaryNode<Any>( input, null, null );    //base case
+            System.out.println( "Recursive root :"+ t.element );
         }
         else{
             //find available node to insert 
             if( s.pop() == true ) {
                 t.left = insert( input, t.left, s );
+                System.out.println( "Recursive left :"+ t.left.element );
             }
             else{
                 t.right = insert( input, t.right, s );
+                System.out.println( "Recursive right :"+ t.right.element );
             }
         }
         //filter up min value by comparing with parent
+        System.out.println( "Recursive end :"+ t.element );                                     
         percolateUp(t);
         return t;
-
     }
 
     private Stack<Boolean> getDirections(int n)
@@ -108,19 +111,23 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
         if( root == null ){
             return null;
         }
-        minRemove( root );
+        int heapSize = root.size();
+        Stack<Boolean> l = getDirections( heapSize );
+        minRemove( root, l );
+        System.out.println( " " );
+        System.out.println( "Deleted min :" + root.element );
         return root.element;
     }
     
     /**
      * recursive remove min method
      */
-    private Any minRemove( BinaryNode<Any> t )
+    private Any minRemove( BinaryNode<Any> t, Stack<Boolean> l )
     {
         if( t == null ){
             return null;
         }
-        sinkDown( t );
+        sinkDown( t, l );
         return t.element;
     }
     
@@ -128,11 +135,10 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
      * sink down the min value by comparing and 
      * swapping with parent node
      */
-    public void sinkDown( BinaryNode<Any> t )
+    public void sinkDown( BinaryNode<Any> t, Stack<Boolean> k )
     {
         while( t != null ){
-            int heapSize = t.size();
-            boolean dir = getDirections( heapSize ).pop();
+            boolean dir = k.pop();
             BinaryNode<Any> lastNode;
             // last element becomes new root
             if( dir == true ){

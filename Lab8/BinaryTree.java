@@ -25,7 +25,7 @@ public abstract class BinaryTree<Any>
             return;
         }
         //visit root node
-        System.out.println( "preorder :" + t.element + " " ); 
+        System.out.println( "preorder print :" + t.element + " " ); 
         //recursively traverse left subtree
         printPreOrderRecursive( t.left );
         //recursively traverse right subtree
@@ -49,7 +49,7 @@ public abstract class BinaryTree<Any>
         //recursively traverse right subtree
         printPostOrderRecursive( t.right );
         //visit root node
-        System.out.println( "postorder :" + t.element + " " ); 
+        System.out.println( "postorder print :" + t.element + " " ); 
     }
 
     public void printInOrder() 
@@ -65,11 +65,11 @@ public abstract class BinaryTree<Any>
         }
 
         //recursively traverse left subtree
-        printPostOrderRecursive( t.left );
+        printInOrderRecursive( t.left );
         //visit root node
-        System.out.println( "inorder :" + t.element + " " ); 
+        System.out.println( "inorder print :" + t.element + " " ); 
         //recursively traverse right subtree
-        printPostOrderRecursive( t.right );
+        printInOrderRecursive( t.right );
     }
 
     /**
@@ -82,33 +82,4 @@ public abstract class BinaryTree<Any>
     //      * root's value
     //      */
     //     public abstract Any removeMin();
-
-//     /**
-//      * return size of binary tree
-//      */
-//     public int size()
-//     {
-//         //return ( size(root) );
-//         int c = 1;
-//         if( root.left != null ){
-//             c += root.left.size();
-//         }
-//         if( root.right != null ){
-//             c += root.right.size();
-//         }
-//         return c;
-//     }
-
-//     /**
-//      * recursive size function
-//      */
-//     private int size( BinaryNode<Any> t )
-//     {
-//         if( t == null ){
-//             return 0;
-//         }
-//         else{
-//             return ( 1 + size(t.left) + size(t.right) ); 
-//         }
-//     }
 }
