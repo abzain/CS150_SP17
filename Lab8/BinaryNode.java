@@ -33,20 +33,14 @@ public class BinaryNode<Any>
         this.left = lt;
         this.right = rt;
     }
-    
-    /**
-     * return size of binary tree
-     */
-    public int size()
+
+    public int size( BinaryNode<Any> t )
     {
-        //return ( size(root) );
-        int count = 1;
-        if( left != null ){
-            count += left.size();
+        if( t == null ){
+            return 0;           //base case
         }
-        if( right != null ){
-            count += right.size();
+        else{
+            return ( 1 + size( t.left ) + size( t.right ) );    // count root and subtrees
         }
-        return count;
     }
 }

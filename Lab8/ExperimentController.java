@@ -18,8 +18,9 @@ public class ExperimentController
         for( int i = 0; i < 100; i++ ){
             //inserted not in right order
             tester.insert( i );
+            
             //root is not updated after removal
-            System.out.println( "Removed integer :" + tester.removeMin() );
+            System.out.println( "Removed :" + tester.removeMin() );
         }
     }
 }

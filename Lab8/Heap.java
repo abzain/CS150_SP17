@@ -18,7 +18,7 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
         // initialise instance variables
         root = null;
     }
-    
+
     /**
      * insert data to correct location on heap
      */ 
@@ -27,7 +27,7 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
         if( root == null ){
             root = new BinaryNode<Any>( input, null, null );
         }
-        int treeSize = root.size();
+        int treeSize = root.size( root );         //root.size();
         Stack<Boolean> s = getDirections( treeSize + 1 );
         System.out.println( " " );
         System.out.println( "Non-recursive :"+ treeSize );
@@ -82,91 +82,86 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
      */
     private void percolateUp( BinaryNode<Any> t )
     {
-        while( t != null ){
-            if( t.left == null ){
+        if( t.left == null ){
+            return;
+        }
+        else{
+            if( t.element.compareTo( t.left.element ) < 0 ){
                 return;
             }
+            else if( t.element.compareTo( t.left.element ) > 0 ){
+                tmp = t;
+                t = t.left;
+                t.left = tmp;
+            }
             else{
-                if( t.element.compareTo( t.left.element ) < 0 ){
-                    return;
-                }
-                else if( t.element.compareTo( t.left.element ) > 0 ){
-                    tmp = t;
-                    t = t.left;
-                    t.left = tmp;
-                }
-                else{
-                    return; 
-                }
-            } 
-        }
+                return; 
+            }
+        }        
     }
 
     /**
      * remove root of the min heap and returns 
      * root's value
+     * 
+     * ROOT DELETED NOT UPDATED, AND SINKDOWN
+     * NOT IMPLEMENTED
      */
     public Any removeMin()
     {
         if( root == null ){
             return null;
         }
-        int heapSize = root.size();
-        Stack<Boolean> l = getDirections( heapSize );
-        minRemove( root, l );
+        BinaryNode<Any> t = root;
+
+        Any removed = root.element;
+        sinkDown( root );
+        
         System.out.println( " " );
-        System.out.println( "Deleted min :" + root.element );
-        return root.element;
+        System.out.println( "Deleted :" + removed );
+        return removed;
     }
-    
-    /**
-     * recursive remove min method
-     */
-    private Any minRemove( BinaryNode<Any> t, Stack<Boolean> l )
-    {
-        if( t == null ){
-            return null;
-        }
-        sinkDown( t, l );
-        return t.element;
-    }
-    
+
     /**
      * sink down the min value by comparing and 
      * swapping with parent node
      */
-    public void sinkDown( BinaryNode<Any> t, Stack<Boolean> k )
+    public void sinkDown( BinaryNode<Any> k )
     {
-        while( t != null ){
-            boolean dir = k.pop();
-            BinaryNode<Any> lastNode;
-            // last element becomes new root
-            if( dir == true ){
-                lastNode = t.left;
-            }
-            else{
-                lastNode = t.right;
-            }
-            t = lastNode;
-            // compare with children to find min val 
-            // to become new root
-            if( t.left == null ){
+        int heapSize = k.size( k );         
+        Stack<Boolean> l = getDirections( heapSize );
+        
+        boolean dir = l.pop();
+        BinaryNode<Any> lastNode = new BinaryNode<Any>();
+        
+        // last element becomes new root element
+        // set terminating case
+        if( dir == true ){
+            lastNode = k.left;
+        }
+        else{
+            lastNode = k.right;
+        }
+        k.element = lastNode.element;
+        heapSize--;
+        
+        // compare with children to find min val 
+        // to become new root
+        if( k.left == null ){
+            return;
+        }
+        else{
+            if( k.element.compareTo( k.left.element ) < 0 ){
                 return;
             }
-            else{
-                if( t.element.compareTo( t.left.element ) < 0 ){
-                    return;
-                }
-                else if( t.element.compareTo( t.left.element ) > 0 ){
-                    tmp = t;
-                    t = t.left;
-                    t.left = tmp;
-                }
-                else{
-                    return; 
-                }
+            else if( k.element.compareTo( k.left.element ) > 0 ){
+                tmp = k;
+                k = k.left;
+                k.left = tmp;
             }
-           
+            else{
+                return; 
+            }
         }
     }
 }
