@@ -1,0 +1,175 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	Lab6/package.bluej
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Lab5/package.bluej
+#	modified:   Lab6/BinarySearchTree.class
+#	modified:   Lab6/BinarySearchTree.java
+#	modified:   Lab6/BinarySearchTreeTest.class
+#	modified:   Lab6/BinarySearchTreeTest.java
+#	modified:   Lab6/BinaryTree.class
+#	modified:   Lab6/BinaryTree.java
+#	modified:   Lab6/ExperimentController.class
+#	modified:   Lab6/ExperimentController.java
+#	modified:   Lab6/package.bluej
+#	new file:   Lab7/BinaryNode.class
+#	new file:   Lab7/BinaryNode.ctxt
+#	new file:   Lab7/BinaryNode.java
+#	new file:   Lab7/BinaryNodeTest.class
+#	new file:   Lab7/BinaryNodeTest.ctxt
+#	new file:   Lab7/BinaryNodeTest.java
+#	new file:   Lab7/BinarySearchTree.class
+#	new file:   Lab7/BinarySearchTree.ctxt
+#	new file:   Lab7/BinarySearchTree.java
+#	new file:   Lab7/BinarySearchTreeTest.class
+#	new file:   Lab7/BinarySearchTreeTest.ctxt
+#	new file:   Lab7/BinarySearchTreeTest.java
+#	new file:   Lab7/BinaryTree.class
+#	new file:   Lab7/BinaryTree.ctxt
+#	new file:   Lab7/BinaryTree.java
+#	new file:   Lab7/ExperimentController.class
+#	new file:   Lab7/ExperimentController.ctxt
+#	new file:   Lab7/ExperimentController.java
+#	new file:   Lab7/Movie.class
+#	new file:   Lab7/Movie.ctxt
+#	new file:   Lab7/Movie.java
+#	new file:   Lab7/MovieLibrary.java
+#	new file:   Lab7/README.TXT
+#	new file:   Lab7/Tree.class
+#	new file:   Lab7/Tree.ctxt
+#	new file:   Lab7/Tree.java
+#	new file:   Lab7/movie_Dat.txt
+#	new file:   Lab7/package.bluej
+#	new file:   Lab8/BinaryNode.class
+#	new file:   Lab8/BinaryNode.ctxt
+#	new file:   Lab8/BinaryNode.java
+#	new file:   Lab8/BinaryNodeTest.class
+#	new file:   Lab8/BinaryNodeTest.ctxt
+#	new file:   Lab8/BinaryNodeTest.java
+#	new file:   Lab8/BinaryTree.class
+#	new file:   Lab8/BinaryTree.ctxt
+#	new file:   Lab8/BinaryTree.java
+#	new file:   Lab8/Heap.class
+#	new file:   Lab8/Heap.ctxt
+#	new file:   Lab8/Heap.java
+#	new file:   Lab8/HeapTest.class
+#	new file:   Lab8/HeapTest.ctxt
+#	new file:   Lab8/HeapTest.java
+#	new file:   Lab8/README.TXT
+#	new file:   Lab8/package.bluej
+#	new file:   Zainab Project 1/Analysis.xlsx
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 1 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 10 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 2 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 3 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 4 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 5 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 6 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 7 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 8 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 0.2.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 0.3.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 0.5.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 1.0.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 1.5.csv
+#	new file:   Zainab Project 1/Experiment with 9 cashiers and lambda equal to 2.0.csv
+#	new file:   Zainab Project 1/Hussein_FInal Project 1.docx
+#	new file:   Zainab Project 1/Hussein_FInal Project 1.pdf
+#	new file:   Zainab Project 1/Project_1/Customer.class
+#	new file:   Zainab Project 1/Project_1/Customer.ctxt
+#	new file:   Zainab Project 1/Project_1/Customer.java
+#	new file:   Zainab Project 1/Project_1/CustomerLine.class
+#	new file:   Zainab Project 1/Project_1/CustomerLine.ctxt
+#	new file:   Zainab Project 1/Project_1/CustomerLine.java
+#	new file:   Zainab Project 1/Project_1/ExperimentController.class
+#	new file:   Zainab Project 1/Project_1/ExperimentController.ctxt
+#	new file:   Zainab Project 1/Project_1/ExperimentController.java
+#	new file:   Zainab Project 1/Project_1/Launcher.class
+#	new file:   Zainab Project 1/Project_1/Launcher.ctxt
+#	new file:   Zainab Project 1/Project_1/Launcher.java
+#	new file:   Zainab Project 1/Project_1/OperationSim$1.class
+#	new file:   Zainab Project 1/Project_1/OperationSim$Customer.class
+#	new file:   Zainab Project 1/Project_1/OperationSim$CustomerEvent.class
+#	new file:   Zainab Project 1/Project_1/OperationSim$CustomerLine.class
+#	new file:   Zainab Project 1/Project_1/OperationSim.class
+#	new file:   Zainab Project 1/Project_1/OperationSim.ctxt
+#	new file:   Zainab Project 1/Project_1/OperationSim.java
+#	new file:   Zainab Project 1/Project_1/README.TXT
+#	new file:   Zainab Project 1/Project_1/TestCustomer.class
+#	new file:   Zainab Project 1/Project_1/TestCustomer.ctxt
+#	new file:   Zainab Project 1/Project_1/TestCustomer.java
+#	new file:   Zainab Project 1/Project_1/TestCustomerLine.class
+#	new file:   Zainab Project 1/Project_1/TestCustomerLine.ctxt
+#	new file:   Zainab Project 1/Project_1/TestCustomerLine.java
+#	new file:   Zainab Project 1/Project_1/TestOperationSim.class
+#	new file:   Zainab Project 1/Project_1/TestOperationSim.ctxt
+#	new file:   Zainab Project 1/Project_1/TestOperationSim.java
+#	new file:   Zainab Project 1/Project_1/package.bluej
+#	new file:   Zainab Project 1/Project_1/project1 (7).pdf
+#
+# Untracked files:
+#	wxbzkhf4.ym3.txt
+#
+

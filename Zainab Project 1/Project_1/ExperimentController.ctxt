@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ExperimentController()
+comment0.text=\r\n\ Constructor\ for\ class\ ExperimentController\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=numCashiers\ profitperCustomer\ costCashier\ avgServiceLen\ lambda
+comment2.target=void\ runSimsXia(int,\ double,\ double,\ double,\ double)
+comment2.text=\r\n\ Method\ runSimsXia\ runs\ a\ simulation\ once\ and\ just\ prints\ to\ the\ terminal\r\n\ @param\ numCashiers\ the\ number\ of\ cashiers\ in\ the\ simulation\r\n\ @param\ profitperCustomer\ the\ amount\ of\ money\ made\ per\ customer\r\n\ @param\ costCashier\ the\ cashier's\ salary/day\r\n\ @param\ avgServiceLen\ the\ average\ service\ length\ of\ a\ customer\r\n\ @param\ lambda\ the\ customer\ arrival\ interval\r\n
+comment3.params=numCashiers\ profitperCustomer\ costCashier\ avgServiceLen\ lambda
+comment3.target=void\ runSims(int,\ double,\ double,\ double,\ double)
+comment3.text=\r\n\ Method\ runSims\ runs\ the\ simulations\ for\ a\ specified\ amount\ of\ runs\ and\ takes\ an\ average.\ \ All\ results\ are\ exported\ to\ a\ csv.\r\n\ @param\ numCashiers\ the\ number\ of\ cashiers\ in\ the\ simulation\r\n\ @param\ profitperCustomer\ the\ amount\ of\ money\ made\ per\ customer\r\n\ @param\ costCashier\ the\ cashier's\ salary/day\r\n\ @param\ avgServiceLen\ the\ average\ service\ length\ of\ a\ customer\r\n\ @param\ lambda\ the\ customer\ arrival\ interval\r\n
+numComments=4

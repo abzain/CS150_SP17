@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BinaryNode()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ BinaryNode\r\n
+comment1.params=theElement\ lt\ rt
+comment1.target=BinaryNode(java.lang.Object,\ BinaryNode,\ BinaryNode)
+comment1.text=\r\n\ Copy\ of\ constructor\ for\ objects\ of\ class\ \r\n\ BinaryNode\r\n
+comment2.params=
+comment2.target=java.lang.Object\ getElement()
+comment3.params=x
+comment3.target=void\ setElement(java.lang.Object)
+comment4.params=
+comment4.target=BinaryNode\ getRight()
+comment5.params=t
+comment5.target=void\ setRight(BinaryNode)
+comment6.params=
+comment6.target=BinaryNode\ getLeft()
+comment7.params=t
+comment7.target=void\ setLeft(BinaryNode)
+comment8.params=t
+comment8.target=int\ size(BinaryNode)
+numComments=9
