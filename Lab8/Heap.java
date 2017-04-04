@@ -98,7 +98,7 @@ public class Heap<Any extends Comparable<Any>> extends BinaryTree<Any>
                 else{
                     return; 
                 }
-            }
+            } 
         }
     }
 
