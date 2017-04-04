@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MovieLibrary()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ MovieLibrary\r\n
+comment1.params=filename
+comment1.target=void\ readMovies(java.lang.String)
+comment1.text=\r\n\ Read\ from\ input\ file\ and\ add\ to\ Binary\ Search\ Tree\r\n
+comment2.params=filename
+comment2.target=void\ writeMovies(java.lang.String)
+comment2.text=\r\n\ Write\ to\ output\ file\ from\ the\ Binary\ Search\ tree\ in\r\n\ sorted\ manner\r\n\ Add\ a\ sorting\ functionality\r\n
+numComments=3

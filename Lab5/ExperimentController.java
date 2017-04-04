@@ -51,7 +51,7 @@ public class ExperimentController
         
         //mergesort data
         //sort based on comparable last name then first name
-        test.mergeSort();
+        //test.mergeSort();
         
         for (int i = 0 ; i < 5; i++) {
             System.out.println(test.getValue(i).getLastName());

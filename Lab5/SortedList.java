@@ -22,7 +22,7 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
         //assuming a generic arrayList container
         container.add( input );
     }
-    
+
     /**
      * quickSort method - sort data using quicksort method
      */
@@ -31,7 +31,7 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
         //call recursive quicksort on entire container
         quickSortRecursive( 0, container.size()-1 );
     }
-    
+
     /**
      * recursive quickSort method
      * 
@@ -60,9 +60,9 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
         if( high.compareTo( middle ) < 0 ){
             swap( mid, right );
         }
-        
+
         Any pivot = middle;
-        
+
         //divide into  arrays
         while( left <= right ){
             //find elements in left side greater than pivot value
@@ -81,17 +81,17 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
                 right--;
             }
         }
-        
+
         //recursively call quickSort
         if( indexLow < right ){
             quickSortRecursive( indexLow, right );
         }
-        
+
         if( left < indexHigh ){
             quickSortRecursive( left, indexHigh );
         }
     }
-    
+
     /**
      * swap method
      */
@@ -103,111 +103,110 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
         //save old left index value to right index element
         container.set( right, temp );
     }
-    
-    
-    /**
-     * mergeSort method - sort data using mergeSort method
-     */
-    public void mergeSort()
-    {
-        //call recursive mergerSort on entire container
-        mergeSortRecursive( 0, container.size()-1 );    //ERROR
-    }
-    
-    /**
-     * recursive mergeSort method
-     */
-    private void mergeSortRecursive( int indexLow, int indexHigh )
-    {
-        int small = indexLow;
-        int big = indexHigh;
-        int indexMid = ( indexLow + indexHigh )/2;
-        if( small < big ){
-            // sort left side of array
-            mergeSortRecursive( small, indexMid );   //ERROR
-            
-            // sort right side of array
-            mergeSortRecursive( indexMid + 1, big );
-            
-            // merge left and right sides
-            merge( small, indexMid+1, big ); //ERROR
-        }
-    }
-    
-    /**
-     * merge method
-     */
-    private void merge( int indexLow, int indexMid, int indexHigh )
-    {
-        System.out.println(container.size());
-        ArrayList<Any> temp = new ArrayList<Any>();
-        for ( int i = 0 ; i < container.size() ; i++ ) {
-            temp.add(null);
-        }
-        int left = indexLow;
-        int mid = indexMid + 1;
-        int right = indexHigh;
-//         
-//         for( int i = left; i <= right; i++ ){
-//             //copy first sublist to a new list
-//             temp.set( i, container.get(i) ); //ERROR
-//         }
-//         
-//         while( left <= indexMid && mid <= indexHigh ){
-//             //if first element in left sublist is smaller than the first
-//             // element in the right sublist
-//             if( temp.get(left).compareTo( temp.get(mid) ) <= 0 ){
-//                 //iteratively take smaller element in left sublist and place 
-//                 //in order in the final array
-//                 container.set( right, temp.get(left) );
-//                 left++;
-//             }
-//             //if the first element in the right sublist is smaller than the
-//             // first element in the left sublist
-//             else{
-//                 //iteratively take smaller element in left sublist and place 
-//                 //in order in the final array
-//                 container.set( right, temp.get(mid) );
-//                 mid++;
-//             }
-//             right++;
-//         }
-//         
-//         while( left <= indexMid ){
-//             container.set( right, temp.get(left) );
-//             right++;
-//             left++;
-//         }
-         int leftPos = indexMid - 1;
-         int numElements = indexHigh-indexLow+1;
-        while( indexLow <= leftPos && indexMid <= indexHigh ){
-            if( container.get(leftPos).compareTo( container.get(indexHigh)) <= 0){
-                temp.set(left++, container.get(indexLow++) ); 
-                System.out.println(container.get(indexHigh));
-                System.out.println(container.get(indexLow));
-                System.out.println(indexLow));
-            }
-            else{
-                temp.set(left++, container.get(indexMid++) );   //ERROR
-            }
-        }
-        
-        while( indexLow <= leftPos ){ //copy rest of first half
-            temp.set(left++, container.get(indexLow++) );
-        }
-        
-        while( indexMid <= indexHigh ){ //copy rest of right half
-            temp.set(left++, container.get(indexMid++) );
-        }
-        
-        //copy temp arraylist back
-        for( int i = 0; i < numElements; i++ ){
-            System.out.println("container size: " + container.size());
-            System.out.println("temp size:" + temp.size());
-            container.set( indexHigh, temp.get(indexHigh) );
-        }
-    }
-    
+
+    //     /**
+    //      * mergeSort method - sort data using mergeSort method
+    //      */
+    //     public void mergeSort()
+    //     {
+    //         //call recursive mergerSort on entire container
+    //         mergeSortRecursive( 0, container.size()-1 );    //ERROR
+    //     }
+    //     //     
+    //     /**
+    //      * recursive mergeSort method
+    //      */
+    //     private void mergeSortRecursive( int indexLow, int indexHigh )
+    //     {
+    //         int small = indexLow;
+    //         int big = indexHigh;
+    //         int indexMid = ( indexLow + indexHigh )/2;
+    //         if( small < big ){
+    //             // sort left side of array
+    //             mergeSortRecursive( small, indexMid );   //ERROR
+    //             
+    //             // sort right side of array
+    //             mergeSortRecursive( indexMid + 1, big );
+    //             
+    //             // merge left and right sides
+    //             merge( small, indexMid+1, big ); //ERROR
+    //         }
+    //     }
+    //     
+    //     /**
+    //      * merge method
+    //      */
+    //     private void merge( int indexLow, int indexMid, int indexHigh )
+    //     {
+    //         System.out.println(container.size());
+    //         ArrayList<Any> temp = new ArrayList<Any>();
+    //         for ( int i = 0 ; i < container.size() ; i++ ) {
+    //             temp.add(null);
+    //         }
+    //         int left = indexLow;
+    //         int mid = indexMid + 1;
+    //         int right = indexHigh;
+    // //         
+    // //         for( int i = left; i <= right; i++ ){
+    // //             //copy first sublist to a new list
+    // //             temp.set( i, container.get(i) ); //ERROR
+    // //         }
+    // //         
+    // //         while( left <= indexMid && mid <= indexHigh ){
+    // //             //if first element in left sublist is smaller than the first
+    // //             // element in the right sublist
+    // //             if( temp.get(left).compareTo( temp.get(mid) ) <= 0 ){
+    // //                 //iteratively take smaller element in left sublist and place 
+    // //                 //in order in the final array
+    // //                 container.set( right, temp.get(left) );
+    // //                 left++;
+    // //             }
+    // //             //if the first element in the right sublist is smaller than the
+    // //             // first element in the left sublist
+    // //             else{
+    // //                 //iteratively take smaller element in left sublist and place 
+    // //                 //in order in the final array
+    // //                 container.set( right, temp.get(mid) );
+    // //                 mid++;
+    // //             }
+    // //             right++;
+    // //         }
+    // //         
+    // //         while( left <= indexMid ){
+    // //             container.set( right, temp.get(left) );
+    // //             right++;
+    // //             left++;
+    // //         }
+    //          int leftPos = indexMid - 1;
+    //          int numElements = indexHigh-indexLow+1;
+    //         while( indexLow <= leftPos && indexMid <= indexHigh ){
+    //             if( container.get(leftPos).compareTo( container.get(indexHigh)) <= 0){
+    //                 temp.set(left++, container.get(indexLow++) ); 
+    //                 System.out.println(container.get(indexHigh));
+    //                 System.out.println(container.get(indexLow));
+    //                 System.out.println(indexLow));
+    //             }
+    //             else{
+    //                 temp.set(left++, container.get(indexMid++) );   //ERROR
+    //             }
+    //         }
+    //         
+    //         while( indexLow <= leftPos ){ //copy rest of first half
+    //             temp.set(left++, container.get(indexLow++) );
+    //         }
+    //         
+    //         while( indexMid <= indexHigh ){ //copy rest of right half
+    //             temp.set(left++, container.get(indexMid++) );
+    //         }
+    //         
+    //         //copy temp arraylist back
+    //         for( int i = 0; i < numElements; i++ ){
+    //             System.out.println("container size: " + container.size());
+    //             System.out.println("temp size:" + temp.size());
+    //             container.set( indexHigh, temp.get(indexHigh) );
+    //         }
+    //     }
+
     /**
      * printData method - abstract method
      * 
@@ -215,6 +214,5 @@ public abstract class SortedList<Any extends Comparable<? super Any>>
      * followed by a semicolon)
      */
     abstract void printData();
-    
-    
+
 }
