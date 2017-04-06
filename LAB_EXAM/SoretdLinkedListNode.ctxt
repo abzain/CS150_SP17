@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=data\ next\ same
+comment0.target=SoretdLinkedListNode(java.lang.Object,\ SoretdLinkedListNode,\ SoretdLinkedListNode)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Node\r\n
+comment1.params=
+comment1.target=java.lang.Object\ getData()
+comment2.params=myData
+comment2.target=void\ setData(java.lang.Object)
+comment3.params=
+comment3.target=SoretdLinkedListNode\ getNext()
+comment4.params=myNext
+comment4.target=void\ setNext(SoretdLinkedListNode)
+comment5.params=
+comment5.target=SoretdLinkedListNode\ getSame()
+comment6.params=mySame
+comment6.target=void\ setSame(SoretdLinkedListNode)
+numComments=7

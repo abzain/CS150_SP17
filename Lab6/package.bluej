@@ -11,30 +11,13 @@ dependency3.type=UsesDependency
 dependency4.from=BinaryNodeTest
 dependency4.to=BinaryNode
 dependency4.type=UsesDependency
-<<<<<<< HEAD
-dependency5.from=BinarySearchTreeTest
-dependency5.to=BinarySearchTree
-dependency5.type=UsesDependency
-=======
->>>>>>> origin/master
 objectbench.height=76
 objectbench.width=658
 package.editor.height=400
 package.editor.width=560
-<<<<<<< HEAD
-package.editor.x=41
-package.editor.y=24
-=======
-<<<<<<< HEAD
-package.editor.x=658
-package.editor.y=28
-package.numDependencies=5
-=======
-package.editor.x=35
-package.editor.y=39
->>>>>>> origin/master
+package.editor.x=720
+package.editor.y=176
 package.numDependencies=4
->>>>>>> origin/master
 package.numTargets=7
 package.showExtends=true
 package.showUses=true
@@ -121,7 +104,7 @@ target6.y=10
 target7.association=BinarySearchTreeTest
 target7.editor.height=744
 target7.editor.width=644
-target7.editor.x=-15
+target7.editor.x=699
 target7.editor.y=0
 target7.height=50
 target7.name=BinarySearchTree
