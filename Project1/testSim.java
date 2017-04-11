@@ -62,7 +62,12 @@ public class testSim
     double startOfServe;
     int custInCafe = 0;
     /**
-     * Run the simulation until stopping time occurs
+     * Run the simulation once printing to terminal
+     * @param availableCashiers number of cashiers in simulation
+     * @param profit money made per customer
+     * @param cashierCost money paid to each cashier
+     * @param avgNoCustArrPerMin customer arrival rate per minute
+     * @param avgNoCustServPerMin customer served per minute
      */
     public void runSim()
     {
@@ -288,7 +293,7 @@ public class testSim
     /**
      * The event class
      * Implements the Comparable interface
-     * to arrange events by time of occurence
+     * to arrange events by time of occurence 
      * (Nested in CafeSimulator)
      */ 
     private static class Event implements Comparable<Event>
