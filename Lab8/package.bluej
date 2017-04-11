@@ -18,8 +18,13 @@ objectbench.height=76
 objectbench.width=533
 package.editor.height=400
 package.editor.width=435
+<<<<<<< HEAD
 package.editor.x=-779
 package.editor.y=249
+=======
+package.editor.x=315
+package.editor.y=138
+>>>>>>> origin/master
 package.numDependencies=5
 package.numTargets=6
 package.showExtends=true
@@ -67,8 +72,13 @@ target3.x=140
 target3.y=240
 target4.editor.height=732
 target4.editor.width=599
+<<<<<<< HEAD
 target4.editor.x=1078
 target4.editor.y=111
+=======
+target4.editor.x=1286
+target4.editor.y=88
+>>>>>>> origin/master
 target4.height=50
 target4.name=BinaryTree
 target4.naviview.expanded=false

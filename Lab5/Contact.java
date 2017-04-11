@@ -11,7 +11,7 @@
 public class Contact extends Person implements Comparable<Contact>
 {
     // instance variables - replace the example below with your own
-    private String phoneNo;
+    private int phoneNo;
     private String email;
     
     /**

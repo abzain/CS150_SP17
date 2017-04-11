@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SoretdLinkedList()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ SoretdLinkedList\r\n
+comment1.params=e
+comment1.target=void\ add(java.lang.Comparable)
+comment1.text=\r\n\ add\ method\ -\ if\ input\ exists,\ should\ be\ added\ to\ the\ \r\n\ same\ linkedList,\r\n\ otherwise,\ added\ to\ correct\ position\ in\ in\ array\r\n
+comment2.params=e
+comment2.target=int\ count(java.lang.Comparable)
+comment2.text=\r\n\ counts\ number\ of\ repeats\ of\ an\ element\r\n
+comment3.params=e
+comment3.target=boolean\ remove(java.lang.Comparable)
+comment3.text=\r\n\ method\ remove\ -\ remove\ element\ from\ list,\ if\ repeated\r\n\ removes\ the\ first\ on\ the\ equal\ linkedlist\r\n
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment4.text=\r\n\ Returns\ a\ string\ representation\r\n
+numComments=5
