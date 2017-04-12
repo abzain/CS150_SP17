@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CustomerQueue()
+comment0.text=\r\n\ Constructor\ for\ CustomerLine\r\n
+comment1.params=
+comment1.target=CustomerTracker\ poll()
+comment1.text=\r\n\ Method\ poll\ returns\ the\ head\ of\ the\ queue\r\n\ @return\ the\ head\ of\ the\ qeueu\ \r\n
+comment2.params=c
+comment2.target=void\ add(CustomerTracker)
+comment2.text=\r\n\ Method\ add\ adds\ a\ customer\ to\ the\ queue\r\n\ @param\ c\ the\ customer\ to\ add\r\n
+comment3.params=
+comment3.target=void\ setFull()
+comment3.text=\r\n\ Method\ setFull\ sets\ the\ queue\ full\r\n
+comment4.params=
+comment4.target=void\ setnotFull()
+comment4.text=\r\n\ Method\ setnotFull\ sets\ the\ queue\ to\ not\ full\r\n
+comment5.params=
+comment5.target=int\ size()
+comment5.text=\r\n\ Method\ size\ returns\ the\ size\ of\ the\ queue\ \r\n\ @return\ the\ queue's\ size\r\n
+comment6.params=
+comment6.target=boolean\ isFull()
+comment6.text=\r\n\ Method\ isFull\ returns\ wether\ the\ queue\ is\ full\ or\ not\r\n\ @return\ this.full\r\n
+numComments=7

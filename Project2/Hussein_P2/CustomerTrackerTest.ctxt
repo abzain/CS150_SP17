@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CustomerTrackerTest()
+comment0.text=\r\n\ Default\ constructor\ for\ test\ class\ CustomerTrackerTest\r\n
+comment1.params=
+comment1.target=void\ testgetIsArrive()
+comment2.params=
+comment2.target=void\ testsetIsArrive()
+comment3.params=
+comment3.target=void\ testgetIsWait()
+comment4.params=
+comment4.target=void\ testgetIsServe()
+comment5.params=
+comment5.target=void\ testgetIsDepart()
+comment6.params=
+comment6.target=void\ testgetCustId()
+comment7.params=
+comment7.target=void\ testtoString()
+numComments=8
