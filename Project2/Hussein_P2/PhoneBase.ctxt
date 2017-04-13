@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=boolean\ add(long)
+comment0.text=\r\n\ Abstract\ method\ adds\ a\ phone\ number\ of\ type\ long\ to\ a\ given\ data\ structure\r\n\ @param\ \ n\ \ \ \ phone\ number\ to\ be\ added\r\n\ @return\ \ \ \ \ \ true\ if\ added\ without\ duplicate,\ false\ otherwise\r\n
+comment1.params=k
+comment1.target=long\ select(int)
+comment1.text=\r\n\ Abstract\ method\ select\ the\ kth\ smallest\ phone\ number\ from\ the\ stored\ numbers\r\n\ @param\ \ k\ \ \ \ index\ of\ a\ given\ stored\ phone\ number\r\n\ @return\ \ \ \ \ \ the\ kth\ smallest\ phone\ number\ \r\n
+numComments=2

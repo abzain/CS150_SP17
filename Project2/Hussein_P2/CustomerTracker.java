@@ -15,6 +15,7 @@ public class CustomerTracker
     private double custWaitTime;
     private double custDepartTime;
     private int custId;
+    private long phoneNo;
     
     /**
      * Constructor for objects of class Customer
@@ -126,6 +127,25 @@ public class CustomerTracker
         this.custDepartTime = dt;
     }
     
+     /**
+     * Method getPhoneNo returns customer's phone number
+     * @param - phoneNo
+     * @return the customer's phone number
+     */
+    public long getPhoneNo()
+    {
+        return phoneNo;
+    }
+    
+     /**
+     * Method setPhoneNo sets customer's phone number
+     * @param phone the long phone number is set to
+     */
+    public void setPhoneNo( long phone )
+    {
+        this.phoneNo = phone;
+    }
+    
     /**
      * Method toString contains customer info
      * @return string representation of customer
@@ -133,6 +153,16 @@ public class CustomerTracker
     public String toString()
     {
         String custDetails = String.format( "Customer " + this.custId + " arrives at %.1f mins, waits for %.1f mins, is served for %.1f mins, and departs at %.1f mins,", custArriveTime, custWaitTime, custServeTime, custDepartTime );
+        return custDetails;
+    }
+    
+    /**
+     * Method toString contains customer info
+     * @return string representation of customer
+     */
+    public String phoneToString()
+    {
+        String custDetails = String.format( "Customer " + this.custId + " has a phone number of: " + this.phoneNo );
         return custDetails;
     }
 }

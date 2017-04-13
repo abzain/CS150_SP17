@@ -14,25 +14,20 @@ public class Simulator
     private PriorityQueue<Event> eventSet;  //Pending events
     private double u = Math.random();   //random double between 0 and 1
     private int availableCashiers;      //number of available cashiers
-    private int totalCahiers;           //number of all cashiers
+    private int totalCashiers;           //number of all cashiers
     private double profit;              //total profit
     private double cashierCost;         //cost per cashier
     private double avgNoCustArrPerMin;  //average number of customers arriving per minute
     private double avgNoCustServPerMin; //average number of customers served per minute
      
-    //double stopTime = 960;  
-    //Queue<CustomerTracker> linCust = new LinkedList<CustomerTracker>();   
-    
-    CustomerQueue line = new CustomerQueue();   //customers waiting in line
-    ArrayList<CustomerTracker> arrCust = new ArrayList<CustomerTracker>();  //list of all customers
-    ArrayList<CustomerTracker> custServed = new ArrayList<CustomerTracker>();  //list of served customers
-    ArrayList<CustomerTracker> custTurnedAway = new ArrayList<CustomerTracker>();  //list of turned away customers
-    //int totalCust = 0;
-    //double startOfServe;
-    //int custInCafe = 0;
-    private int custNum = arrCust.size();
+    private CustomerQueue Line = new CustomerQueue();   //customers waiting in line
+    private ArrayList<CustomerTracker> arrCust = new ArrayList<CustomerTracker>();  //list of all customers
+    private ArrayList<CustomerTracker> custServed = new ArrayList<CustomerTracker>();  //list of served customers
+    private ArrayList<CustomerTracker> custTurnedAway = new ArrayList<CustomerTracker>();  //list of turned away customer
+
+    private int custNum = arrCust.size();   //number of customers
     private double nextArriveTime = 0;
-    //private double arriveTime;
+
     /**
      * static main method
      */
@@ -42,7 +37,7 @@ public class Simulator
 
         for( int cashiers = 0; cashiers < 10; cashiers++ ){
             s = new Simulator( cashiers, 2, 300, 1.5, 0.3 );
-            s.runSim();
+            //s.runSim();
         }
 
         //         for( double lamda = 0; lamda < 2; lamda = lamda + 0.5 ){
@@ -76,7 +71,6 @@ public class Simulator
         nextArrival( avgNoCustArrPerMin );
     }
 
-   //********************* WORK ON THIS TOMORROW***********************************
     /**
      * Run the simulation once printing to terminal
      * @param availableCashiers number of cashiers in simulation
@@ -84,8 +78,10 @@ public class Simulator
      * @param cashierCost money paid to each cashier
      * @param avgNoCustArrPerMin customer arrival rate per minute
      * @param avgNoCustServPerMin customer served per minute
+     * 
+     * RUN SIMULATION FROM CAMERON ZURMUL (added for final report of project 1)
      */
-    public void runSim()
+    public void runSim( int stopTime )
     {
         // write to output file
         File outFile = new File ("dataout.txt");
@@ -94,141 +90,83 @@ public class Simulator
         try{
             FileWriter fWriter = new FileWriter ( outFile.getAbsoluteFile() ); 
             PrintWriter pWriter = new PrintWriter ( fWriter );
-
+    
             Event e = null;
-            double waitTime = 0;
-            double serviceTime;
-            double cafeTime;
-            double departureTime = 0;
-            double totWaitTime = 0;
-            double avgWait = 0;
-            double maxWait = 0;
-            int j = 0;
-            double serviceInterval = -( Math.log( u )/avgNoCustServPerMin );
-
-            while( !eventSet.isEmpty() ){
+            double customerserviceLength; //customer's service length
+            //Fill the event queue with arrivals
+            nextArrival(stopTime);
+    
+            while(!eventSet.isEmpty())
+            {
+                //Remove the head of the priority queue--starts at the first customer
                 e = eventSet.remove();
-
-                CustomerTracker b = new CustomerTracker(nextArriveTime, availableCashiers, totalCust,
-                        startOfServe, serviceInterval);
-                CustomerTracker c = new CustomerTracker(nextArriveTime, availableCashiers, totalCust,
-                        startOfServe, serviceInterval);
-                CustomerTracker d = new CustomerTracker(nextArriveTime, availableCashiers, totalCust,
-                        startOfServe, serviceInterval);
-                CustomerTracker k = new CustomerTracker(nextArriveTime, availableCashiers, totalCust,
-                        startOfServe, serviceInterval);
-                arrCust.add( b ); //everyone
-                arrCust.add( c ); //everyone
-                arrCust.add( d ); //everyone
-                arrCust.add( k ); //everyone
-
-                if( e.time > stopTime ){    //if time is passed stopTime, stop simulation
-                    break;
+                //ask if the an arrival event time is past stopping time--if yes continue to next leaving event to makes sure everyone who goes into the store before the end of the day gets served
+                if(e.what == Event.ARRIVE && e.time >= stopTime){
+                    continue;
                 }
-
-                custInCafe = arrCust.size();
-                if( e.what == Event.ARRIVE ){
-                    double enter = e.time;
-                    if( custInCafe == 1 && availableCashiers > 0 ){   //queue empty                   
-                        departureTime = serviceInterval;
-                        startOfServe = nextArriveTime;
-                        availableCashiers--;
-
-                    }
-                    else {
-                        if( custInCafe == 1 && availableCashiers == 0 ){
-                            linCust.add( arrCust.get(0) );   //add to queue
-                        }
-                        else if( custInCafe > 1 && availableCashiers > 0 ){   //customers in queue   
-                            linCust.poll(); //retrieve and remove the head
-                            startOfServe = e.time;
-                            departureTime = serviceInterval + startOfServe;
-                            availableCashiers--;
-
-                        }
-                        else if( custInCafe > 1 && availableCashiers == 0  ){   //store exceess customers in queue
-                            linCust.add( arrCust.get(j) ); //with every nextArrivalTime
-                        }
-                        else{ //no customers at all, should not enter this state
-                            break;
-                        }
-                    }
-
-                    e = new Event( custNum++, departureTime, Event.DEPART );
-                    eventSet.add( e );
-
-                    //period between arrival and departure
-                    cafeTime = ( departureTime - enter );
-                    startOfServe = startOfServe;
-                    waitTime = startOfServe - nextArriveTime;
-
-                    e.time += cafeTime;
-                    e.what = Event.DEPART;
-                    eventSet.add( e );
-
-                    System.out.println( "Customer " + e.who + " arrives at time " + enter + " departs at time "
-                        + departureTime + " is serviced for " + serviceInterval + " minutes " );
-                    System.out.println( " at startServeTime of " + startOfServe + " and waited for " + waitTime + " ");
-                    System.out.println( " " );
-
-                    //print for output file
-                    pWriter.println( "Customer " + e.who + " arrives at time " + enter + " departs at time "
-                        + departureTime + " is serviced for " + serviceInterval + " minutes ");
-                    pWriter.println( " at start serve time of " + startOfServe + " and waited for " + waitTime + " " );    
-                    pWriter.println( " " );    
-
-                    // total wait time
-                    totWaitTime += waitTime;
-                    avgWait = ( totWaitTime/totalCust );
-                    //avgWait maxWait calculation
-                    ArrayList<Double> waitTimeList = new ArrayList<Double>();  //arraylist of all waitTime
-                    for( int i = 0; i < arrCust.size(); i++ )
+    
+                //if the cutsomer left, updated available Cashiers, remove from Line
+                CustomerTracker UpcomingCustomer = null;
+                if(e.what == Event.DEPART) //DEPART
+                {
+                    System.out.printf("Customer %d leaves the store at time %.2f \n",e.who,e.time);
+                    availableCashiers++;
+                    arrCust.get(e.who).setIsDepart(e.time); //set the customer's departure time to be his leaving time
+    
+                } else if(e.what == Event.ARRIVE) {  //ARRIVE
+                    //define what it means to be a full/not full queue
+                    if(Line.size() >= 8*totalCashiers)
                     {
-                        waitTimeList.add( arrCust.get(i).getIsWait() );
+                        Line.setFull();
+                    } else {
+                        Line.setnotFull();
                     }
-                    maxWait =  Collections.max( waitTimeList );
-                    nextArrival( avgNoCustArrPerMin );
-                    j++;
-                }   
-                else{   //DEPART EVENT
-                    //update available cashiers
-                    availableCashiers++; 
-                    j++;
+                    
+                    if(!Line.isFull()){ //if the line is not full, he can join the line
+                        System.out.printf("Customer " + e.who + " arrives at the store at time %.2f mins. He joins the line \n",e.time);
+                        //create customer object and add to the line/customer list
+                        CustomerTracker newCustomerTracker = new CustomerTracker(e.time, e.who);
+                        //add a customer to the line 
+                        Line.add(newCustomerTracker);
+                        arrCust.add(newCustomerTracker); //add to list
+                    } else {
+                        //If the line is full, the customer does not enter
+                        System.out.printf("Customer " + e.who + " arrives at the store at time %.2f but decides not to enter-OVERFLOW! \n",e.time);
+                        //create a new customer and add him to the list--keep track of overdraft 
+                        CustomerTracker newCustomerTracker = new CustomerTracker(e.time, e.who);
+                        newCustomerTracker.setIsServe(0); //no service time 
+                        newCustomerTracker.setIsWait(0); //no wait time
+                        newCustomerTracker.setIsDepart(e.time); //no depart time
+                        arrCust.add(newCustomerTracker);
+                        custTurnedAway.add(newCustomerTracker); //also add these customers to their special list
+                    }
                 }
+    
+                //Poll from the line if there are available cashiers and if there are customers to poll
+                if(Line.size()>0 && availableCashiers>0) 
+                {
+                    UpcomingCustomer = Line.poll();
+                    availableCashiers--; //the customer will go to the Cashier
+                    //calculate service time and give print out
+                    customerserviceLength = -Math.log( u )/avgNoCustServPerMin; 
+                    System.out.printf("Customer " + UpcomingCustomer.getCustId() + " is now at the cashier. He must be served for %.2f mins. \n",customerserviceLength); //print out
+    
+                    UpcomingCustomer.setIsServe(customerserviceLength); //Set the customer's service time to to the poisson distribtution
+    
+                    //the customer's total waiting time in the store is the time it takes for the customer to get to the cashier minus his arrival time
+                    UpcomingCustomer.setIsWait(e.time-UpcomingCustomer.getIsArrive()); 
+                    
+                    //create a new leaving event for the customer in question (UpcomingCustomer)
+                    //the leaving time is e.time+customerserviceLength
+                    Event leave = new Event(UpcomingCustomer.getCustId(), e.time+customerserviceLength,Event.DEPART);
+                    eventSet.add(leave); //add event back to the priority queue 
+                }   
             }
-
-            //total profit
-            totalProfit( profit );
-            pWriter.println( "Total profit " + totalProfit( profit ) );
-
-            //cost of  cashier
-            cashierCost( availableCashiers, cashierCost );
-            pWriter.println( "Total cashier cost " + cashierCost( availableCashiers, cashierCost ) );
-
-            //net profit
-            netProfit( profit,availableCashiers,cashierCost );
-            pWriter.println( "Net profit " + netProfit( profit,availableCashiers,cashierCost )  );
-
-            //customers turned away 
-            turnAway( availableCashiers );
-            pWriter.println( "TurnedAway customers " + turnAway( availableCashiers ) );
-
-            //avg wait time
-            System.out.println( "Average waitTime " + avgWait + "|" );
-            pWriter.println( "Average  waitTime" + avgWait );
-
-            //max wait time
-            System.out.println( "Max waitTime " + maxWait + "|" );
-            pWriter.println( "Max waitTime " + maxWait );
-
-            pWriter.close();
         }
         catch( Exception e ){
             System.out.println(e);
         }
     }
-    
-    //*******************************WORK ON THIS TOMORROW******************************************
     
     /**
      * Method nextArrival adds arrivals to eventSet priority queue 
@@ -240,7 +178,7 @@ public class Simulator
         while( nextArriveTime < stopTime ){
             Event ev = new Event( custNum++, nextArriveTime, Event.ARRIVE );
             //calculate random arrive times
-            arriveTime = -( Math.log( u )/avgNoCustArrPerMin );
+            double arriveTime = -( Math.log( u )/avgNoCustArrPerMin );
             nextArriveTime += arriveTime;
             eventSet.add( ev ); //add rest of arrival events to event queue
         }
@@ -303,10 +241,10 @@ public class Simulator
         int count = 0;
         //go through list and see which customers have non zero serve times--update count
         for(CustomerTracker c: this.arrCust){
-            if(c.getIsServe()> 0 ){	
+            if(c.getIsServe()> 0 ){ 
                 count++;
                 //add these customers to their own list
-                this.servedCustomers.add(c);
+                this.custServed.add(c);
             }
         }
         return count;

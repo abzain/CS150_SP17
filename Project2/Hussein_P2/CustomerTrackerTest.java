@@ -100,6 +100,36 @@ public class CustomerTrackerTest
     }
     
     @Test
+    public void testgetPhoneNo()
+    {
+        //instance of class under test
+        CustomerTracker test = new CustomerTracker( 4.0, 5 );
+        
+        //compare instances
+        long num = 6583247521L;
+        test.setPhoneNo( num );
+        
+        //check they match
+        assertEquals( test.getPhoneNo(), num );
+    }
+    
+    @Test
+    public void testphoneToString()
+    {
+        //instance of class under test
+        CustomerTracker test = new CustomerTracker( 4.0, 5 );
+        
+        //compare instances
+        long num = 6583247521L;
+        test.setPhoneNo( num );
+        String expected =  "Customer 5 has a phone number of: 6583247521";
+        
+        //check they are equal
+        assertEquals( test.phoneToString(), expected );
+       
+    }
+    
+    @Test
     public void testtoString()
     {
         //instance of class under test
