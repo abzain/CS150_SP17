@@ -61,7 +61,8 @@ public class RedBlackTreePhoneBaseTest
         test1.add( 76L );
         test1.add( 89L );
         //compare instances
-        long toCheck = test1.select( 2 );
+        long toCheck = test1.select( 1 );
+        System.out.println( "should be 89 " + test1.select( 4 ) );
         long expected = 76L;
         //check
         assertEquals( toCheck, expected );      //ERROR RedBlackNode cannot be cast as RedBlackNodeWithSize??

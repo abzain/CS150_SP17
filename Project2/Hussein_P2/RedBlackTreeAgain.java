@@ -1,6 +1,6 @@
 //package weiss.nonstandard;
-
-// RedBlackTree class
+import java.util.*;
+// RedBlackTreeAgain class
 //
 // CONSTRUCTION: with no parameters
 //
@@ -21,12 +21,12 @@
  * Note that all "matching" is based on the compareTo method.
  * @author Mark Allen Weiss
  */
-public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
+public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
 {
     /**
      * Construct the tree.
      */
-    public RedBlackTree( )
+    public RedBlackTreeAgain( )
     {
         nullNode = new RedBlackNode<AnyType>( null );
         nullNode.left = nullNode.right = nullNode;
@@ -47,7 +47,7 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         else
             return item.compareTo( t.element );    
     }
-    
+
     /**
      * Insert into the tree.
      * @param item the item to insert.
@@ -62,19 +62,24 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         {
             great = grand; grand = parent; parent = current;
             current = compare( item, current ) < 0 ?
-                         current.left : current.right;
+                current.left : current.right;
+            //all ancestors of new node increase size by 1            
+            grand.size += 1;
+            great.size += 1;
+            parent.size += 1;
+            current.size += 1;
 
-                // Check if two red children; fix if so
+            // Check if two red children; fix if so
             if( current.left.color == RED && current.right.color == RED )
-                 handleReorient( item );
+                handleReorient( item );
         }
 
-            // Insertion fails if already present
+        // Insertion fails if already present
         if( current != nullNode )
             throw new IllegalArgumentException( item.toString( ) );
         current = new RedBlackNode<AnyType>( item, nullNode, nullNode );
 
-            // Attach to parent
+        // Attach to parent
         if( compare( item, parent ) < 0 )
             parent.left = current;
         else
@@ -164,7 +169,7 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
     {
         printTree( header.right );
     }
-    
+
     /**
      * Internal method to print a subtree in sorted order.
      * @param t the node that roots the tree.
@@ -178,7 +183,7 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
             printTree( t.right );
         }
     }
-     
+
     /**
      * Test if the tree is logically empty.
      * @return true if empty, false otherwise.
@@ -195,7 +200,7 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
      */
     private void handleReorient( AnyType item )
     {
-            // Do the color flip
+        // Do the color flip
         current.color = RED;
         current.left.color = BLACK;
         current.right.color = BLACK;
@@ -204,7 +209,7 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         {
             grand.color = RED;
             if( ( compare( item, grand ) < 0 ) !=
-                ( compare( item, parent ) < 0 ) )
+            ( compare( item, parent ) < 0 ) )
                 parent = rotate( item, grand );  // Start dbl rotate
             current = rotate( item, great );
             current.color = BLACK;
@@ -225,11 +230,11 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         if( compare( item, parent ) < 0 )
             return parent.left = compare( item, parent.left ) < 0 ?
                 rotateWithLeftChild( parent.left )  :  // LL
-                rotateWithRightChild( parent.left ) ;  // LR
+            rotateWithRightChild( parent.left ) ;  // LR
         else
             return parent.right = compare( item, parent.right ) < 0 ?
                 rotateWithLeftChild( parent.right ) :  // RL
-                rotateWithRightChild( parent.right );  // RR
+            rotateWithRightChild( parent.right );  // RR
     }
 
     /**
@@ -240,6 +245,10 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         RedBlackNode<AnyType> k1 = k2.left;
         k2.left = k1.right;
         k1.right = k2;
+        //new size of k2
+        k2.size =  k2.left.size +  k2.right.size + 1;
+        //new size of k1.right
+        k1.right.size =  k1.right.left.size +  k2.size + 1;
         return k1;
     }
 
@@ -251,12 +260,82 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
         RedBlackNode<AnyType> k2 = k1.right;
         k1.right = k2.left;
         k2.left = k1;
+        //new size of k1
+        k1.size = k1.left.size +  k1.right.size + 1;
+        //new size of k2.left
+        k2.left.size =  k2.left.right.size + k1.size + 1;
         return k2;
     }
 
+    /**
+     * Implementation of abstract method select the kth smallest phone number 
+     * @param  k    index of a given stored phone number
+     * @return      the kth smallest phone number 
+     */
+    public AnyType select( int k )
+    {
+        //set the right of header node to current node
+        current = header.right;
+        return findKth( k, current ).element;
+    }
+
+    /**
+     * Internal method to find kth smallest item in a subtree
+     * @param k the desired rank(1 is the smallest item)
+     * @return the node containing the kth smallest item in the subtree
+     * @throws IllegalArgumentException if k is less than 1 or more
+     * than the size of the subtree
+     */
+    private RedBlackNode<AnyType> findKth( int k, RedBlackNode<AnyType> t )
+    {
+//         if( t == null ){    //ensure the RBT isn't empty
+//             throw new IllegalArgumentException();
+//         }
+//         else{
+//             int leftsize = ( t.left != null )? t.left.size : 0;
+//             //System.out.println( "size of left subtree: " + leftsize );
+//              if( k == leftsize + 1 ){    //k equals size of left subtree+1
+//                 System.out.println( "Why you lyin?" );
+//                 return t;
+//                 
+//             }
+//             
+//             else if( k <= leftsize ){        //k equals or is less than size of left subtree
+//                 return findKth( k, t.left );
+//             }
+//             else{
+//                 System.out.println( "Why you trippin?" );
+//                 return findKth( k - leftsize - 1, t.right );
+//             }
+//         }
+        int leftsize;
+        ///////////////////////////////////////////////////////////////
+        if( t == null ){    //ensure the RBT isn't empty
+            return t;
+            //throw new IllegalArgumentException();
+        }
+       
+        else {
+           leftsize = ( t.left != null )? t.left.size : 0; 
+            if( k <= leftsize ){
+                System.out.println( "why infinite loop?" );
+                return findKth( k, t.left);
+            }
+            //else if( t.left.size < k ){
+              //  return findKth( k-t.left.size, t.right);
+           // }
+            else if( k == leftsize+1 ){
+                return t;
+            }
+        }
+        return findKth( k-leftsize, t.right);
+        }
+        
+    
+
     private static class RedBlackNode<AnyType>
     {
-            // Constructors
+        // Constructors
         RedBlackNode( AnyType theElement )
         {
             this( theElement, null, null );
@@ -267,42 +346,33 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
             element  = theElement;
             left     = lt;
             right    = rt;
-            color    = RedBlackTree.BLACK;
+            color    = RedBlackTreeAgain.BLACK;
+            size     = 0;
         }
 
         AnyType               element;    // The data in the node
         RedBlackNode<AnyType> left;       // Left child
         RedBlackNode<AnyType> right;      // Right child
         int                   color;      // Color
+        int                   size;
     }
-    
-    private static class RedBlackNodeWithSize<AnyType> extends RedBlackNode<AnyType>
-    {
-        private int size;  //to keep count of tree size
-        RedBlackNodeWithSize( AnyType x )
-        {
-            super(x);
-            this.size = 0;
-        }
-    }
-    
+
     private RedBlackNode<AnyType> header;
     private RedBlackNode<AnyType> nullNode;
 
     private static final int BLACK = 1;    // BLACK must be 1
     private static final int RED   = 0;
 
-        // Used in insert routine and its helpers
+    // Used in insert routine and its helpers
     private RedBlackNode<AnyType> current;
     private RedBlackNode<AnyType> parent;
     private RedBlackNode<AnyType> grand;
     private RedBlackNode<AnyType> great;
 
-
-        // Test program
+    // Test program
     public static void main( String [ ] args )
     {
-        RedBlackTree<Integer> t = new RedBlackTree<Integer>( );
+        RedBlackTreeAgain<Integer> t = new RedBlackTreeAgain<Integer>( );
         final int NUMS = 400000;
         final int GAP  =  35461;
 
@@ -310,12 +380,13 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>>
 
         for( int i = GAP; i != 0; i = ( i + GAP ) % NUMS )
             t.insert( i );
-
+        //System.out.println( "size of tree" + t.select(6) );
+        //t.printTree();
         if( t.findMin( ) != 1 || t.findMax( ) != NUMS - 1 )
             System.out.println( "FindMin or FindMax error!" );
 
         for( int i = 1; i < NUMS; i++ )
-             if( t.find( i ) != i )
-                 System.out.println( "Find error1!" );
+            if( t.find( i ) != i )
+                System.out.println( "Find error1!" );
     }
 }

@@ -24,7 +24,7 @@ public class HashSetPhoneBase implements PhoneBase
     public HashSetPhoneBase()
     {
         // initialise instance variables
-        hashSetPhoneNum = null;
+        hashSetPhoneNum = new HashSet<Long>();
     }
 
     /**
@@ -125,7 +125,10 @@ public class HashSetPhoneBase implements PhoneBase
      */
     public String toString()
     {
-        String s = String.format("Array of phone numbers in hashset: " + phoneNumArray );
+        String s = new String();
+        for ( int i = 0; i<phoneNumArray.length; i++ ){
+            s = String.format("Array of phone numbers in hashset: " + phoneNumArray[i] );
+        }
         return s;
     }
 }

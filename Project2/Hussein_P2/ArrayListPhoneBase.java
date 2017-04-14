@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.*;
 import java.lang.*;
+
 //ArrayListPhoneBase class
 //
 //CONSTRUCTION - with no arguments
@@ -8,7 +9,8 @@ import java.lang.*;
 //*****************PUBLIC OPERATIONS***********************
 //boolean add( x )      --> insert x
 //long select( k )      --> selects item at index k
-//String toString()     --> represent as string
+//long[] toArray()      --> converts arraylist to array
+//long get(k)           --> returns item at index k
 //*********************************************************
 /**
  * Implementing PhoneBase interface using an ArrayList
@@ -16,15 +18,14 @@ import java.lang.*;
 public class ArrayListPhoneBase implements PhoneBase
 {
     // instance variables - replace the example below with your own
-    private ArrayList<Long> phoneNumList = new ArrayList<Long>();;
-
+    private ArrayList<Long> phoneNumList;
     /**
      * Constructor for objects of class ArrayListPhoneBase
      */
     public ArrayListPhoneBase()
     {
         // initialise instance variables
-        phoneNumList = null;
+        phoneNumList = new ArrayList<Long>();
     }
 
     /**
@@ -35,21 +36,13 @@ public class ArrayListPhoneBase implements PhoneBase
     public boolean add( long n )
     {
         //check no duplicates - boolean !contains(Object 0) : no specified element found
-        //         if( !phoneNumList.contains(n) ){
-        //             //add element - simple add(E e)
-        //             phoneNumList.add( n );
-        //             //sort added input
-        //             Collections.sort( phoneNumList );
-        //             return true;
-        //         }
-        //         else{
-        //             return false;
-        //         }
-        Long N = new Long ( n );//               N.valueOf(n);
-        int i = Collections.binarySearch( phoneNumList, n ); 
-        phoneNumList.add( (-i+1), n );
+        if( !phoneNumList.contains(n) ){
+            //add element - simple add(E e)
+            phoneNumList.add( n );
+            //sort added input
+            Collections.sort( phoneNumList );
+        }
         return true;
-
     }
 
     /**
@@ -66,11 +59,20 @@ public class ArrayListPhoneBase implements PhoneBase
      * return an integer array whose entries are equal to the arraylist - 
      * ArrayList converted to array 
      */
-    public Long[] getArray() 
+    public long[] getArray() 
     {
-        //create a list of integer array wih size of the arraylist
-        Long list[] = new Long[phoneNumList.size()];
-        return list = phoneNumList.toArray(list);
+        //create a list of long array wih size of the arraylist
+        long result[] = new long[phoneNumList.size()];
+        //convert Long[] to long[]
+        result = phoneNumList.stream().mapToLong(l -> l).toArray();
+        return result;
     }
 
+    /**
+     * get method to test add methods in unitTest
+     */
+    public long get( int index )
+    {
+        return this.phoneNumList.get( index );
+    }
 }

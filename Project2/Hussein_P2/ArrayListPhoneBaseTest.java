@@ -44,10 +44,6 @@ public class ArrayListPhoneBaseTest
     public void testAdd()
     {
         ArrayListPhoneBase test = new ArrayListPhoneBase();
-        Long a = new Long( 57L );
-        Long b = new Long( 68L );
-        Long c = new Long( 36L );
-        
         long A = 57L;
         long B = 68L;
         long C = 36L;
@@ -56,10 +52,12 @@ public class ArrayListPhoneBaseTest
         test.add( B );
         test.add( C );
         //compare instances
-        Long[] testList = test.getArray();
-        Long[] expList = {c, a, b};
+        long testList[] = test.getArray();
+        System.out.println( "tested " + testList[0] + testList[2] + testList[1] );
+        long expList[] = {C, A, B};
+        System.out.println( "expected " + expList[0] + expList[2]+ expList[1] );
         //check they are equal
-        assertEquals( testList, expList );
+        assertArrayEquals( testList, expList );
     }
 
     @Test
