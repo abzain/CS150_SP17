@@ -12,6 +12,7 @@ public class DrawPhoneNum
     private RedBlackTreePhoneBase B;
     private HashSetPhoneBase C;
     private Random rand;
+
     /**
      * Constructor for objects of class DrawPhoneNum
      */
@@ -26,15 +27,16 @@ public class DrawPhoneNum
     public static void main( String[] arg )
     {
         DrawPhoneNum draw = new DrawPhoneNum();
-        draw.timeArr_1( 20, 44 );
-        draw.timeArr_0_1( 20, 44 );
-        draw.timeArr_0_0_1( 20, 44 );
-        draw.timeHash_1( 20, 44 );
-        draw.timeHash_0_1( 20, 44 );
-        draw.timeHash_0_0_1( 20, 44 );
-        draw.timeRed_1( 20, 44 );
-        draw.timeRed_0_1( 20, 44 );
-        draw.timeRed_0_0_1( 20, 44 );
+//         draw.timeArr_1( 20, 44 );
+//         draw.timeArr_0_1( 20, 44 );
+//         draw.timeArr_0_0_1( 20, 44 );
+//         draw.timeHash_1( 20, 44 );
+//         draw.timeHash_0_1( 20, 44 );
+//         draw.timeHash_0_0_1( 20, 44 );
+//         draw.timeRed_1( 20, 44 );
+//         draw.timeRed_0_1( 20, 44 );
+//         draw.timeRed_0_0_1( 20, 44 );
+        draw.toCSV( 20, 44 );
     }
     
     /**
@@ -270,5 +272,16 @@ public class DrawPhoneNum
         System.out.println( "Time taken by HashSet for 0.01% select: " + (stop-start)+ " ms" + " for: " + numItems + " 0perations." );
         //return time
         return (stop-start);
+    }
+    
+    /**
+     * Method csvString returns times in csv format
+     * @return the string representation of the times
+     */
+    public String toCSV( int numOperations, int seed )
+    {
+        return (    timeArr_1(numOperations,seed)+","+timeArr_0_1(numOperations,seed)+","+timeArr_0_0_1(numOperations,seed)+","+
+                    timeHash_1(numOperations,seed)+","+timeHash_0_1(numOperations,seed)+","+timeHash_0_0_1(numOperations,seed) );//+","+
+                    //timeRed_1(numOperations,seed)+","+timeRed_0_1(numOperations,seed)+","+timeRed_0_0_1(numOperations,seed) );
     }
 }

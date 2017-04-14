@@ -309,6 +309,7 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
 //             }
 //         }
         int leftsize;
+        System.out.println( "k" + k );
         ///////////////////////////////////////////////////////////////
         if( t == null ){    //ensure the RBT isn't empty
             return t;
@@ -317,6 +318,7 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
        
         else {
            leftsize = ( t.left != null )? t.left.size : 0; 
+           System.out.println( "leftsize" + leftsize );
             if( k <= leftsize ){
                 System.out.println( "why infinite loop?" );
                 return findKth( k, t.left);

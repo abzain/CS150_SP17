@@ -70,7 +70,7 @@ public class ArrayListPhoneBaseTest
         //test.select( 2 );
         //compare instances
         Long testLong = test.select( 2 );
-        Long expLong = 68L;
+        Long expLong = 57L;
         //check they are equal
         assertEquals( testLong, expLong );
     }

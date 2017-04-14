@@ -17,8 +17,8 @@ public class ExperimentController
     public static void main(String [] args)
     {
         ExperimentController EC = new ExperimentController();
-        for( int num = 100_000; num<1_100_000; num=num+100_000 ){
-            for( int seed = 0; seed< 50; seed = seed+10 ){
+        for( int num = 100; num<1_100; num=num+100 ){
+            for( int seed = 0; seed< 60; seed = seed+30 ){
                 EC.simulate( num, seed );
             }
         }
@@ -44,15 +44,15 @@ public class ExperimentController
         PrintWriter pw = null;  //print writer for the file
         Scanner in = new Scanner(System.in);
         
-        long avgTimeArr_1 ;
-        long avgTimeArr_0_1;
-        long avgTimeArr_0_0_1;
-        long avgTimehash_1;
-        long avgTimeHash_0_1;
-        long avgTimeHash_0_0_1;
-        long avgTimeRed_1;
-        long avgTimeRed_0_1;
-        long avgTimeRed_0_0_1;
+        long avgTimeArr_1 = 0;
+        long avgTimeArr_0_1 = 0;
+        long avgTimeArr_0_0_1 = 0;
+        long avgTimehash_1 = 0;
+        long avgTimeHash_0_1 = 0;
+        long avgTimeHash_0_0_1 = 0;
+        long avgTimeRed_1 = 0;
+        long avgTimeRed_0_1 = 0;
+        long avgTimeRed_0_0_1 = 0;
 
         //ask user for inputs
         try{
@@ -61,7 +61,7 @@ public class ExperimentController
             if(s.equals("Yes") || s.equals("yes")){
                 report = true;
             }
-            System.out.print("How many runs do you want to do for this experiment? I will take an average of calculations: ");
+            System.out.print("Number of averaged runs?: ");
             numberOfRuns = in.nextInt();
         } catch(Exception e){
             e.printStackTrace();
@@ -78,9 +78,9 @@ public class ExperimentController
              avgTimehash_1      += draw.timeHash_1( numOperations, seed );
              avgTimeHash_0_1    += draw.timeHash_0_1( numOperations, seed );
              avgTimeHash_0_0_1  += draw.timeHash_0_0_1( numOperations, seed );
-             avgTimeRed_1       += draw.timeRed_1( numOperations, seed );
-             avgTimeRed_0_1     += draw.timeRed_0_1( numOperations, seed );
-             avgTimeRed_0_0_1   += draw.timeRed_0_0_1( numOperations, seed );
+             //avgTimeRed_1       += draw.timeRed_1( numOperations, seed );
+            // avgTimeRed_0_1     += draw.timeRed_0_1( numOperations, seed );
+             //avgTimeRed_0_0_1   += draw.timeRed_0_0_1( numOperations, seed );
 
             
             System.out.println("****************************RESULTS FOR CYCLE " + cycle + "****************************"); 
@@ -93,9 +93,7 @@ public class ExperimentController
                         pw = new PrintWriter(new FileWriter(Experimentcsv));
                         pw.println("Trial," + cycle);
                         pw.println("ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%"); //these are the cell headers
-                        pw.println( draw.timeArr_1(numOperations,seed)+","+draw.timeArr_0_1(numOperations,seed)+","+draw.timeArr_0_0_1(numOperations,seed)+","+
-                                    draw.timeHash_1(numOperations,seed)+","+draw.timeHash_0_1(numOperations,seed)+","+draw.timeHash_0_0_1(numOperations,seed)+","+
-                                    draw.timeRed_1(numOperations,seed)+","+draw.timeRed_0_1(numOperations,seed)+","+draw.timeRed_0_0_1(numOperations,seed) );
+                        pw.println( draw.toCSV( numOperations,seed ) );
                         pw.flush();
                         pw.close();
                         //summary message--include for all experiments
@@ -104,10 +102,8 @@ public class ExperimentController
                         pw = new PrintWriter(new FileWriter(Experimentcsv, true));
                         pw.println();
                         pw.println("Trial," + cycle);
-                        pw.println("Customer,Arrival Time,Service Time,Depart Time,Waiting Time,Status");
-                        pw.println( draw.timeArr_1(numOperations,seed)+","+draw.timeArr_0_1(numOperations,seed)+","+draw.timeArr_0_0_1(numOperations,seed)+","+
-                                    draw.timeHash_1(numOperations,seed)+","+draw.timeHash_0_1(numOperations,seed)+","+draw.timeHash_0_0_1(numOperations,seed)+","+
-                                    draw.timeRed_1(numOperations,seed)+","+draw.timeRed_0_1(numOperations,seed)+","+draw.timeRed_0_0_1(numOperations,seed) );
+                        pw.println("ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%");
+                        pw.println( draw.toCSV( numOperations,seed ) );
                         pw.flush();
                         pw.close(); //close the file
                         System.out.println(".csv amended--check the working directory");
@@ -126,17 +122,22 @@ public class ExperimentController
          avgTimehash_1       = avgTimehash_1/ numberOfRuns;
          avgTimeHash_0_1     = avgTimeHash_0_1/ numberOfRuns;
          avgTimeHash_0_0_1   = avgTimeHash_0_0_1/ numberOfRuns;
-         avgTimeRed_1        = avgTimeRed_1/ numberOfRuns;
-         avgTimeRed_0_1      = avgTimeRed_0_1/ numberOfRuns;
-         avgTimeRed_0_0_1    = avgTimeRed_0_0_1/ numberOfRuns;
+         //avgTimeRed_1        = avgTimeRed_1/ numberOfRuns;
+        // avgTimeRed_0_1      = avgTimeRed_0_1/ numberOfRuns;
+         //avgTimeRed_0_0_1    = avgTimeRed_0_0_1/ numberOfRuns;
+         
+         //represent average times as strings
+         String s = String.valueOf( avgTimeArr_1)+","+String.valueOf(avgTimeArr_0_1)+","+String.valueOf(avgTimeArr_0_0_1)+","+
+                    String.valueOf(avgTimehash_1)+","+String.valueOf(avgTimeHash_0_1)+","+String.valueOf(avgTimeHash_0_0_1)+","+
+                    String.valueOf(avgTimeRed_1)+","+String.valueOf(avgTimeRed_0_1)+","+String.valueOf(avgTimeRed_0_0_1 );
 
         //reopen the working file and append the averaged results to the bottom
         if(report){
             try{
                 pw = new PrintWriter(new FileWriter(Experimentcsv,true));
                 pw.println();
-                pw.println("avgArrayList_1%,avgArrayList_.1% avgArrayList_.01%, avgHashSet_1%,avgHashSet_.1%, avgHashSet_.01%,avgRBT_1%,avgRBT_.1%,avgRBT_.01%"); //headers
-                pw.printf(avgTimeArr_1,avgTimeArr_0_1,avgTimeArr_0_0_1,avgTimehash_1,avgTimeHash_0_1,avgTimeHash_0_0_1,avgTimeRed_1,avgTimeRed_0_1,avgTimeRed_0_0_1); //results
+                pw.println("avgAL1,avgAL01, avgAL001, avgHashSet1,avgHashSet01, avgHashSet001,avgRBT1,avgRBT01,avgRBT001"); //headers
+                pw.printf(s); //results
                 pw.flush();
                 pw.close(); //close it 
             } catch (Exception e){
@@ -146,14 +147,14 @@ public class ExperimentController
 
         //give printouts for the averaged results--to the terminal 
         System.out.println("****************************AVERAGED RESULTS****************************");
-        System.out.printf("avgTimeArr_1 (ms): ",avgTimeArr_1);
-        System.out.printf("avgTimeArr_0_1 (ms): ",avgTimeArr_0_1);
-        System.out.printf("avgTimeArr_0_0_1 (ms): ",avgTimeArr_0_0_1);
-        System.out.printf("avgTimehash_1 (ms): ",avgTimehash_1);
-        System.out.printf("avgTimeHash_0_1 (ms): ",avgTimeHash_0_1);
-        System.out.printf("avgTimeHash_0_0_1 (ms): ",avgTimeHash_0_0_1);
-        System.out.printf("avgTimeRed_1 (ms): ",avgTimeRed_1);
-        System.out.printf("avgTimeRed_0_1 (ms): ",avgTimeRed_0_1);
-        System.out.printf("avgTimeRed_0_0_1 (ms): ",avgTimeRed_0_0_1);
+        System.out.printf("avgAL1 (ms): ",avgTimeArr_1);
+        System.out.printf("avgAL01 (ms): ",avgTimeArr_0_1);
+        System.out.printf("avgAL001 (ms): ",avgTimeArr_0_0_1);
+        System.out.printf("avgHashSet1 (ms): ",avgTimehash_1);
+        System.out.printf("avgHashSet01 (ms): ",avgTimeHash_0_1);
+        System.out.printf("avgHashSet001 (ms): ",avgTimeHash_0_0_1);
+        //System.out.printf("avgTimeRed_1 (ms): ",avgTimeRed_1);
+        // System.out.printf("avgTimeRed_0_1 (ms): ",avgTimeRed_0_1);
+        //System.out.printf("avgTimeRed_0_0_1 (ms): ",avgTimeRed_0_0_1);
     }
 }

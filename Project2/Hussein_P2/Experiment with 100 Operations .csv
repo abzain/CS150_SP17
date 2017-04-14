@@ -1,0 +1,58 @@
+Trial,0
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+389,393,409,212,206,209
+
+Trial,1
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+388,390,455,207,206,206
+
+Trial,2
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+456,561,460,206,208,205
+
+Trial,3
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+519,689,390,210,205,209
+
+Trial,4
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+385,390,392,210,203,226
+
+avgArrayList_1%,avgArrayList_.1% avgArrayList_.01%, avgHashSet_1%,avgHashSet_.1%, avgHashSet_.01%,avgRBT_1%,avgRBT_.1%,avgRBT_.01%
+
+Trial,0
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+410,420,493,358,338,208
+
+Trial,1
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+388,389,387,207,207,249
+
+Trial,2
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+390,393,403,242,209,213
+
+Trial,3
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+451,472,394,238,212,211
+
+Trial,4
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+433,395,617,208,213,211
+
+avgArrayList_1%,avgArrayList_.1% avgArrayList_.01%, avgHashSet_1%,avgHashSet_.1%, avgHashSet_.01%,avgRBT_1%,avgRBT_.1%,avgRBT_.01%
+
+Trial,0
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+493,492,505,206,207,226
+
+Trial,1
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+484,547,556,206,207,207
+
+Trial,2
+ArrayList_1%,ArrayList_.1% ArrayList_.01%, HashSet_1%,HashSet_.1%, HashSet_.01%,RBT_1%,RBT_.1%,RBT_.01%
+497,462,464,209,207,206
+
+avgAL1,avgAL01, avgAL001, avgHashSet1,avgHashSet01, avgHashSet001,avgRBT1,avgRBT01,avgRBT001
+736,1089,482,81,204,221,0,0,0
