@@ -43,13 +43,26 @@ public class HashSetPhoneBaseTest
     @Test
     public void testAdd()
     {
-        
+        HashSetPhoneBase test1 = new HashSetPhoneBase();
+        test1.add( 98L );
+        test1.add( 76L );
+        test1.add( 89L );
+        String s = test1.toString();      //check correctly print to terminal
+        String expec = "Array of phone numbers in hashset: 98 76 89";
     }
 
     @Test
     public void testSelect()
     {
-        
+        HashSetPhoneBase test1 = new HashSetPhoneBase();
+        test1.add( 98L );
+        test1.add( 76L );
+        test1.add( 89L );
+        //compare instances
+        long toCheck = test1.select( 2 );
+        long expected = 76L;
+        //check
+        assertEquals( toCheck, expected );  
     }
 }
 

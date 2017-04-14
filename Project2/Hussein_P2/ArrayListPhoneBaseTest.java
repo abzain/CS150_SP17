@@ -43,11 +43,38 @@ public class ArrayListPhoneBaseTest
     @Test
     public void testAdd()
     {
+        ArrayListPhoneBase test = new ArrayListPhoneBase();
+        Long a = new Long( 57L );
+        Long b = new Long( 68L );
+        Long c = new Long( 36L );
+        
+        long A = 57L;
+        long B = 68L;
+        long C = 36L;
+        
+        test.add( A );
+        test.add( B );
+        test.add( C );
+        //compare instances
+        Long[] testList = test.getArray();
+        Long[] expList = {c, a, b};
+        //check they are equal
+        assertEquals( testList, expList );
     }
 
     @Test
     public void testSelect()
     {
+        ArrayListPhoneBase test = new ArrayListPhoneBase();
+        test.add( 57L );
+        test.add( 68L );
+        test.add( 36L );
+        //test.select( 2 );
+        //compare instances
+        Long testLong = test.select( 2 );
+        Long expLong = 68L;
+        //check they are equal
+        assertEquals( testLong, expLong );
     }
 }
 

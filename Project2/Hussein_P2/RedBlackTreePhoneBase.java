@@ -1,4 +1,4 @@
-//RedBlackTreePhoneBase class with a private RedblackNode class
+//RedBlackTreePhoneBase class 
 //
 //CONSTRUCTION - with no arguments
 //

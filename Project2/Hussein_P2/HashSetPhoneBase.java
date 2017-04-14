@@ -15,7 +15,7 @@ import java.util.HashSet;
 public class HashSetPhoneBase implements PhoneBase
 {
     // instance variables - replace the example below with your own
-    private HashSet hashSetPhoneNum;
+    private HashSet<Long> hashSetPhoneNum;
     private Long[] phoneNumArray;
     private int length;
     /**
@@ -58,14 +58,14 @@ public class HashSetPhoneBase implements PhoneBase
     * Places the kth smallest item in a[k-1].
     * @param phoneNumArray an array of Comparable items.
     */
-    private void quickSelect( long [ ] phoneNumArray )
+    private void quickSelect( Long [ ] phoneNumArray )
     {
         if (phoneNumArray == null || phoneNumArray.length == 0) {
             return;
         }
         //this.array = inputArr;
         length = phoneNumArray.length;
-        quickSort(0, length - 1);
+        quickSort( phoneNumArray, 0, length - 1);
     }
     
     /**
@@ -73,12 +73,12 @@ public class HashSetPhoneBase implements PhoneBase
      * @param lowerIndex the lowest array index
      * @param higherIndex the highest array index
      */
-    private void quickSort(int lowerIndex, int higherIndex) {
+    private void quickSort(Long [ ] phoneNumArray, int lowerIndex, int higherIndex) {
          
         int i = lowerIndex;
         int j = higherIndex;
         // calculate pivot number, I am taking pivot as middle index number
-        int pivot = array[lowerIndex+(higherIndex-lowerIndex)/2];
+        Long pivot = phoneNumArray[lowerIndex+(higherIndex-lowerIndex)/2];
         // Divide into two arrays
         while (i <= j) {
             /*
@@ -87,10 +87,10 @@ public class HashSetPhoneBase implements PhoneBase
              * from right side which is less than the pivot value. Once the search
              * is done, then we exchange both numbers.
              */
-            while (array[i] < pivot) {
+            while (phoneNumArray[i] < pivot) {
                 i++;
             }
-            while (array[j] > pivot) {
+            while (phoneNumArray[j] > pivot) {
                 j--;
             }
             if (i <= j) {
@@ -102,10 +102,10 @@ public class HashSetPhoneBase implements PhoneBase
         }
         // call quickSort() method recursively
         if (lowerIndex < j){
-            quickSort(lowerIndex, j);
+            quickSort(phoneNumArray, lowerIndex, j);
         }
         if (i < higherIndex){
-            quickSort(i, higherIndex);
+            quickSort(phoneNumArray, i, higherIndex);
         }
     }
     
@@ -115,9 +115,18 @@ public class HashSetPhoneBase implements PhoneBase
      * @param j a right index of array
      */
     private void exchangeNumbers(int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        Long temp = phoneNumArray[i];
+        phoneNumArray[i] = phoneNumArray[j];
+        phoneNumArray[j] = temp;
     }    
+    
+    /**
+     * Method to represent hashset as string
+     */
+    public String toString()
+    {
+        String s = String.format("Array of phone numbers in hashset: " + phoneNumArray );
+        return s;
+    }
 }
 
