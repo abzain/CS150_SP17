@@ -60,12 +60,13 @@ public class RedBlackTreePhoneBaseTest
         test1.add( 98L );
         test1.add( 76L );
         test1.add( 89L );
+        test1.printTree();
         //compare instances
         long toCheck = test1.select( 1 );
-        System.out.println( "should be 89 " + test1.select( 4 ) );
+        test1.printTree();
         long expected = 76L;
         //check
-        assertEquals( toCheck, expected );      //ERROR RedBlackNode cannot be cast as RedBlackNodeWithSize??
+        assertEquals( toCheck, expected );     
         
     }
 }

@@ -49,7 +49,7 @@ public class HashSetPhoneBase implements PhoneBase
         phoneNumArray = hashSetPhoneNum.toArray( new Long[hashSetPhoneNum.size()]);     //no suitable method expects Object, finds long array
         //quickselect to select
         quickSelect( phoneNumArray );
-        return phoneNumArray[k-1];
+        return phoneNumArray[k];
     }
     
     /**

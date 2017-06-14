@@ -52,7 +52,7 @@ public class ArrayListPhoneBase implements PhoneBase
      */
     public long select( int k )
     {
-        return phoneNumList.get( k -1);
+        return phoneNumList.get( k - 1);
     }
 
     /**

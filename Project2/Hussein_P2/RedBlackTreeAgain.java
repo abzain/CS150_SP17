@@ -68,12 +68,11 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
             great.size += 1;
             parent.size += 1;
             current.size += 1;
-
             // Check if two red children; fix if so
             if( current.left.color == RED && current.right.color == RED )
                 handleReorient( item );
         }
-
+        
         // Insertion fails if already present
         if( current != nullNode )
             throw new IllegalArgumentException( item.toString( ) );
@@ -227,14 +226,37 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
      */
     private RedBlackNode<AnyType> rotate( AnyType item, RedBlackNode<AnyType> parent )
     {
-        if( compare( item, parent ) < 0 )
-            return parent.left = compare( item, parent.left ) < 0 ?
-                rotateWithLeftChild( parent.left )  :  // LL
-            rotateWithRightChild( parent.left ) ;  // LR
-        else
-            return parent.right = compare( item, parent.right ) < 0 ?
-                rotateWithLeftChild( parent.right ) :  // RL
-            rotateWithRightChild( parent.right );  // RR
+        if( compare( item, parent ) < 0 ){
+            //             return parent.left = compare( item, parent.left ) < 0 ?
+            //                     rotateWithLeftChild( parent.left )  :  // LL
+            //                     rotateWithRightChild( parent.left ) ;  // LR
+            if(compare( item, parent.left ) < 0 ){
+                parent.left = rotateWithLeftChild( parent.left )  ;  // LL
+                resetSize(0);  
+            }
+            else{
+                parent.left = rotateWithRightChild( parent.left ) ;  // LR
+                resetSize(1); 
+            }   
+            return parent.left;
+        }
+
+        else{
+            //         return parent.right = compare( item, parent.right ) < 0 ?
+            //             rotateWithLeftChild( parent.right ) :  // RL
+            //         rotateWithRightChild( parent.right );  // RR
+            if(compare( item, parent.right ) < 0 ){
+                parent.right = rotateWithLeftChild( parent.right )  ;  // LL
+                resetSize(0);   
+            }
+            else{
+                parent.right = rotateWithRightChild( parent.right ) ;  // LR
+                System.out.println( "Before resizing: " + parent.size );
+                resetSize(1);    
+                System.out.println( "After resizing: " + parent.size );
+            }   
+            return parent.left;
+        }
     }
 
     /**
@@ -245,13 +267,22 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
         RedBlackNode<AnyType> k1 = k2.left;
         k2.left = k1.right;
         k1.right = k2;
-        //new size of k2
-        k2.size =  k2.left.size +  k2.right.size + 1;
-        //new size of k1.right
-        k1.right.size =  k1.right.left.size +  k2.size + 1;
+
         return k1;
     }
 
+    private void resetSize( int k )
+    {
+        if ( k==0 ){
+            parent.size = parent.left.size + parent.right.size + 1;
+            grand.size = grand.left.size + parent.size + 1;
+        }
+        else if( k==1 ){
+            parent.size = parent.left.size + parent.right.size + 1;
+            grand.size = grand.right.size + parent.size + 1;
+        }
+    }
+    
     /**
      * Rotate binary tree node with right child.
      */
@@ -260,10 +291,7 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
         RedBlackNode<AnyType> k2 = k1.right;
         k1.right = k2.left;
         k2.left = k1;
-        //new size of k1
-        k1.size = k1.left.size +  k1.right.size + 1;
-        //new size of k2.left
-        k2.left.size =  k2.left.right.size + k1.size + 1;
+
         return k2;
     }
 
@@ -288,52 +316,39 @@ public class RedBlackTreeAgain<AnyType extends Comparable<? super AnyType>>
      */
     private RedBlackNode<AnyType> findKth( int k, RedBlackNode<AnyType> t )
     {
-//         if( t == null ){    //ensure the RBT isn't empty
-//             throw new IllegalArgumentException();
-//         }
-//         else{
-//             int leftsize = ( t.left != null )? t.left.size : 0;
-//             //System.out.println( "size of left subtree: " + leftsize );
-//              if( k == leftsize + 1 ){    //k equals size of left subtree+1
-//                 System.out.println( "Why you lyin?" );
-//                 return t;
-//                 
-//             }
-//             
-//             else if( k <= leftsize ){        //k equals or is less than size of left subtree
-//                 return findKth( k, t.left );
-//             }
-//             else{
-//                 System.out.println( "Why you trippin?" );
-//                 return findKth( k - leftsize - 1, t.right );
-//             }
-//         }
+        
         int leftsize;
-        System.out.println( "k" + k );
+        System.out.println( "k " + k );
+        System.out.println( "Current node: "+ t.element);
+        System.out.println( "Current node size: "+ t.size);
+        if(t.left != null){
+            System.out.println( "Left node: "+ t.left.element);
+            System.out.println( "Left node size: "+ t.left.size);
+        }
         ///////////////////////////////////////////////////////////////
         if( t == null ){    //ensure the RBT isn't empty
             return t;
             //throw new IllegalArgumentException();
         }
-       
+
         else {
-           leftsize = ( t.left != null )? t.left.size : 0; 
-           System.out.println( "leftsize" + leftsize );
+            leftsize = ( t.left != null )? t.left.size : 0; 
+            System.out.println( "leftsize " + leftsize );
             if( k <= leftsize ){
-                System.out.println( "why infinite loop?" );
+                //                 System.out.println( "Current node: "+ t.element);
+                //                 if(t.left != null){
+                //                     System.out.println( "Left node: "+ t.left.element);
+                //                     System.out.println( "Left node size: "+ t.left.size);
+                //                 }
+                System.out.println( "curr = left?: "+ (t==t.left));
                 return findKth( k, t.left);
             }
-            //else if( t.left.size < k ){
-              //  return findKth( k-t.left.size, t.right);
-           // }
             else if( k == leftsize+1 ){
                 return t;
             }
         }
         return findKth( k-leftsize, t.right);
-        }
-        
-    
+    }
 
     private static class RedBlackNode<AnyType>
     {

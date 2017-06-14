@@ -17,7 +17,7 @@ public class ExperimentController
     public static void main(String [] args)
     {
         ExperimentController EC = new ExperimentController();
-        for( int num = 100; num<1_100; num=num+100 ){
+        for( int num = 1000; num<1_100_000; num=num+1000 ){
             for( int seed = 0; seed< 60; seed = seed+30 ){
                 EC.simulate( num, seed );
             }

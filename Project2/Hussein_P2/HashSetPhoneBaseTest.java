@@ -47,10 +47,9 @@ public class HashSetPhoneBaseTest
         test1.add( 98L );
         test1.add( 76L );
         test1.add( 89L );
-        String s = test1.toString();      //check correctly print to terminal
-        System.out.println( test1.toString() );
-        //String expec = "Array of phone numbers in hashset: 987689";
-        //assertEquals( s , expec );
+        
+        System.out.println( test1.select(0) + " " + test1.select(1) + " " + test1.select(2) );
+        
     }
 
     @Test
